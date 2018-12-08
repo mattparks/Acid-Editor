@@ -1,9 +1,9 @@
 .vs/*
 .idea/*
-AcidEditor/bin/*
-AcidEditor/obj/*
-DarkUI/bin/*
-DarkUI/obj/*
+Acid.Editor/bin/*
+Acid.Editor/obj/*
+Acid.UI/bin/*
+Acid.UI/obj/*
 packages/*
 
 .DS_Store

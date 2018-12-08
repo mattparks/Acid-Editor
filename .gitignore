@@ -1,9 +1,9 @@
 .vs/*
 .idea/*
-.metadata/
-cmake-build-debug/*
-cmake-build-release/*
-Build/*
-Release/*
+AcidEditor/bin/*
+AcidEditor/obj/*
+DarkUI/bin/*
+DarkUI/obj/*
+packages/*
 
 .DS_Store

@@ -2,43 +2,43 @@
 
 namespace Acid.UI.Docking
 {
-	internal class DarkDockTab
-	{
-		#region Property Region
+    internal class DarkDockTab
+    {
+        #region Property Region
 
-		public DarkDockContent DockContent { get; set; }
+        public DarkDockContent DockContent { get; set; }
 
-		public Rectangle ClientRectangle { get; set; }
+        public Rectangle ClientRectangle { get; set; }
 
-		public Rectangle CloseButtonRectangle { get; set; }
+        public Rectangle CloseButtonRectangle { get; set; }
 
-		public bool Hot { get; set; }
+        public bool Hot { get; set; }
 
-		public bool CloseButtonHot { get; set; }
+        public bool CloseButtonHot { get; set; }
 
-		public bool ShowSeparator { get; set; }
+        public bool ShowSeparator { get; set; }
 
-		#endregion
+        #endregion
 
-		#region Constructor Region
+        #region Constructor Region
 
-		public DarkDockTab(DarkDockContent content)
-		{
-			DockContent = content;
-		}
+        public DarkDockTab(DarkDockContent content)
+        {
+            DockContent = content;
+        }
 
-		#endregion
+        #endregion
 
-		#region Method Region
+        #region Method Region
 
-		public int CalculateWidth(Graphics g, Font font)
-		{
-			var width = (int)g.MeasureString(DockContent.DockText, font).Width;
-			width += 10;
+        public int CalculateWidth(Graphics g, Font font)
+        {
+            var width = (int)g.MeasureString(DockContent.DockText, font).Width;
+            width += 10;
 
-			return width;
-		}
+            return width;
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }

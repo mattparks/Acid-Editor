@@ -1,7 +1,7 @@
 ﻿using Acid.UI.Forms;
 using System.Windows.Forms;
 
-namespace Acid.Editor
+namespace Acid.Editor.Forms.Dialogs
 {
     public partial class DialogAbout : DarkDialog
     {
@@ -11,7 +11,7 @@ namespace Acid.Editor
         {
             InitializeComponent();
 
-            lblVersion.Text = $"Version: {Application.ProductVersion.ToString()}";
+            lblVersion.Text = $"Version: {Application.ProductVersion}";
             btnOk.Text = "Close";
         }
 

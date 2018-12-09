@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace Acid.Editor
+namespace Acid.Editor.Forms.Docking
 {
     partial class DockScene
     {

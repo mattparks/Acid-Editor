@@ -1,61 +1,62 @@
-﻿using System;
+﻿using Acid.UI.Config;
+using System;
 using System.Drawing;
-using Acid.UI.Config;
 
 namespace Acid.UI.Controls
 {
-	public class DarkListItem
-	{
-		#region Event Region
+    public class DarkListItem
+    {
+        #region Event Region
 
-		public event EventHandler TextChanged;
+        public event EventHandler TextChanged;
 
-		#endregion
+        #endregion
 
-		#region Field Region
+        #region Field Region
 
-		private string _text;
+        private string _text;
 
-		#endregion
+        #endregion
 
-		#region Property Region
+        #region Property Region
 
-		public string Text
-		{
-			get { return _text; }
-			set
-			{
-				_text = value;
+        public string Text
+        {
+            get { return _text; }
+            set
+            {
+                _text = value;
 
-				if (TextChanged != null)
-					TextChanged(this, new EventArgs());
-			}
-		}
+                TextChanged?.Invoke(this, new EventArgs());
+            }
+        }
 
-		public Rectangle Area { get; set; }
+        public Rectangle Area { get; set; }
 
-		public Color TextColor { get; set; }
+        public Color TextColor { get; set; }
 
-		public FontStyle FontStyle { get; set; }
+        public FontStyle FontStyle { get; set; }
 
-		public object Tag { get; set; }
+        public Bitmap Icon { get; set; }
 
-		#endregion
+        public object Tag { get; set; }
 
-		#region Constructor Region
+        #endregion
 
-		public DarkListItem()
-		{
-			TextColor = Colours.LightText;
-			FontStyle = FontStyle.Regular;
-		}
+        #region Constructor Region
 
-		public DarkListItem(string text)
-			: this()
-		{
-			Text = text;
-		}
+        public DarkListItem()
+        {
+            TextColor = Colours.LightText;
+            FontStyle = FontStyle.Regular;
+        }
 
-		#endregion
-	}
+        public DarkListItem(string text)
+            : this()
+        {
+            Text = text;
+        }
+
+        #endregion
+    }
 }

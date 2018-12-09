@@ -1,8 +1,8 @@
 ﻿namespace Acid.UI.Controls
 {
-	public enum DarkButtonStyle
-	{
-		Normal,
-		Flat
-	}
+    public enum DarkButtonStyle
+    {
+        Normal,
+        Flat
+    }
 }

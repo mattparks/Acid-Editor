@@ -4,82 +4,76 @@ using System.Linq;
 
 namespace Acid.UI.Collections
 {
-	public class ObservableList<T> : List<T>, IDisposable
-	{
-		#region Field Region
+    public class ObservableList<T> : List<T>, IDisposable
+    {
+        #region Field Region
 
-		private bool _disposed;
+        private bool _disposed;
 
-		#endregion
+        #endregion
 
-		#region Event Region
+        #region Event Region
 
-		public event EventHandler<ObservableListModified<T>> ItemsAdded;
-		public event EventHandler<ObservableListModified<T>> ItemsRemoved;
+        public event EventHandler<ObservableListModified<T>> ItemsAdded;
+        public event EventHandler<ObservableListModified<T>> ItemsRemoved;
 
-		#endregion
+        #endregion
 
-		#region Destructor Region
+        #region Destructor Region
 
-		~ObservableList()
-		{
-			Dispose(false);
-		}
+        ~ObservableList()
+        {
+            Dispose(false);
+        }
 
-		#endregion
+        #endregion
 
-		#region Dispose Region
+        #region Dispose Region
 
-		public void Dispose()
-		{
-			Dispose(true);
-			GC.SuppressFinalize(this);
-		}
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
-		protected virtual void Dispose(bool disposing)
-		{
-			if (!_disposed)
-			{
-				if (ItemsAdded != null)
-					ItemsAdded = null;
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+                return;
+            
+            ItemsAdded = null;
+            ItemsRemoved = null;
 
-				if (ItemsRemoved != null)
-					ItemsRemoved = null;
+            _disposed = true;
+        }
 
-				_disposed = true;
-			}
-		}
+        #endregion
 
-		#endregion
+        #region Method Region
 
-		#region Method Region
+        public new void Add(T item)
+        {
+            base.Add(item);
 
-		public new void Add(T item)
-		{
-			base.Add(item);
+            ItemsAdded?.Invoke(this, new ObservableListModified<T>(new List<T> { item }));
+        }
 
-			if (ItemsAdded != null)
-				ItemsAdded(this, new ObservableListModified<T>(new List<T> { item }));
-		}
+        public new void AddRange(IEnumerable<T> collection)
+        {
+            var list = collection.ToList();
 
-		public new void AddRange(IEnumerable<T> collection)
-		{
-			var list = collection.ToList();
+            base.AddRange(list);
 
-			base.AddRange(list);
+            ItemsAdded?.Invoke(this, new ObservableListModified<T>(list));
+        }
 
-			if (ItemsAdded != null)
-				ItemsAdded(this, new ObservableListModified<T>(list));
-		}
+        public new void Remove(T item)
+        {
+            base.Remove(item);
 
-		public new void Remove(T item)
-		{
-			base.Remove(item);
+            ItemsRemoved?.Invoke(this, new ObservableListModified<T>(new List<T> { item }));
+        }
 
-			if (ItemsRemoved != null)
-				ItemsRemoved(this, new ObservableListModified<T>(new List<T> { item }));
-		}
-
-		#endregion
-	}
+        #endregion
+    }
 }

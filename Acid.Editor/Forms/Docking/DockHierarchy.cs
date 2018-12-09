@@ -1,7 +1,7 @@
 ﻿using Acid.UI.Controls;
 using Acid.UI.Docking;
 
-namespace Acid.Editor
+namespace Acid.Editor.Forms.Docking
 {
     public partial class DockHierarchy : DarkToolWindow
     {

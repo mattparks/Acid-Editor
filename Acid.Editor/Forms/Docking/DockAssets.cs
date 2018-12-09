@@ -3,7 +3,7 @@ using Acid.UI.Docking;
 using System;
 using System.IO;
 
-namespace Acid.Editor
+namespace Acid.Editor.Forms.Docking
 {
     public partial class DockAssets : DarkToolWindow
     {

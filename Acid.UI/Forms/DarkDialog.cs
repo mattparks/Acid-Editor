@@ -1,176 +1,163 @@
-﻿using System.Collections.Generic;
+﻿using Acid.UI.Controls;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Acid.UI.Controls;
 
 namespace Acid.UI.Forms
 {
-	public partial class DarkDialog : DarkForm
-	{
-		#region Field Region
+    public partial class DarkDialog : DarkForm
+    {
+        private MessageBoxButtons _dialogButtons = MessageBoxButtons.OK;
 
-		private DarkDialogButton _dialogButtons = DarkDialogButton.Ok;
-		private List<DarkButton> _buttons;
+        private IEnumerable<DarkButton> Buttons => new[] { btnYes, btnNo, btnOk, btnAbort, btnRetry, btnIgnore, btnCancel };
 
-		#endregion
+        [Description("Determines the type of the dialog window.")]
+        [DefaultValue(MessageBoxButtons.OK)]
+        public MessageBoxButtons DialogButtons
+        {
+            get { return _dialogButtons; }
+            set
+            {
+                if (_dialogButtons == value)
+                    return;
 
-		#region Button Region
+                _dialogButtons = value;
+                UpdateButtons();
+            }
+        }
 
-		protected DarkButton btnOk;
-		protected DarkButton btnCancel;
-		protected DarkButton btnClose;
-		protected DarkButton btnYes;
-		protected DarkButton btnNo;
-		protected DarkButton btnAbort;
-		protected DarkButton btnRetry;
-		protected DarkButton btnIgnore;
+        [Description("Determines the type of the dialog window.")]
+        [DefaultValue(MessageBoxDefaultButton.Button1)]
+        public MessageBoxDefaultButton DefaultButton { get; set; } = MessageBoxDefaultButton.Button1;
 
-		#endregion
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public int TotalButtonSize { get; private set; }
 
-		#region Property Region
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new IButtonControl AcceptButton
+        {
+            get { return base.AcceptButton; }
+            private set { base.AcceptButton = value; }
+        }
 
-		[Description("Determines the type of the dialog window.")]
-		[DefaultValue(DarkDialogButton.Ok)]
-		public DarkDialogButton DialogButtons
-		{
-			get { return _dialogButtons; }
-			set
-			{
-				if (_dialogButtons == value)
-					return;
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new IButtonControl CancelButton
+        {
+            get { return base.CancelButton; }
+            private set { base.CancelButton = value; }
+        }
 
-				_dialogButtons = value;
-				SetButtons();
-			}
-		}
+        public DarkDialog()
+        {
+            InitializeComponent();
+        }
 
-		[Browsable(false)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public int TotalButtonSize { get; private set; }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
 
-		[Browsable(false)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new IButtonControl AcceptButton
-		{
-			get { return base.AcceptButton; }
-			private set { base.AcceptButton = value; }
-		}
+            UpdateButtons();
 
-		[Browsable(false)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new IButtonControl CancelButton
-		{
-			get { return base.CancelButton; }
-			private set { base.CancelButton = value; }
-		}
+            // Determine default button index
+            int defaultButtonIndex = 0;
+            switch (DefaultButton)
+            {
+                case MessageBoxDefaultButton.Button1:
+                    defaultButtonIndex = 0;
+                    break;
+                case MessageBoxDefaultButton.Button2:
+                    defaultButtonIndex = 1;
+                    break;
+                case MessageBoxDefaultButton.Button3:
+                    defaultButtonIndex = 2;
+                    break;
+            }
 
-		#endregion
+            // Focus default button
+            int i = 0;
+            foreach (var button in Buttons)
+                if (button.Visible)
+                    if (i++ == defaultButtonIndex)
+                    {
+                        button.Select();
+                        break;
+                    }
+        }
 
-		#region Constructor Region
+        private void UpdateButtons()
+        {
+            foreach (var btn in Buttons)
+                btn.Visible = false;
 
-		public DarkDialog()
-		{
-			InitializeComponent();
+            switch (_dialogButtons)
+            {
+                case MessageBoxButtons.OK:
+                    ShowButton(btnOk, true);
+                    AcceptButton = btnOk;
+                    break;
+                case MessageBoxButtons.OKCancel:
+                    ShowButton(btnOk);
+                    ShowButton(btnCancel, true);
+                    AcceptButton = btnOk;
+                    CancelButton = btnCancel;
+                    break;
+                case MessageBoxButtons.AbortRetryIgnore:
+                    ShowButton(btnAbort);
+                    ShowButton(btnRetry);
+                    ShowButton(btnIgnore, true);
+                    AcceptButton = btnAbort;
+                    CancelButton = btnIgnore;
+                    break;
+                case MessageBoxButtons.RetryCancel:
+                    ShowButton(btnRetry);
+                    ShowButton(btnCancel, true);
+                    AcceptButton = btnRetry;
+                    CancelButton = btnCancel;
+                    break;
+                case MessageBoxButtons.YesNo:
+                    ShowButton(btnYes);
+                    ShowButton(btnNo, true);
+                    AcceptButton = btnYes;
+                    CancelButton = btnNo;
+                    break;
+                case MessageBoxButtons.YesNoCancel:
+                    ShowButton(btnYes);
+                    ShowButton(btnNo);
+                    ShowButton(btnCancel, true);
+                    AcceptButton = btnYes;
+                    CancelButton = btnCancel;
+                    break;
+                default:
+                    throw new NotImplementedException("MessageBoxButtons " + _dialogButtons + " unavailable.");
+            }
 
-			_buttons = new List<DarkButton>
-				{
-					btnAbort, btnRetry, btnIgnore, btnOk,
-					btnCancel, btnClose, btnYes, btnNo
-				};
-		}
+            SetFlowSize();
+        }
 
-		#endregion
+        private static void ShowButton(Control button, bool isLast = false)
+        {
+            button.SendToBack();
 
-		#region Event Handler Region
+            if (!isLast)
+                button.Margin = new Padding(0, 0, 10, 0);
 
-		protected override void OnLoad(System.EventArgs e)
-		{
-			base.OnLoad(e);
+            button.Visible = true;
+        }
 
-			SetButtons();
-		}
+        private void SetFlowSize()
+        {
+            var width = flowInner.Padding.Horizontal;
 
-		#endregion
+            foreach (var btn in Buttons)
+                if (btn.Visible)
+                    width += btn.Width + btn.Margin.Right;
 
-		#region Method Region
-
-		private void SetButtons()
-		{
-			foreach (var btn in _buttons)
-				btn.Visible = false;
-
-			switch (_dialogButtons)
-			{
-				case DarkDialogButton.Ok:
-					ShowButton(btnOk, true);
-					AcceptButton = btnOk;
-					break;
-				case DarkDialogButton.Close:
-					ShowButton(btnClose, true);
-					AcceptButton = btnClose;
-					CancelButton = btnClose;
-					break;
-				case DarkDialogButton.OkCancel:
-					ShowButton(btnOk);
-					ShowButton(btnCancel, true);
-					AcceptButton = btnOk;
-					CancelButton = btnCancel;
-					break;
-				case DarkDialogButton.AbortRetryIgnore:
-					ShowButton(btnAbort);
-					ShowButton(btnRetry);
-					ShowButton(btnIgnore, true);
-					AcceptButton = btnAbort;
-					CancelButton = btnIgnore;
-					break;
-				case DarkDialogButton.RetryCancel:
-					ShowButton(btnRetry);
-					ShowButton(btnCancel, true);
-					AcceptButton = btnRetry;
-					CancelButton = btnCancel;
-					break;
-				case DarkDialogButton.YesNo:
-					ShowButton(btnYes);
-					ShowButton(btnNo, true);
-					AcceptButton = btnYes;
-					CancelButton = btnNo;
-					break;
-				case DarkDialogButton.YesNoCancel:
-					ShowButton(btnYes);
-					ShowButton(btnNo);
-					ShowButton(btnCancel, true);
-					AcceptButton = btnYes;
-					CancelButton = btnCancel;
-					break;
-			}
-
-			SetFlowSize();
-		}
-
-		private void ShowButton(DarkButton button, bool isLast = false)
-		{
-			button.SendToBack();
-
-			if (!isLast)
-				button.Margin = new Padding(0, 0, 10, 0);
-
-			button.Visible = true;
-		}
-
-		private void SetFlowSize()
-		{
-			var width = flowInner.Padding.Horizontal;
-
-			foreach (var btn in _buttons)
-			{
-				if (btn.Visible)
-					width += btn.Width + btn.Margin.Right;
-			}
-
-			flowInner.Width = width;
-			TotalButtonSize = width;
-		}
-
-		#endregion
-	}
+            flowInner.Width = width;
+            TotalButtonSize = width;
+        }
+    }
 }

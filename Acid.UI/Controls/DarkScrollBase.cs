@@ -1,403 +1,425 @@
-﻿using System;
+﻿using Acid.UI.Config;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using Acid.UI.Config;
 
 namespace Acid.UI.Controls
 {
-	public abstract class DarkScrollBase : Control
-	{
-		#region Event Region
+    public abstract class DarkScrollBase : Control
+    {
+        #region Event Region
+
+        public event EventHandler ViewportChanged;
+        public event EventHandler ContentSizeChanged;
+
+        #endregion
+
+        #region Field Region
+
+        protected readonly DarkScrollBar VScrollBar;
+        protected readonly DarkScrollBar HScrollBar;
+
+        private Size _visibleSize;
+        private Size _contentSize;
+
+        private Rectangle _viewport;
+
+        private int _maxDragChange;
+        private readonly Timer _dragTimer;
+
+        private bool _hideScrollBars = true;
 
-		public event EventHandler ViewportChanged;
-		public event EventHandler ContentSizeChanged;
-
-		#endregion
+        #endregion
 
-		#region Field Region
+        #region Property Region
 
-		protected readonly DarkScrollBar _vScrollBar;
-		protected readonly DarkScrollBar _hScrollBar;
 
-		private Size _visibleSize;
-		private Size _contentSize;
+        [DefaultValue(0.42f)]
+        public float MouseWheelScrollSpeedV { get; set; } = 0.42f;
 
-		private Rectangle _viewport;
+        [DefaultValue(0.42f)]
+        public float MouseWheelScrollSpeedH { get; set; } = 0.42f;
 
-		private Point _offsetMousePosition;
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Rectangle Viewport
+        {
+            get { return _viewport; }
+            private set
+            {
+                _viewport = value;
 
-		private int _maxDragChange = 0;
-		private Timer _dragTimer;
+                ViewportChanged?.Invoke(this, null);
+            }
+        }
 
-		#endregion
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Size ContentSize
+        {
+            get { return _contentSize; }
+            set
+            {
+                _contentSize = value;
+                UpdateScrollBars();
 
-		#region Property Region
+                ContentSizeChanged?.Invoke(this, null);
+            }
+        }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Point OffsetMousePosition { get; private set; }
 
-		[Browsable(false)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public Rectangle Viewport
-		{
-			get { return _viewport; }
-			private set
-			{
-				_viewport = value;
+        [Category("Behavior")]
+        [Description("Determines the maximum scroll change when dragging.")]
+        [DefaultValue(0)]
+        public int MaxDragChange
+        {
+            get { return _maxDragChange; }
+            set
+            {
+                _maxDragChange = value;
+                Invalidate();
+            }
+        }
 
-				if (ViewportChanged != null)
-					ViewportChanged(this, null);
-			}
-		}
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool IsDragging { get; private set; }
 
-		[Browsable(false)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public Size ContentSize
-		{
-			get { return _contentSize; }
-			set
-			{
-				_contentSize = value;
-				UpdateScrollBars();
+        [Category("Behavior")]
+        [Description("Determines whether scrollbars will remain visible when disabled.")]
+        [DefaultValue(true)]
+        public bool HideScrollBars
+        {
+            get { return _hideScrollBars; }
+            set
+            {
+                _hideScrollBars = value;
+                UpdateScrollBars();
+            }
+        }
 
-				if (ContentSizeChanged != null)
-					ContentSizeChanged(this, null);
-			}
-		}
+        #endregion
 
-		[Browsable(false)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public Point OffsetMousePosition
-		{
-			get { return _offsetMousePosition; }
-		}
+        #region Constructor Region
 
-		[Category("Behavior")]
-		[Description("Determines the maximum scroll change when dragging.")]
-		[DefaultValue(0)]
-		public int MaxDragChange
-		{
-			get { return _maxDragChange; }
-			set
-			{
-				_maxDragChange = value;
-				Invalidate();
-			}
-		}
+        protected DarkScrollBase()
+        {
+            SetStyle(ControlStyles.Selectable |
+                     ControlStyles.UserMouse, true);
 
-		[Browsable(false)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public bool IsDragging { get; private set; }
+            VScrollBar = new DarkScrollBar { ScrollOrientation = DarkScrollOrientation.Vertical };
+            HScrollBar = new DarkScrollBar { ScrollOrientation = DarkScrollOrientation.Horizontal };
 
-		#endregion
+            Controls.Add(VScrollBar);
+            Controls.Add(HScrollBar);
 
-		#region Constructor Region
+            VScrollBar.ValueChanged += delegate { UpdateViewport(); };
+            HScrollBar.ValueChanged += delegate { UpdateViewport(); };
 
-		protected DarkScrollBase()
-		{
-			SetStyle(ControlStyles.Selectable |
-					 ControlStyles.UserMouse, true);
+            VScrollBar.MouseDown += delegate { Select(); };
+            HScrollBar.MouseDown += delegate { Select(); };
 
-			_vScrollBar = new DarkScrollBar { ScrollOrientation = DarkScrollOrientation.Vertical };
-			_hScrollBar = new DarkScrollBar { ScrollOrientation = DarkScrollOrientation.Horizontal };
+            _dragTimer = new Timer {Interval = 1};
+            _dragTimer.Tick += DragTimer_Tick;
+        }
 
-			Controls.Add(_vScrollBar);
-			Controls.Add(_hScrollBar);
+        #endregion
 
-			_vScrollBar.ValueChanged += delegate { UpdateViewport(); };
-			_hScrollBar.ValueChanged += delegate { UpdateViewport(); };
+        #region Method Region
 
-			_vScrollBar.MouseDown += delegate { Select(); };
-			_hScrollBar.MouseDown += delegate { Select(); };
+        private void UpdateScrollBars()
+        {
+            if (VScrollBar.Maximum != ContentSize.Height)
+                VScrollBar.Maximum = ContentSize.Height;
 
-			_dragTimer = new Timer();
-			_dragTimer.Interval = 1;
-			_dragTimer.Tick += DragTimer_Tick;
-		}
+            if (HScrollBar.Maximum != ContentSize.Width)
+                HScrollBar.Maximum = ContentSize.Width;
 
-		#endregion
+            const int scrollSize = Consts.ScrollBarSize;
 
-		#region Method Region
+            VScrollBar.Location = new Point(ClientSize.Width - scrollSize, 0);
+            VScrollBar.Size = new Size(scrollSize, ClientSize.Height);
+
+            HScrollBar.Location = new Point(0, ClientSize.Height - scrollSize);
+            HScrollBar.Size = new Size(ClientSize.Width, scrollSize);
 
-		private void UpdateScrollBars()
-		{
-			if (_vScrollBar.Maximum != ContentSize.Height)
-				_vScrollBar.Maximum = ContentSize.Height;
+            if (DesignMode)
+                return;
+
+            // Do this twice in case changing the visibility of the scrollbars
+            // causes the VisibleSize to change in such a way as to require a second scrollbar.
+            // Probably a better way to detect that scenario...
+            SetVisibleSize();
+            SetScrollBarVisibility();
+            SetVisibleSize();
+            SetScrollBarVisibility();
+
+            if (VScrollBar.Visible)
+                HScrollBar.Width -= scrollSize;
+
+            if (HScrollBar.Visible)
+                VScrollBar.Height -= scrollSize;
+
+            VScrollBar.ViewSize = _visibleSize.Height;
+            HScrollBar.ViewSize = _visibleSize.Width;
 
-			if (_hScrollBar.Maximum != ContentSize.Width)
-				_hScrollBar.Maximum = ContentSize.Width;
-
-			var scrollSize = Consts.ScrollBarSize;
-
-			_vScrollBar.Location = new Point(ClientSize.Width - scrollSize, 0);
-			_vScrollBar.Size = new Size(scrollSize, ClientSize.Height);
-
-			_hScrollBar.Location = new Point(0, ClientSize.Height - scrollSize);
-			_hScrollBar.Size = new Size(ClientSize.Width, scrollSize);
-
-			if (DesignMode)
-				return;
-
-			// Do this twice in case changing the visibility of the scrollbars
-			// causes the VisibleSize to change in such a way as to require a second scrollbar.
-			// Probably a better way to detect that scenario...
-			SetVisibleSize();
-			SetScrollBarVisibility();
-			SetVisibleSize();
-			SetScrollBarVisibility();
-
-			if (_vScrollBar.Visible)
-				_hScrollBar.Width -= scrollSize;
-
-			if (_hScrollBar.Visible)
-				_vScrollBar.Height -= scrollSize;
-
-			_vScrollBar.ViewSize = _visibleSize.Height;
-			_hScrollBar.ViewSize = _visibleSize.Width;
-
-			UpdateViewport();
-		}
-
-		private void SetScrollBarVisibility()
-		{
-			_vScrollBar.Visible = _visibleSize.Height < ContentSize.Height;
-			_hScrollBar.Visible = _visibleSize.Width < ContentSize.Width;
-		}
+            UpdateViewport();
+        }
+
+        private void SetScrollBarVisibility()
+        {
+            VScrollBar.Enabled = _visibleSize.Height < ContentSize.Height;
+            HScrollBar.Enabled = _visibleSize.Width < ContentSize.Width;
 
-		private void SetVisibleSize()
-		{
-			var scrollSize = Consts.ScrollBarSize;
+            if (_hideScrollBars)
+            {
+                VScrollBar.Visible = VScrollBar.Enabled;
+                HScrollBar.Visible = HScrollBar.Enabled;
+            }
+        }
 
-			_visibleSize = new Size(ClientSize.Width, ClientSize.Height);
+        private void SetVisibleSize()
+        {
+            const int scrollSize = Consts.ScrollBarSize;
 
-			if (_vScrollBar.Visible)
-				_visibleSize.Width -= scrollSize;
-
-			if (_hScrollBar.Visible)
-				_visibleSize.Height -= scrollSize;
-		}
+            _visibleSize = new Size(ClientSize.Width, ClientSize.Height);
 
-		private void UpdateViewport()
-		{
-			var left = 0;
-			var top = 0;
-			var width = ClientSize.Width;
-			var height = ClientSize.Height;
+            if (VScrollBar.Visible)
+                _visibleSize.Width -= scrollSize;
 
-			if (_hScrollBar.Visible)
-			{
-				left = _hScrollBar.Value;
-				height -= _hScrollBar.Height;
-			}
+            if (HScrollBar.Visible)
+                _visibleSize.Height -= scrollSize;
+        }
 
-			if (_vScrollBar.Visible)
-			{
-				top = _vScrollBar.Value;
-				width -= _vScrollBar.Width;
-			}
+        private void UpdateViewport()
+        {
+            var left = 0;
+            var top = 0;
+            var width = ClientSize.Width;
+            var height = ClientSize.Height;
 
-			Viewport = new Rectangle(left, top, width, height);
+            if (HScrollBar.Visible)
+            {
+                left = HScrollBar.Value;
+                height -= HScrollBar.Height;
+            }
 
-			var pos = PointToClient(MousePosition);
-			_offsetMousePosition = new Point(pos.X + Viewport.Left, pos.Y + Viewport.Top);
+            if (VScrollBar.Visible)
+            {
+                top = VScrollBar.Value;
+                width -= VScrollBar.Width;
+            }
 
-			Invalidate();
-		}
+            Viewport = new Rectangle(left, top, width, height);
 
-		public void ScrollTo(Point point)
-		{
-			HScrollTo(point.X);
-			VScrollTo(point.Y);
-		}
+            var pos = PointToClient(MousePosition);
+            OffsetMousePosition = new Point(pos.X + Viewport.Left, pos.Y + Viewport.Top);
 
-		public void VScrollTo(int value)
-		{
-			if (_vScrollBar.Visible)
-				_vScrollBar.Value = value;
-		}
-
-		public void HScrollTo(int value)
-		{
-			if (_hScrollBar.Visible)
-				_hScrollBar.Value = value;
-		}
-
-		protected virtual void StartDrag()
-		{
-			IsDragging = true;
-			_dragTimer.Start();
-		}
-
-		protected virtual void StopDrag()
-		{
-			IsDragging = false;
-			_dragTimer.Stop();
-		}
-
-		public Point PointToView(Point point)
-		{
-			return new Point(point.X - Viewport.Left, point.Y - Viewport.Top);
-		}
-
-		public Rectangle RectangleToView(Rectangle rect)
-		{
-			return new Rectangle(new Point(rect.Left - Viewport.Left, rect.Top - Viewport.Top), rect.Size);
-		}
-
-		#endregion
-
-		#region Event Handler Region
-
-		protected override void OnCreateControl()
-		{
-			base.OnCreateControl();
-
-			UpdateScrollBars();
-		}
-
-		protected override void OnGotFocus(EventArgs e)
-		{
-			base.OnGotFocus(e);
-
-			Invalidate();
-		}
-
-		protected override void OnLostFocus(EventArgs e)
-		{
-			base.OnLostFocus(e);
-
-			Invalidate();
-		}
-
-		protected override void OnResize(EventArgs e)
-		{
-			base.OnResize(e);
-
-			UpdateScrollBars();
-		}
-
-		protected override void OnMouseMove(MouseEventArgs e)
-		{
-			base.OnMouseMove(e);
-
-			_offsetMousePosition = new Point(e.X + Viewport.Left, e.Y + Viewport.Top);
-		}
-
-		protected override void OnMouseDown(MouseEventArgs e)
-		{
-			base.OnMouseDown(e);
-
-			if (e.Button == MouseButtons.Right)
-				Select();
-		}
-
-		protected override void OnMouseWheel(MouseEventArgs e)
-		{
-			base.OnMouseWheel(e);
-
-			var horizontal = false;
-
-			if (_hScrollBar.Visible && ModifierKeys == Keys.Control)
-				horizontal = true;
-
-			if (_hScrollBar.Visible && !_vScrollBar.Visible)
-				horizontal = true;
-
-			if (!horizontal)
-			{
-				if (e.Delta > 0)
-					_vScrollBar.ScrollByPhysical(3);
-				else if (e.Delta < 0)
-					_vScrollBar.ScrollByPhysical(-3);
-			}
-			else
-			{
-				if (e.Delta > 0)
-					_hScrollBar.ScrollByPhysical(3);
-				else if (e.Delta < 0)
-					_hScrollBar.ScrollByPhysical(-3);
-			}
-		}
-
-		protected override void OnPreviewKeyDown(PreviewKeyDownEventArgs e)
-		{
-			base.OnPreviewKeyDown(e);
-
-			// Allows arrow keys to trigger OnKeyPress
-			switch (e.KeyCode)
-			{
-				case Keys.Up:
-				case Keys.Down:
-				case Keys.Left:
-				case Keys.Right:
-					e.IsInputKey = true;
-					break;
-			}
-		}
-
-		private void DragTimer_Tick(object sender, EventArgs e)
-		{
-			var pos = PointToClient(MousePosition);
-
-			var right = ClientRectangle.Right;
-			var bottom = ClientRectangle.Bottom;
-
-			if (_vScrollBar.Visible)
-				right = _vScrollBar.Left;
-
-			if (_hScrollBar.Visible)
-				bottom = _hScrollBar.Top;
-
-			if (_vScrollBar.Visible)
-			{
-				// Scroll up
-				if (pos.Y < ClientRectangle.Top)
-				{
-					var difference = (pos.Y - ClientRectangle.Top) * -1;
-
-					if (MaxDragChange > 0 && difference > MaxDragChange)
-						difference = MaxDragChange;
-
-					_vScrollBar.Value = _vScrollBar.Value - difference;
-				}
-
-				// Scroll down
-				if (pos.Y > bottom)
-				{
-					var difference = pos.Y - bottom;
-
-					if (MaxDragChange > 0 && difference > MaxDragChange)
-						difference = MaxDragChange;
-
-					_vScrollBar.Value = _vScrollBar.Value + difference;
-				}
-			}
-
-			if (_hScrollBar.Visible)
-			{
-				// Scroll left
-				if (pos.X < ClientRectangle.Left)
-				{
-					var difference = (pos.X - ClientRectangle.Left) * -1;
-
-					if (MaxDragChange > 0 && difference > MaxDragChange)
-						difference = MaxDragChange;
-
-					_hScrollBar.Value = _hScrollBar.Value - difference;
-				}
-
-				// Scroll right
-				if (pos.X > right)
-				{
-					var difference = pos.X - right;
-
-					if (MaxDragChange > 0 && difference > MaxDragChange)
-						difference = MaxDragChange;
-
-					_hScrollBar.Value = _hScrollBar.Value + difference;
-				}
-			}
-		}
-
-		#endregion
-	}
+            Invalidate();
+        }
+
+        public void ScrollTo(Point point)
+        {
+            HScrollTo(point.X);
+            VScrollTo(point.Y);
+        }
+
+        public void VScrollTo(int value)
+        {
+            if (VScrollBar.Visible)
+                VScrollBar.Value = value;
+        }
+
+        public void HScrollTo(int value)
+        {
+            if (HScrollBar.Visible)
+                HScrollBar.Value = value;
+        }
+
+        protected virtual void StartDrag()
+        {
+            IsDragging = true;
+            _dragTimer.Start();
+        }
+
+        protected virtual void StopDrag()
+        {
+            IsDragging = false;
+            _dragTimer.Stop();
+        }
+
+        public Point PointToView(Point point)
+        {
+            return new Point(point.X - Viewport.Left, point.Y - Viewport.Top);
+        }
+
+        public Rectangle RectangleToView(Rectangle rect)
+        {
+            return new Rectangle(new Point(rect.Left - Viewport.Left, rect.Top - Viewport.Top), rect.Size);
+        }
+
+        #endregion
+
+        #region Event Handler Region
+
+        protected override void OnCreateControl()
+        {
+            base.OnCreateControl();
+
+            UpdateScrollBars();
+        }
+
+        protected override void OnGotFocus(EventArgs e)
+        {
+            base.OnGotFocus(e);
+
+            Invalidate();
+        }
+
+        protected override void OnLostFocus(EventArgs e)
+        {
+            base.OnLostFocus(e);
+
+            Invalidate();
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+
+            UpdateScrollBars();
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+
+            OffsetMousePosition = new Point(e.X + Viewport.Left, e.Y + Viewport.Top);
+        }
+
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+
+            if (e.Button == MouseButtons.Right)
+                Select();
+        }
+
+        protected override void OnMouseWheel(MouseEventArgs e)
+        {
+            base.OnMouseWheel(e);
+
+            // ReSharper disable once ReplaceWithSingleAssignment.False
+            var horizontal = false;
+
+            if (HScrollBar.Visible && ModifierKeys == Keys.Control)
+                horizontal = true;
+
+            if (HScrollBar.Visible && !VScrollBar.Visible)
+                horizontal = true;
+
+            if (!horizontal)
+            {
+                float speed = MouseWheelScrollSpeedV * e.Delta;
+                int speedInt = (int)Math.Min(1073741824, Math.Max(-1073741824, speed));
+                if (speedInt == 0)
+                    speedInt = speed > 0 ? 1 : -1;
+                VScrollBar.ScrollByPhysical(speedInt);
+            }
+            else
+            {
+                float speed = MouseWheelScrollSpeedH * e.Delta;
+                int speedInt = (int)Math.Min(1073741824, Math.Max(-1073741824, speed));
+                if (speedInt == 0)
+                    speedInt = speed > 0 ? 1 : -1;
+                HScrollBar.ScrollByPhysical(speedInt);
+            }
+        }
+
+        protected override void OnPreviewKeyDown(PreviewKeyDownEventArgs e)
+        {
+            base.OnPreviewKeyDown(e);
+
+            // Allows arrow keys to trigger OnKeyPress
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                case Keys.Down:
+                case Keys.Left:
+                case Keys.Right:
+                    e.IsInputKey = true;
+                    break;
+            }
+        }
+
+        private void DragTimer_Tick(object sender, EventArgs e)
+        {
+            var pos = PointToClient(MousePosition);
+
+            var right = ClientRectangle.Right;
+            var bottom = ClientRectangle.Bottom;
+
+            if (VScrollBar.Visible)
+                right = VScrollBar.Left;
+
+            if (HScrollBar.Visible)
+                bottom = HScrollBar.Top;
+
+            if (VScrollBar.Visible)
+            {
+                // Scroll up
+                if (pos.Y < ClientRectangle.Top)
+                {
+                    var difference = (pos.Y - ClientRectangle.Top) * -1;
+
+                    if (MaxDragChange > 0 && difference > MaxDragChange)
+                        difference = MaxDragChange;
+
+                    VScrollBar.Value = VScrollBar.Value - difference;
+                }
+
+                // Scroll down
+                if (pos.Y > bottom)
+                {
+                    var difference = pos.Y - bottom;
+
+                    if (MaxDragChange > 0 && difference > MaxDragChange)
+                        difference = MaxDragChange;
+
+                    VScrollBar.Value = VScrollBar.Value + difference;
+                }
+            }
+
+            if (HScrollBar.Visible)
+            {
+                // Scroll left
+                if (pos.X < ClientRectangle.Left)
+                {
+                    var difference = (pos.X - ClientRectangle.Left) * -1;
+
+                    if (MaxDragChange > 0 && difference > MaxDragChange)
+                        difference = MaxDragChange;
+
+                    HScrollBar.Value = HScrollBar.Value - difference;
+                }
+
+                // Scroll right
+                if (pos.X > right)
+                {
+                    var difference = pos.X - right;
+
+                    if (MaxDragChange > 0 && difference > MaxDragChange)
+                        difference = MaxDragChange;
+
+                    HScrollBar.Value = HScrollBar.Value + difference;
+                }
+            }
+        }
+
+        #endregion
+    }
 }

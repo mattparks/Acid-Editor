@@ -2,7 +2,7 @@
 using Acid.UI.Controls;
 using Acid.UI.Docking;
 
-namespace Acid.Editor
+namespace Acid.Editor.Forms.Docking
 {
     partial class DockAssets
     {
@@ -44,7 +44,7 @@ namespace Acid.Editor
             this.treeProject.MultiSelect = true;
             this.treeProject.Name = "treeAssets";
             this.treeProject.ShowIcons = true;
-            this.treeProject.Size = new System.Drawing.Size(280, 425);
+            this.treeProject.Size = new System.Drawing.Size(200, 175);
             this.treeProject.TabIndex = 0;
             this.treeProject.Text = "darkTreeView1";
             // 
@@ -59,7 +59,7 @@ namespace Acid.Editor
             this.Icon = global::Acid.Editor.Icons.application_16x;
             this.Name = "DockAssets";
             this.SerializationKey = "DockAssets";
-            this.Size = new System.Drawing.Size(280, 450);
+            this.Size = new System.Drawing.Size(200, 200);
             this.ResumeLayout(false);
         }
 

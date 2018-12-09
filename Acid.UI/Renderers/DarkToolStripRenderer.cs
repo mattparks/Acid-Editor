@@ -1,197 +1,211 @@
-﻿using Acid.UI.Extensions;
+﻿using Acid.UI.Config;
+using Acid.UI.Extensions;
 using System.Drawing;
 using System.Windows.Forms;
-using Acid.UI.Config;
+using Acid.UI.Icons;
 
 namespace Acid.UI.Renderers
 {
-	public class DarkToolStripRenderer : DarkMenuRenderer
-	{
-		#region Initialisation Region
+    public class DarkToolStripRenderer : DarkMenuRenderer
+    {
+        #region Initialisation Region
 
-		protected override void InitializeItem(ToolStripItem item)
-		{
-			base.InitializeItem(item);
+        protected override void InitializeItem(ToolStripItem item)
+        {
+            base.InitializeItem(item);
 
-			if (item.GetType() == typeof(ToolStripSeparator))
-			{
-				var castItem = (ToolStripSeparator)item;
-				if (!castItem.IsOnDropDown)
-					item.Margin = new Padding(0, 0, 2, 0);
-			}
+            if (item.GetType() == typeof(ToolStripSeparator))
+            {
+                var castItem = (ToolStripSeparator)item;
+                if (!castItem.IsOnDropDown)
+                    item.Margin = new Padding(0, 0, 2, 0);
+            }
 
-			if (item.GetType() == typeof(ToolStripButton))
-			{
-				item.AutoSize = false;
-				item.Size = new Size(24, 24);
-			}
-		}
+            if (item is ToolStripButton)
+            {
+                item.AutoSize = false;
+                item.Size = new Size(24, 24);
+            }
+        }
 
-		#endregion
+        #endregion
 
-		#region Render Region
+        #region Render Region
 
-		protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
-		{
-			base.OnRenderToolStripBackground(e);
+        protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
+        {
+            base.OnRenderToolStripBackground(e);
 
-			var g = e.Graphics;
+            var g = e.Graphics;
 
-			if (e.ToolStrip.GetType() == typeof(ToolStripOverflow))
-			{
-				using (var p = new Pen(Colours.GreyBackground))
-				{
-					var rect = new Rectangle(e.AffectedBounds.Left, e.AffectedBounds.Top, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1);
-					g.DrawRectangle(p, rect);
-				}
-			}
-		}
+            if (e.ToolStrip is ToolStripOverflow)
+            {
+                using (var p = new Pen(Colours.GreyBackground))
+                {
+                    var rect = new Rectangle(e.AffectedBounds.Left, e.AffectedBounds.Top, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1);
+                    g.DrawRectangle(p, rect);
+                }
+            }
+        }
 
-		protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
-		{
-			if (e.ToolStrip.GetType() != typeof(ToolStrip))
-				base.OnRenderToolStripBorder(e);
-		}
+        protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
+        {
+            if (e.ToolStrip.GetType() != typeof(ToolStrip))
+                base.OnRenderToolStripBorder(e);
+        }
 
-		protected override void OnRenderButtonBackground(ToolStripItemRenderEventArgs e)
-		{
-			var g = e.Graphics;
+        protected override void OnRenderButtonBackground(ToolStripItemRenderEventArgs e)
+        {
+            var g = e.Graphics;
 
-			var rect = new Rectangle(0, 1, e.Item.Width, e.Item.Height - 2);
+            var rect = new Rectangle(0, 1, e.Item.Width, e.Item.Height - 2);
 
-			if (e.Item.Selected || e.Item.Pressed)
-			{
-				using (var b = new SolidBrush(Colours.GreySelection))
-				{
-					g.FillRectangle(b, rect);
-				}
-			}
+            if (e.Item.Selected || e.Item.Pressed)
+            {
+                using (var b = new SolidBrush(Colours.GreySelection))
+                {
+                    g.FillRectangle(b, rect);
+                }
+            }
 
-			if (e.Item.GetType() == typeof(ToolStripButton))
-			{
-				var castItem = (ToolStripButton)e.Item;
+            if (e.Item is ToolStripButton)
+            {
+                var castItem = (ToolStripButton)e.Item;
 
-				if (castItem.Checked)
-				{
-					using (var b = new SolidBrush(Colours.GreySelection))
-					{
-						g.FillRectangle(b, rect);
-					}
-				}
+                if (castItem.Checked && e.ToolStrip.Enabled)
+                {
+                    using (var b = new SolidBrush(Colours.MenuItemToggledOnFill))
+                    {
+                        g.FillRectangle(b, rect);
+                    }
 
-				if (castItem.Checked && castItem.Selected)
-				{
-					var modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
-					using (var p = new Pen(Colours.GreyHighlight))
-					{
-						g.DrawRectangle(p, modRect);
-					}
-				}
-			}
-		}
+                    using (var p = new Pen(Colours.MenuItemToggledOnBorder))
+                    {
+                        var modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                        g.DrawRectangle(p, modRect);
+                    }
+                }
 
-		protected override void OnRenderDropDownButtonBackground(ToolStripItemRenderEventArgs e)
-		{
-			var g = e.Graphics;
+                if (castItem.Checked && castItem.Selected)
+                {
+                    var modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                    using (var p = new Pen(Colours.GreyHighlight))
+                    {
+                        g.DrawRectangle(p, modRect);
+                    }
+                }
+            }
+        }
 
-			var rect = new Rectangle(0, 1, e.Item.Width, e.Item.Height - 2);
+        protected override void OnRenderDropDownButtonBackground(ToolStripItemRenderEventArgs e)
+        {
+            var g = e.Graphics;
 
-			if (e.Item.Selected || e.Item.Pressed)
-			{
-				using (var b = new SolidBrush(Colours.GreySelection))
-				{
-					g.FillRectangle(b, rect);
-				}
-			}
-		}
+            var rect = new Rectangle(0, 1, e.Item.Width, e.Item.Height - 2);
 
-		protected override void OnRenderGrip(ToolStripGripRenderEventArgs e)
-		{
-			if (e.GripStyle == ToolStripGripStyle.Hidden)
-				return;
+            if (e.Item.Selected || e.Item.Pressed)
+            {
+                using (var b = new SolidBrush(Colours.GreySelection))
+                {
+                    g.FillRectangle(b, rect);
+                }
+            }
+        }
 
-			var g = e.Graphics;
+        protected override void OnRenderGrip(ToolStripGripRenderEventArgs e)
+        {
+            if (e.GripStyle == ToolStripGripStyle.Hidden)
+                return;
 
-			using (var img = MenuIcons.grip.SetColor(Colours.LightBorder))
-			{
-				g.DrawImageUnscaled(img, new Point(e.AffectedBounds.Left, e.AffectedBounds.Top));
-			}
-		}
+            var g = e.Graphics;
 
-		protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
-		{
-			var g = e.Graphics;
+            using (var img = MenuIcons.grip.SetColor(Colours.LightBorder))
+            {
+                g.DrawImage(img, new Point(e.AffectedBounds.Left, e.AffectedBounds.Top));
+            }
+        }
 
-			var castItem = (ToolStripSeparator)e.Item;
-			if (castItem.IsOnDropDown)
-			{
-				base.OnRenderSeparator(e);
-				return;
-			}
+        protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
+        {
+            var g = e.Graphics;
 
-			var rect = new Rectangle(3, 3, 2, e.Item.Height - 4);
+            var castItem = (ToolStripSeparator)e.Item;
+            if (castItem.IsOnDropDown)
+            {
+                base.OnRenderSeparator(e);
+                return;
+            }
 
-			using (var p = new Pen(Colours.DarkBorder))
-			{
-				g.DrawLine(p, rect.Left, rect.Top, rect.Left, rect.Height);
-			}
+            if(e.ToolStrip.LayoutStyle == ToolStripLayoutStyle.VerticalStackWithOverflow)
+            {
+                var rect = new Rectangle(3, 3, e.Item.Width - 2, 2);
 
-			using (var p = new Pen(Colours.LightBorder))
-			{
-				g.DrawLine(p, rect.Left + 1, rect.Top, rect.Left + 1, rect.Height);
-			}
-		}
+                using (var p = new Pen(Colours.DarkBorder))
+                {
+                    g.DrawLine(p, rect.Left, rect.Top - 1, rect.Width, rect.Top - 1);
+                }
 
-		protected override void OnRenderItemImage(ToolStripItemImageRenderEventArgs e)
-		{
-			var g = e.Graphics;
+                using (var p = new Pen(Colours.LightBorder))
+                {
+                    g.DrawLine(p, rect.Left, rect.Top, rect.Width, rect.Top);
+                }
+            }
+            else
+            {
+                var rect = new Rectangle(3, 3, 2, e.Item.Height - 4);
 
-			if (e.Image == null)
-				return;
+                using (var p = new Pen(Colours.DarkBorder))
+                {
+                    g.DrawLine(p, rect.Left, rect.Top, rect.Left, rect.Height);
+                }
 
-			if (e.Item.Enabled)
-				g.DrawImageUnscaled(e.Image, new Point(e.ImageRectangle.Left, e.ImageRectangle.Top));
-			else
-				ControlPaint.DrawImageDisabled(g, e.Image, e.ImageRectangle.Left, e.ImageRectangle.Top, Color.Transparent);
-		}
+                using (var p = new Pen(Colours.LightBorder))
+                {
+                    g.DrawLine(p, rect.Left + 1, rect.Top, rect.Left + 1, rect.Height);
+                }
+            }
+        }
 
-		protected override void OnRenderOverflowButtonBackground(ToolStripItemRenderEventArgs e)
-		{
-			/*var g = e.Graphics;
+        protected override void OnRenderItemImage(ToolStripItemImageRenderEventArgs e)
+        {
+            var g = e.Graphics;
 
-			var rect = new Rectangle(1, 0, e.Item.Width - 5, e.Item.Height);
+            if (e.Image == null)
+                return;
 
-			var castItem = (ToolStripOverflowButton)e.Item;
+            g.DrawImage(e.Image, new Point(e.ImageRectangle.Left, e.ImageRectangle.Top));
+            if (!e.Item.Enabled)
+                using (var b = new SolidBrush(Color.FromArgb(180, e.Item.BackColor.R, e.Item.BackColor.G, e.Item.BackColor.B)))
+                    g.FillRectangle(b, e.ImageRectangle);
 
-			var bgColor = BasicColors.White;
-			if (castItem.Selected)
-				bgColor = StyleColors.Weak(style);
-			if (castItem.Pressed)
-				bgColor = StyleColors.Medium(style);
+            // Doesn't work well
+            // ControlPaint.DrawImageDisabled(g, e.Image, e.ImageRectangle.Left, e.ImageRectangle.Top, Color.Transparent);
+        }
 
-			using (var b = new SolidBrush(bgColor))
-			{
-				g.FillRectangle(b, rect);
-			}
+        protected override void OnRenderOverflowButtonBackground(ToolStripItemRenderEventArgs e)
+        {
+            var g = e.Graphics;
 
-			var fgColor = BasicColors.Grey;
-			if (castItem.Selected)
-				fgColor = StyleColors.Medium(style);
-			if (castItem.Pressed)
-				fgColor = StyleColors.Strong(style);
+            var rect = new Rectangle(0, 2, e.Item.Width - 3, e.Item.Height - 5);
 
-			using (var p = new Pen(fgColor))
-			{
-				var modRect = new Rectangle(1, 0, e.Item.Width - 6, e.Item.Height - 1);
-				g.DrawRectangle(p, modRect);
-			}
+            var castItem = (ToolStripOverflowButton)e.Item;
 
-			using (var img = MenuIcons.overflow.SetColor(BasicColors.MediumGrey))
-			{
-				g.DrawImageUnscaled(img, e.Item.Width - 13, e.Item.Height - 9);
-			}*/
-		}
+            Color bgColor = Colours.GreyBackground;
+            if (castItem.Selected)
+                bgColor = Colours.LighterBackground;
+            if (castItem.Pressed)
+                bgColor = Colours.GreyBackground;
 
-		#endregion
-	}
+            using (var b = new SolidBrush(bgColor))
+            {
+                g.FillRectangle(b, rect);
+            }
+
+            g.DrawImage(ScrollIcons.scrollbar_arrow_hot,
+                e.Item.Width / 2 - ScrollIcons.scrollbar_arrow_hot.Width  / 2 - 2,
+                e.Item.Height/ 2 - ScrollIcons.scrollbar_arrow_hot.Height / 2 - 1);
+        }
+
+        #endregion
+    }
 }

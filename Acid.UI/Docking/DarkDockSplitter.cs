@@ -1,160 +1,161 @@
-﻿using System;
+﻿using Acid.UI.Forms;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Acid.UI.Forms;
 
 namespace Acid.UI.Docking
 {
-	public class DarkDockSplitter
-	{
-		#region Field Region
+    public class DarkDockSplitter
+    {
+        #region Field Region
 
-		private Control _parentControl;
-		private Control _control;
+        private readonly Control _parentControl;
+        private readonly Control _control;
 
-		private DarkSplitterType _splitterType;
+        private int _minimum;
+        private int _maximum;
+        private DarkTranslucentForm _overlayForm;
 
-		private int _minimum;
-		private int _maximum;
-		private DarkTranslucentForm _overlayForm;
+        #endregion
 
-		#endregion
+        #region Property Region
 
-		#region Property Region
+        public DarkSplitterMode SplitterMode { get; private set; }
+        public DarkSplitterType SplitterType { get; private set; }
 
-		public Rectangle Bounds { get; set; }
+        public Rectangle Bounds { get; set; }
 
-		public Cursor ResizeCursor { get; private set; }
+        public Cursor ResizeCursor { get; private set; }
 
-		#endregion
+        #endregion
 
-		#region Constructor Region
+        #region Constructor Region
 
-		public DarkDockSplitter(Control parentControl, Control control, DarkSplitterType splitterType)
-		{
-			_parentControl = parentControl;
-			_control = control;
-			_splitterType = splitterType;
+        public DarkDockSplitter(Control parentControl, Control control, DarkSplitterType splitterType, DarkSplitterMode splitterMode)
+        {
+            _parentControl = parentControl;
+            _control = control;
+            SplitterType = splitterType;
+            SplitterMode = splitterMode;
 
-			switch (_splitterType)
-			{
-				case DarkSplitterType.Left:
-				case DarkSplitterType.Right:
-					ResizeCursor = Cursors.SizeWE;
-					break;
-				case DarkSplitterType.Top:
-				case DarkSplitterType.Bottom:
-					ResizeCursor = Cursors.SizeNS;
-					break;
-			}
-		}
+            switch (SplitterType)
+            {
+                case DarkSplitterType.Left:
+                case DarkSplitterType.Right:
+                    ResizeCursor = Cursors.SizeWE;
+                    break;
+                case DarkSplitterType.Top:
+                case DarkSplitterType.Bottom:
+                    ResizeCursor = Cursors.SizeNS;
+                    break;
+            }
+        }
 
-		#endregion
+        #endregion
 
-		#region Method Region
+        #region Method Region
 
-		public void ShowOverlay()
-		{
-			_overlayForm = new DarkTranslucentForm(Color.Black);
-			_overlayForm.Visible = true;
+        public void ShowOverlay()
+        {
+            _overlayForm = new DarkTranslucentForm(Color.Black) {Visible = true};
 
-			UpdateOverlay(new Point(0, 0));
-		}
+            UpdateOverlay(new Point(0, 0));
+        }
 
-		public void HideOverlay()
-		{
-			_overlayForm.Visible = false;
-		}
+        public void HideOverlay()
+        {
+            _overlayForm.Visible = false;
+        }
 
-		public void UpdateOverlay(Point difference)
-		{
-			var bounds = new Rectangle(Bounds.Location, Bounds.Size);
+        public void UpdateOverlay(Point difference)
+        {
+            var bounds = new Rectangle(Bounds.Location, Bounds.Size);
 
-			switch (_splitterType)
-			{
-				case DarkSplitterType.Left:
-					var leftX = Math.Max(bounds.Location.X - difference.X, _minimum);
+            switch (SplitterType)
+            {
+                case DarkSplitterType.Left:
+                    var leftX = Math.Max(bounds.Location.X - difference.X, _minimum);
 
-					if (_maximum != 0 && leftX > _maximum)
-						leftX = _maximum;
+                    if (_maximum != 0 && leftX > _maximum)
+                        leftX = _maximum;
 
-					bounds.Location = new Point(leftX, bounds.Location.Y);
-					break;
-				case DarkSplitterType.Right:
-					var rightX = Math.Max(bounds.Location.X - difference.X, _minimum);
+                    bounds.Location = new Point(leftX, bounds.Location.Y);
+                    break;
+                case DarkSplitterType.Right:
+                    var rightX = Math.Max(bounds.Location.X - difference.X, _minimum);
 
-					if (_maximum != 0 && rightX > _maximum)
-						rightX = _maximum;
+                    if (_maximum != 0 && rightX > _maximum)
+                        rightX = _maximum;
 
-					bounds.Location = new Point(rightX, bounds.Location.Y);
-					break;
-				case DarkSplitterType.Top:
-					var topY = Math.Max(bounds.Location.Y - difference.Y, _minimum);
+                    bounds.Location = new Point(rightX, bounds.Location.Y);
+                    break;
+                case DarkSplitterType.Top:
+                    var topY = Math.Max(bounds.Location.Y - difference.Y, _minimum);
 
-					if (_maximum != 0 && topY > _maximum)
-						topY = _maximum;
+                    if (_maximum != 0 && topY > _maximum)
+                        topY = _maximum;
 
-					bounds.Location = new Point(bounds.Location.X, topY);
-					break;
-				case DarkSplitterType.Bottom:
-					var bottomY = Math.Max(bounds.Location.Y - difference.Y, _minimum);
+                    bounds.Location = new Point(bounds.Location.X, topY);
+                    break;
+                case DarkSplitterType.Bottom:
+                    var bottomY = Math.Max(bounds.Location.Y - difference.Y, _minimum);
 
-					if (_maximum != 0 && bottomY > _maximum)
-						topY = _maximum;
+                    if (_maximum != 0 && bottomY > _maximum)
+                        bottomY = _maximum;
 
-					bounds.Location = new Point(bounds.Location.X, bottomY);
-					break;
-			}
+                    bounds.Location = new Point(bounds.Location.X, bottomY);
+                    break;
+            }
 
-			_overlayForm.Bounds = bounds;
-		}
+            _overlayForm.Bounds = bounds;
+        }
 
-		public void Move(Point difference)
-		{
-			switch (_splitterType)
-			{
-				case DarkSplitterType.Left:
-					_control.Width += difference.X;
-					break;
-				case DarkSplitterType.Right:
-					_control.Width -= difference.X;
-					break;
-				case DarkSplitterType.Top:
-					_control.Height += difference.Y;
-					break;
-				case DarkSplitterType.Bottom:
-					_control.Height -= difference.Y;
-					break;
-			}
+        public void Move(Point difference)
+        {
+            switch (SplitterType)
+            {
+                case DarkSplitterType.Left:
+                    _control.SetBounds(_control.Bounds.X - difference.X, _control.Bounds.Y, _control.Bounds.Width + difference.X, _control.Bounds.Height);
+                    break;
+                case DarkSplitterType.Right:
+                    _control.SetBounds(_control.Bounds.X, _control.Bounds.Y, _control.Bounds.Width - difference.X, _control.Bounds.Height);
+                    break;
+                case DarkSplitterType.Top:
+                    _control.SetBounds(_control.Bounds.X, _control.Bounds.Y - difference.Y, _control.Bounds.Width, _control.Bounds.Height + difference.Y);
+                    break;
+                case DarkSplitterType.Bottom:
+                    _control.SetBounds(_control.Bounds.X, _control.Bounds.Y, _control.Bounds.Width, _control.Bounds.Height - difference.Y);
+                    break;
+            }
 
-			UpdateBounds();
-		}
+            UpdateBounds();
+        }
 
-		public void UpdateBounds()
-		{
-			var bounds = _parentControl.RectangleToScreen(_control.Bounds);
+        public void UpdateBounds()
+        {
+            var bounds = _parentControl.RectangleToScreen(_control.Bounds);
 
-			switch (_splitterType)
-			{
-				case DarkSplitterType.Left:
-					Bounds = new Rectangle(bounds.Left - 2, bounds.Top, 5, bounds.Height);
-					_maximum = bounds.Right - 2 - _control.MinimumSize.Width;
-					break;
-				case DarkSplitterType.Right:
-					Bounds = new Rectangle(bounds.Right - 2, bounds.Top, 5, bounds.Height);
-					_minimum = bounds.Left - 2 + _control.MinimumSize.Width;
-					break;
-				case DarkSplitterType.Top:
-					Bounds = new Rectangle(bounds.Left, bounds.Top - 2, bounds.Width, 5);
-					_maximum = bounds.Bottom - 2 - _control.MinimumSize.Height;
-					break;
-				case DarkSplitterType.Bottom:
-					Bounds = new Rectangle(bounds.Left, bounds.Bottom - 2, bounds.Width, 5);
-					_minimum = bounds.Top - 2 + _control.MinimumSize.Height;
-					break;
-			}
-		}
+            switch (SplitterType)
+            {
+                case DarkSplitterType.Left:
+                    Bounds = new Rectangle(bounds.Left - 2, bounds.Top, 5, bounds.Height);
+                    _maximum = bounds.Right - 2 - _control.MinimumSize.Width;
+                    break;
+                case DarkSplitterType.Right:
+                    Bounds = new Rectangle(bounds.Right - 2, bounds.Top, 5, bounds.Height);
+                    _minimum = bounds.Left - 2 + _control.MinimumSize.Width;
+                    break;
+                case DarkSplitterType.Top:
+                    Bounds = new Rectangle(bounds.Left, bounds.Top - 2, bounds.Width, 5);
+                    _maximum = bounds.Bottom - 2 - _control.MinimumSize.Height;
+                    break;
+                case DarkSplitterType.Bottom:
+                    Bounds = new Rectangle(bounds.Left, bounds.Bottom - 2, bounds.Width, 5);
+                    _minimum = bounds.Top - 2 + _control.MinimumSize.Height;
+                    break;
+            }
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }

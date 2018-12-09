@@ -1,62 +1,68 @@
-﻿using System.ComponentModel;
+﻿using Acid.UI.Config;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using Acid.UI.Config;
 
 namespace Acid.UI.Forms
 {
-	public class DarkForm : Form
-	{
-		#region Field Region
+    public class DarkForm : Form
+    {
+        #region Field Region
 
-		private bool _flatBorder;
+        private bool _flatBorder;
 
-		#endregion
+        #endregion
 
-		#region Property Region
+        #region Property Region
 
-		[Category("Appearance")]
-		[Description("Determines whether a single pixel border should be rendered around the form.")]
-		[DefaultValue(false)]
-		public bool FlatBorder
-		{
-			get { return _flatBorder; }
-			set
-			{
-				_flatBorder = value;
-				Invalidate();
-			}
-		}
+        [Category("Appearance")]
+        [Description("Determines whether a single pixel border should be rendered around the form.")]
+        [DefaultValue(false)]
+        public bool FlatBorder
+        {
+            get { return _flatBorder; }
+            set
+            {
+                _flatBorder = value;
+                Invalidate();
+            }
+        }
 
-		#endregion
+        #endregion
 
-		#region Constructor Region
+        #region Constructor Region
 
-		public DarkForm()
-		{
-			BackColor = Colours.GreyBackground;
-		}
+        public DarkForm()
+        {
+            BackColor = Colours.GreyBackground;
+        }
 
-		#endregion
+        public sealed override Color BackColor
+        {
+            get { return base.BackColor; }
+            set { base.BackColor = value; }
+        }
 
-		#region Paint Region
+        #endregion
 
-		protected override void OnPaintBackground(PaintEventArgs e)
-		{
-			base.OnPaintBackground(e);
+        #region Paint Region
 
-			if (!_flatBorder)
-				return;
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            base.OnPaintBackground(e);
 
-			var g = e.Graphics;
+            if (!_flatBorder)
+                return;
 
-			using (var p = new Pen(Colours.DarkBorder))
-			{
-				var modRect = new Rectangle(ClientRectangle.Location, new Size(ClientRectangle.Width - 1, ClientRectangle.Height - 1));
-				g.DrawRectangle(p, modRect);
-			}
-		}
+            var g = e.Graphics;
 
-		#endregion
-	}
+            using (var p = new Pen(Colours.DarkBorder))
+            {
+                var modRect = new Rectangle(ClientRectangle.Location, new Size(ClientRectangle.Width - 1, ClientRectangle.Height - 1));
+                g.DrawRectangle(p, modRect);
+            }
+        }
+
+        #endregion
+    }
 }

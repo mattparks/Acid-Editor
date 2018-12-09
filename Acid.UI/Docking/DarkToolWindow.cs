@@ -1,231 +1,236 @@
-﻿using System.ComponentModel;
+﻿using Acid.UI.Config;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using System;
-using Acid.UI.Config;
+using Acid.UI.Icons;
 
 namespace Acid.UI.Docking
 {
-	[ToolboxItem(false)]
-	public class DarkToolWindow : DarkDockContent
-	{
-		#region Field Region
+    [ToolboxItem(false)]
+    public class DarkToolWindow : DarkDockContent
+    {
+        #region Field Region
 
-		private Rectangle _closeButtonRect;
-		private bool _closeButtonHot = false;
-		private bool _closeButtonPressed = false;
+        private Rectangle _closeButtonRect;
+        private bool _closeButtonHot;
+        private bool _closeButtonPressed;
 
-		private Rectangle _headerRect;
-		private bool _shouldDrag;
+        private Rectangle _headerRect;
+        private bool _shouldDrag;
 
-		#endregion
+        #endregion
 
-		#region Property Region
+        #region Property Region
 
-		[Browsable(false)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new Padding Padding
-		{
-			get { return base.Padding; }
-		}
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new Padding Padding
+        {
+            get { return base.Padding; }
+        }
 
-		#endregion
+        public sealed override Color BackColor
+        {
+            get { return base.BackColor; }
+            set { base.BackColor = value; }
+        }
 
-		#region Constructor Region
+        #endregion
 
-		public DarkToolWindow()
-		{
-			SetStyle(ControlStyles.OptimizedDoubleBuffer |
-					 ControlStyles.ResizeRedraw |
-					 ControlStyles.UserPaint, true);
+        #region Constructor Region
 
-			BackColor = Colours.GreyBackground;
-			base.Padding = new Padding(0, Consts.ToolWindowHeaderSize, 0, 0);
+        public DarkToolWindow()
+        {
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                     ControlStyles.ResizeRedraw |
+                     ControlStyles.UserPaint, true);
 
-			UpdateCloseButton();
-		}
+            BackColor = Colours.GreyBackground;
+            base.Padding = new Padding(0, Consts.ToolWindowHeaderSize, 0, 0);
 
-		#endregion
+            UpdateCloseButton();
+        }
 
-		#region Method Region
+        #endregion
 
-		private bool IsActive()
-		{
-			if (DockPanel == null)
-				return false;
+        #region Method Region
 
-			return DockPanel.ActiveContent == this;
-		}
+        private bool IsActive()
+        {
+            if (DockPanel == null)
+                return false;
 
-		private void UpdateCloseButton()
-		{
-			_headerRect = new Rectangle
-			{
-				X = ClientRectangle.Left,
-				Y = ClientRectangle.Top,
-				Width = ClientRectangle.Width,
-				Height = Consts.ToolWindowHeaderSize
-			};
+            return DockPanel.ActiveContent == this;
+        }
 
-			_closeButtonRect = new Rectangle
-			{
-				X = ClientRectangle.Right - DockIcons.tw_close.Width - 5 - 3,
-				Y = ClientRectangle.Top + (Consts.ToolWindowHeaderSize / 2) - (DockIcons.tw_close.Height / 2),
-				Width = DockIcons.tw_close.Width,
-				Height = DockIcons.tw_close.Height
-			};
-		}
+        private void UpdateCloseButton()
+        {
+            _headerRect = new Rectangle
+            {
+                X = ClientRectangle.Left,
+                Y = ClientRectangle.Top,
+                Width = ClientRectangle.Width,
+                Height = Consts.ToolWindowHeaderSize
+            };
 
-		#endregion
+            _closeButtonRect = new Rectangle
+            {
+                X = ClientRectangle.Right - DockIcons.tw_close.Width - 5 - 3,
+                Y = ClientRectangle.Top + Consts.ToolWindowHeaderSize / 2 - DockIcons.tw_close.Height / 2,
+                Width = DockIcons.tw_close.Width,
+                Height = DockIcons.tw_close.Height
+            };
+        }
 
-		#region Event Handler Region
+        #endregion
 
-		protected override void OnResize(EventArgs e)
-		{
-			base.OnResize(e);
+        #region Event Handler Region
 
-			UpdateCloseButton();
-		}
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
 
-		protected override void OnMouseMove(MouseEventArgs e)
-		{
-			base.OnMouseMove(e);
+            UpdateCloseButton();
+        }
 
-			if (_closeButtonRect.Contains(e.Location) || _closeButtonPressed)
-			{
-				if (!_closeButtonHot)
-				{
-					_closeButtonHot = true;
-					Invalidate();
-				}
-			}
-			else
-			{
-				if (_closeButtonHot)
-				{
-					_closeButtonHot = false;
-					Invalidate();
-				}
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
 
-				if (_shouldDrag)
-				{
-					DockPanel.DragContent(this);
-					return;
-				}
-			}
-		}
+            if (_closeButtonRect.Contains(e.Location) || _closeButtonPressed)
+            {
+                if (!_closeButtonHot)
+                {
+                    _closeButtonHot = true;
+                    Invalidate();
+                }
+            }
+            else
+            {
+                if (_closeButtonHot)
+                {
+                    _closeButtonHot = false;
+                    Invalidate();
+                }
 
-		protected override void OnMouseDown(MouseEventArgs e)
-		{
-			base.OnMouseDown(e);
+                if (_shouldDrag)
+                {
+                    DockPanel.DragContent(this);
+                }
+            }
+        }
 
-			if (_closeButtonRect.Contains(e.Location))
-			{
-				_closeButtonPressed = true;
-				_closeButtonHot = true;
-				Invalidate();
-				return;
-			}
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
 
-			if (_headerRect.Contains(e.Location))
-			{
-				_shouldDrag = true;
-				return;
-			}
-		}
+            if (_closeButtonRect.Contains(e.Location))
+            {
+                _closeButtonPressed = true;
+                _closeButtonHot = true;
+                Invalidate();
+                return;
+            }
 
-		protected override void OnMouseUp(MouseEventArgs e)
-		{
-			base.OnMouseUp(e);
+            if (_headerRect.Contains(e.Location))
+            {
+                _shouldDrag = true;
+            }
+        }
 
-			if (_closeButtonRect.Contains(e.Location) && _closeButtonPressed)
-				Close();
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            base.OnMouseUp(e);
 
-			_closeButtonPressed = false;
-			_closeButtonHot = false;
+            if (_closeButtonRect.Contains(e.Location) && _closeButtonPressed)
+                Close();
 
-			_shouldDrag = false;
+            _closeButtonPressed = false;
+            _closeButtonHot = false;
 
-			Invalidate();
-		}
+            _shouldDrag = false;
 
-		#endregion
+            Invalidate();
+        }
 
-		#region Paint Region
+        #endregion
 
-		protected override void OnPaint(PaintEventArgs e)
-		{
-			var g = e.Graphics;
+        #region Paint Region
 
-			// Fill body
-			using (var b = new SolidBrush(Colours.GreyBackground))
-			{
-				g.FillRectangle(b, ClientRectangle);
-			}
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            var g = e.Graphics;
 
-			var isActive = IsActive();
+            // Fill body
+            using (var b = new SolidBrush(Colours.GreyBackground))
+            {
+                g.FillRectangle(b, ClientRectangle);
+            }
 
-			// Draw header
-			var bgColor = isActive ? Colours.BlueBackground : Colours.HeaderBackground;
-			var darkColor = isActive ? Colours.DarkBlueBorder : Colours.DarkBorder;
-			var lightColor = isActive ? Colours.LightBlueBorder : Colours.LightBorder;
+            var isActive = IsActive();
 
-			using (var b = new SolidBrush(bgColor))
-			{
-				var bgRect = new Rectangle(0, 0, ClientRectangle.Width, Consts.ToolWindowHeaderSize);
-				g.FillRectangle(b, bgRect);
-			}
+            // Draw header
+            var bgColor = isActive ? Colours.BlueBackground : Colours.HeaderBackground;
+            var darkColor = isActive ? Colours.DarkBlueBorder : Colours.DarkBorder;
+            var lightColor = isActive ? Colours.LightBlueBorder : Colours.LightBorder;
 
-			using (var p = new Pen(darkColor))
-			{
-				g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Right, 0);
-				g.DrawLine(p, ClientRectangle.Left, Consts.ToolWindowHeaderSize - 1, ClientRectangle.Right, Consts.ToolWindowHeaderSize - 1);
-			}
+            using (var b = new SolidBrush(bgColor))
+            {
+                var bgRect = new Rectangle(0, 0, ClientRectangle.Width, Consts.ToolWindowHeaderSize);
+                g.FillRectangle(b, bgRect);
+            }
 
-			using (var p = new Pen(lightColor))
-			{
-				g.DrawLine(p, ClientRectangle.Left, 1, ClientRectangle.Right, 1);
-			}
+            using (var p = new Pen(darkColor))
+            {
+                g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Right, 0);
+                g.DrawLine(p, ClientRectangle.Left, Consts.ToolWindowHeaderSize - 1, ClientRectangle.Right, Consts.ToolWindowHeaderSize - 1);
+            }
 
-			var xOffset = 2;
+            using (var p = new Pen(lightColor))
+            {
+                g.DrawLine(p, ClientRectangle.Left, 1, ClientRectangle.Right, 1);
+            }
 
-			// Draw icon
-			if (Icon != null)
-			{
-				g.DrawImageUnscaled(Icon, ClientRectangle.Left + 5, ClientRectangle.Top + (Consts.ToolWindowHeaderSize / 2) - (Icon.Height / 2) + 1);
-				xOffset = Icon.Width + 8;
-			}
+            var xOffset = 2;
 
-			// Draw text
-			using (var b = new SolidBrush(Colours.LightText))
-			{
-				var textRect = new Rectangle(xOffset, 0, ClientRectangle.Width - 4 - xOffset, Consts.ToolWindowHeaderSize);
+            // Draw icon
+            if (Icon != null)
+            {
+                g.DrawImage(Icon, ClientRectangle.Left + 5, ClientRectangle.Top + Consts.ToolWindowHeaderSize / 2 - Icon.Height / 2 + 1);
+                xOffset = Icon.Width + 8;
+            }
 
-				var format = new StringFormat
-				{
-					Alignment = StringAlignment.Near,
-					LineAlignment = StringAlignment.Center,
-					FormatFlags = StringFormatFlags.NoWrap,
-					Trimming = StringTrimming.EllipsisCharacter
-				};
+            // Draw text
+            using (var b = new SolidBrush(Colours.LightText))
+            {
+                var textRect = new Rectangle(xOffset, 0, ClientRectangle.Width - 4 - xOffset, Consts.ToolWindowHeaderSize);
 
-				g.DrawString(DockText, Font, b, textRect, format);
-			}
+                var format = new StringFormat
+                {
+                    Alignment = StringAlignment.Near,
+                    LineAlignment = StringAlignment.Center,
+                    FormatFlags = StringFormatFlags.NoWrap,
+                    Trimming = StringTrimming.EllipsisCharacter
+                };
 
-			// Close button
-			var img = _closeButtonHot ? DockIcons.tw_close_selected : DockIcons.tw_close;
+                g.DrawString(DockText, Font, b, textRect, format);
+            }
 
-			if (isActive)
-				img = _closeButtonHot ? DockIcons.tw_active_close_selected : DockIcons.tw_active_close;
+            // Close button
+            var img = _closeButtonHot ? DockIcons.tw_close_selected : DockIcons.tw_close;
 
-			g.DrawImageUnscaled(img, _closeButtonRect.Left, _closeButtonRect.Top);
-		}
+            if (isActive)
+                img = _closeButtonHot ? DockIcons.tw_active_close_selected : DockIcons.tw_active_close;
 
-		protected override void OnPaintBackground(PaintEventArgs e)
-		{
-			// Absorb event
-		}
+            g.DrawImage(img, _closeButtonRect.Left, _closeButtonRect.Top);
+        }
 
-		#endregion
-	}
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            // Absorb event
+        }
+
+        #endregion
+    }
 }

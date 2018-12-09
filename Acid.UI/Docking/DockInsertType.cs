@@ -1,9 +1,9 @@
 ﻿namespace Acid.UI.Docking
 {
-	public enum DockInsertType
-	{
-		None,
-		Before,
-		After
-	}
+    public enum DockInsertType
+    {
+        None,
+        Before,
+        After
+    }
 }

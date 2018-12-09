@@ -3,24 +3,24 @@ using System.Windows.Forms;
 
 namespace Acid.UI.Win32
 {
-	public class ControlScrollFilter : IMessageFilter
-	{
-		public bool PreFilterMessage(ref Message m)
-		{
-			switch (m.Msg)
-			{
-				case (int)WM.MOUSEWHEEL:
-				case (int)WM.MOUSEHWHEEL:
-					var hControlUnderMouse = Native.WindowFromPoint(new Point((int)m.LParam));
+    public class ControlScrollFilter : IMessageFilter
+    {
+        public bool PreFilterMessage(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case (int)WM.MOUSEWHEEL:
+                case (int)WM.MOUSEHWHEEL:
+                    var hControlUnderMouse = Native.WindowFromPoint(new Point((int)m.LParam));
 
-					if (hControlUnderMouse == m.HWnd)
-						return false;
+                    if (hControlUnderMouse == m.HWnd)
+                        return false;
 
-					Native.SendMessage(hControlUnderMouse, (uint)m.Msg, m.WParam, m.LParam);
-					return true;
-			}
+                    Native.SendMessage(hControlUnderMouse, (uint)m.Msg, m.WParam, m.LParam);
+                    return true;
+            }
 
-			return false;
-		}
-	}
+            return false;
+        }
+    }
 }

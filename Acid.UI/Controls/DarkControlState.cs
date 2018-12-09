@@ -1,9 +1,9 @@
 ﻿namespace Acid.UI.Controls
 {
-	public enum DarkControlState
-	{
-		Normal,
-		Hover,
-		Pressed
-	}
+    public enum DarkControlState
+    {
+        Normal,
+        Hover,
+        Pressed
+    }
 }

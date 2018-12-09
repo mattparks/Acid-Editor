@@ -25,6 +25,8 @@ namespace Acid.UI.Config
 		Color GetDarkBlueBorder();
 		Color GetLightBlueBorder();
 		Color GetActiveControl();
+		Color GetMenuItemToggledOnFill();
+		Color GetMenuItemToggledOnBorder();
 	}
 
 	public class ColoursDark : IColours
@@ -50,11 +52,13 @@ namespace Acid.UI.Config
 		public Color GetDarkBlueBorder() => Color.FromArgb(51, 61, 78);
 		public Color GetLightBlueBorder() => Color.FromArgb(86, 97, 114);
 		public Color GetActiveControl() => Color.FromArgb(159, 178, 196);
+		public Color GetMenuItemToggledOnFill() => Color.FromArgb(105, 84, 69);
+		public Color GetMenuItemToggledOnBorder() => Color.FromArgb(225, 128, 68);
 	}
 	
 	// TODO: Create ColoursLight, ColoursBlue
 
-	public sealed class Colours
+	public static class Colours
 	{
 		public static IColours ColourConfig
 		{
@@ -144,6 +148,14 @@ namespace Acid.UI.Config
 		public static Color ActiveControl
 		{
 			get { return ColourConfig.GetActiveControl(); }
+		}
+		public static Color MenuItemToggledOnFill
+		{
+			get { return ColourConfig.GetMenuItemToggledOnFill(); }
+		}
+		public static Color MenuItemToggledOnBorder
+		{
+			get { return ColourConfig.GetMenuItemToggledOnBorder(); }
 		}
 	}
 }

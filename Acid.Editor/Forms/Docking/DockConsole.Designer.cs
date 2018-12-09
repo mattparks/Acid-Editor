@@ -1,7 +1,7 @@
 ﻿using Acid.UI.Controls;
 using Acid.UI.Docking;
 
-namespace Acid.Editor
+namespace Acid.Editor.Forms.Docking
 {
     partial class DockConsole
     {
@@ -32,7 +32,7 @@ namespace Acid.Editor
         private void InitializeComponent()
         {
             this.lstConsole = new Acid.UI.Controls.DarkListView();
-            this.SuspendLayout();
+			this.SuspendLayout();
             // 
             // lstConsole
             // 
@@ -40,22 +40,22 @@ namespace Acid.Editor
             this.lstConsole.Location = new System.Drawing.Point(0, 25);
             this.lstConsole.MultiSelect = true;
             this.lstConsole.Name = "lstConsole";
-            this.lstConsole.Size = new System.Drawing.Size(500, 175);
+            this.lstConsole.Size = new System.Drawing.Size(200, 175);
             this.lstConsole.TabIndex = 0;
             this.lstConsole.Text = "darkListView1";
-            // 
-            // DockConsole
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+			// 
+			// DockConsole
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lstConsole);
+			this.Controls.Add(this.lstConsole);
             this.DefaultDockArea = Acid.UI.Docking.DarkDockArea.Bottom;
             this.DockText = "Console";
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = global::Acid.Editor.Icons.Console;
             this.Name = "DockConsole";
             this.SerializationKey = "DockConsole";
-            this.Size = new System.Drawing.Size(500, 200);
+            this.Size = new System.Drawing.Size(200, 200);
             this.ResumeLayout(false);
 
         }
@@ -63,5 +63,5 @@ namespace Acid.Editor
         #endregion
 
         private DarkListView lstConsole;
-    }
+	}
 }

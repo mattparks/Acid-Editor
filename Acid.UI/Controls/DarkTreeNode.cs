@@ -1,259 +1,244 @@
-﻿using System;
+﻿using Acid.UI.Collections;
+using System;
 using System.Drawing;
-using Acid.UI.Collections;
 
 namespace Acid.UI.Controls
 {
-	public class DarkTreeNode
-	{
-		#region Event Region
+    public class DarkTreeNode
+    {
+        #region Event Region
 
-		public event EventHandler<ObservableListModified<DarkTreeNode>> ItemsAdded;
-		public event EventHandler<ObservableListModified<DarkTreeNode>> ItemsRemoved;
+        public event EventHandler<ObservableListModified<DarkTreeNode>> ItemsAdded;
+        public event EventHandler<ObservableListModified<DarkTreeNode>> ItemsRemoved;
 
-		public event EventHandler TextChanged;
-		public event EventHandler NodeExpanded;
-		public event EventHandler NodeCollapsed;
+        public event EventHandler TextChanged;
+        public event EventHandler NodeExpanded;
+        public event EventHandler NodeCollapsed;
 
-		#endregion
+        #endregion
 
-		#region Field Region
+        #region Field Region
 
-		private string _text;
-		private bool _isRoot;
-		private DarkTreeView _parentTree;
-		private DarkTreeNode _parentNode;
+        private string _text;
+        private DarkTreeView _parentTree;
 
-		private ObservableList<DarkTreeNode> _nodes;
+        private ObservableList<DarkTreeNode> _nodes;
 
-		private bool _expanded;
+        private bool _expanded;
 
-		#endregion
+        #endregion
 
-		#region Property Region
+        #region Property Region
 
-		public string Text
-		{
-			get { return _text; }
-			set
-			{
-				if (_text == value)
-					return;
+        public string Text
+        {
+            get { return _text; }
+            set
+            {
+                if (_text == value)
+                    return;
 
-				_text = value;
+                _text = value;
 
-				OnTextChanged();
-			}
-		}
+                OnTextChanged();
+            }
+        }
 
-		public Rectangle ExpandArea { get; set; }
+        public Rectangle ExpandArea { get; set; }
 
-		public Rectangle IconArea { get; set; }
+        public Rectangle IconArea { get; set; }
 
-		public Rectangle TextArea { get; set; }
+        public Rectangle TextArea { get; set; }
 
-		public Rectangle FullArea { get; set; }
+        public Rectangle FullArea { get; set; }
 
-		public bool ExpandAreaHot { get; set; }
+        public bool ExpandAreaHot { get; set; }
 
-		public Bitmap Icon { get; set; }
+        public Bitmap Icon { get; set; }
 
-		public Bitmap ExpandedIcon { get; set; }
+        public Bitmap ExpandedIcon { get; set; }
 
-		public bool Expanded
-		{
-			get { return _expanded; }
-			set
-			{
-				if (_expanded == value)
-					return;
+        public bool Expanded
+        {
+            get { return _expanded; }
+            set
+            {
+                if (_expanded == value)
+                    return;
 
-				if (value == true && Nodes.Count == 0)
-					return;
+                if (value && Nodes.Count == 0)
+                    return;
 
-				_expanded = value;
+                _expanded = value;
 
-				if (_expanded)
-				{
-					if (NodeExpanded != null)
-						NodeExpanded(this, null);
-				}
-				else
-				{
-					if (NodeCollapsed != null)
-						NodeCollapsed(this, null);
-				}
-			}
-		}
+                if (_expanded)
+                {
+                    NodeExpanded?.Invoke(this, null);
+                }
+                else
+                {
+                    NodeCollapsed?.Invoke(this, null);
+                }
+            }
+        }
 
-		public ObservableList<DarkTreeNode> Nodes
-		{
-			get { return _nodes; }
-			set
-			{
-				if (_nodes != null)
-				{
-					_nodes.ItemsAdded -= Nodes_ItemsAdded;
-					_nodes.ItemsRemoved -= Nodes_ItemsRemoved;
-				}
+        public ObservableList<DarkTreeNode> Nodes
+        {
+            get { return _nodes; }
+            set
+            {
+                if (_nodes != null)
+                {
+                    _nodes.ItemsAdded -= Nodes_ItemsAdded;
+                    _nodes.ItemsRemoved -= Nodes_ItemsRemoved;
+                }
 
-				_nodes = value;
+                _nodes = value;
 
-				_nodes.ItemsAdded += Nodes_ItemsAdded;
-				_nodes.ItemsRemoved += Nodes_ItemsRemoved;
-			}
-		}
+                _nodes.ItemsAdded += Nodes_ItemsAdded;
+                _nodes.ItemsRemoved += Nodes_ItemsRemoved;
+            }
+        }
 
-		public bool IsRoot
-		{
-			get { return _isRoot; }
-			set { _isRoot = value; }
-		}
+        public bool IsRoot { get; set; }
 
-		public DarkTreeView ParentTree
-		{
-			get { return _parentTree; }
-			set
-			{
-				if (_parentTree == value)
-					return;
+        public DarkTreeView ParentTree
+        {
+            get { return _parentTree; }
+            set
+            {
+                if (_parentTree == value)
+                    return;
 
-				_parentTree = value;
+                _parentTree = value;
 
-				foreach (var node in Nodes)
-					node.ParentTree = _parentTree;
-			}
-		}
+                foreach (var node in Nodes)
+                    node.ParentTree = _parentTree;
+            }
+        }
 
-		public DarkTreeNode ParentNode
-		{
-			get { return _parentNode; }
-			set { _parentNode = value; }
-		}
+        public DarkTreeNode ParentNode { get; set; }
 
-		public bool Odd { get; set; }
+        public bool Odd { get; set; }
 
-		public object NodeType { get; set; }
+        public object NodeType { get; set; }
 
-		public object Tag { get; set; }
+        public object Tag { get; set; }
 
-		public string FullPath
-		{
-			get
-			{
-				var parent = ParentNode;
-				var path = Text;
+        public string FullPath
+        {
+            get
+            {
+                var parent = ParentNode;
+                var path = Text;
 
-				while (parent != null)
-				{
-					path = string.Format("{0}{1}{2}", parent.Text, "\\", path);
-					parent = parent.ParentNode;
-				}
+                while (parent != null)
+                {
+                    path = $"{parent.Text}\\{path}";
+                    parent = parent.ParentNode;
+                }
 
-				return path;
-			}
-		}
+                return path;
+            }
+        }
 
-		public DarkTreeNode PrevVisibleNode { get; set; }
+        public DarkTreeNode PrevVisibleNode { get; set; }
 
-		public DarkTreeNode NextVisibleNode { get; set; }
+        public DarkTreeNode NextVisibleNode { get; set; }
 
-		public int VisibleIndex { get; set; }
+        public int VisibleIndex { get; set; }
 
-		public bool IsNodeAncestor(DarkTreeNode node)
-		{
-			var parent = ParentNode;
-			while (parent != null)
-			{
-				if (parent == node)
-					return true;
+        public bool IsNodeAncestor(DarkTreeNode node)
+        {
+            var parent = ParentNode;
+            while (parent != null)
+            {
+                if (parent == node)
+                    return true;
 
-				parent = parent.ParentNode;
-			}
+                parent = parent.ParentNode;
+            }
 
-			return false;
-		}
+            return false;
+        }
 
-		#endregion
+        #endregion
 
-		#region Constructor Region
+        #region Constructor Region
 
-		public DarkTreeNode()
-		{
-			Nodes = new ObservableList<DarkTreeNode>();
-		}
+        public DarkTreeNode()
+        {
+            Nodes = new ObservableList<DarkTreeNode>();
+        }
 
-		public DarkTreeNode(string text)
-			: this()
-		{
-			Text = text;
-		}
+        public DarkTreeNode(string text)
+            : this()
+        {
+            Text = text;
+        }
 
-		#endregion
+        #endregion
 
-		#region Method Region
+        #region Method Region
 
-		public void Remove()
-		{
-			if (ParentNode != null)
-				ParentNode.Nodes.Remove(this);
-			else
-				ParentTree.Nodes.Remove(this);
-		}
+        public void Remove()
+        {
+            if (ParentNode != null)
+                ParentNode.Nodes.Remove(this);
+            else
+                ParentTree.Nodes.Remove(this);
+        }
 
-		public void EnsureVisible()
-		{
-			var parent = ParentNode;
+        public void EnsureVisible()
+        {
+            var parent = ParentNode;
 
-			while (parent != null)
-			{
-				parent.Expanded = true;
-				parent = parent.ParentNode;
-			}
-		}
+            while (parent != null)
+            {
+                parent.Expanded = true;
+                parent = parent.ParentNode;
+            }
+        }
 
-		#endregion
+        #endregion
 
-		#region Event Handler Region
+        #region Event Handler Region
 
-		private void OnTextChanged()
-		{
-			if (ParentTree != null && ParentTree.TreeViewNodeSorter != null)
-			{
-				if (ParentNode != null)
-					ParentNode.Nodes.Sort(ParentTree.TreeViewNodeSorter);
-				else
-					ParentTree.Nodes.Sort(ParentTree.TreeViewNodeSorter);
-			}
+        private void OnTextChanged()
+        {
+            if (ParentTree?.TreeViewNodeSorter != null)
+            {
+                if (ParentNode != null)
+                    ParentNode.Nodes.Sort(ParentTree.TreeViewNodeSorter);
+                else
+                    ParentTree.Nodes.Sort(ParentTree.TreeViewNodeSorter);
+            }
 
-			if (TextChanged != null)
-				TextChanged(this, null);
-		}
+            TextChanged?.Invoke(this, null);
+        }
 
-		private void Nodes_ItemsAdded(object sender, ObservableListModified<DarkTreeNode> e)
-		{
-			foreach (var node in e.Items)
-			{
-				node.ParentNode = this;
-				node.ParentTree = ParentTree;
-			}
+        private void Nodes_ItemsAdded(object sender, ObservableListModified<DarkTreeNode> e)
+        {
+            foreach (var node in e.Items)
+            {
+                node.ParentNode = this;
+                node.ParentTree = ParentTree;
+            }
 
-			if (ParentTree != null && ParentTree.TreeViewNodeSorter != null)
-				Nodes.Sort(ParentTree.TreeViewNodeSorter);
+            if (ParentTree?.TreeViewNodeSorter != null)
+                Nodes.Sort(ParentTree.TreeViewNodeSorter);
 
-			if (ItemsAdded != null)
-				ItemsAdded(this, e);
-		}
+            ItemsAdded?.Invoke(this, e);
+        }
 
-		private void Nodes_ItemsRemoved(object sender, ObservableListModified<DarkTreeNode> e)
-		{
-			if (Nodes.Count == 0)
-				Expanded = false;
+        private void Nodes_ItemsRemoved(object sender, ObservableListModified<DarkTreeNode> e)
+        {
+            if (Nodes.Count == 0)
+                Expanded = false;
 
-			if (ItemsRemoved != null)
-				ItemsRemoved(this, e);
-		}
+            ItemsRemoved?.Invoke(this, e);
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }

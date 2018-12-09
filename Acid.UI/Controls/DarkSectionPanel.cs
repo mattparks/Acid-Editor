@@ -1,146 +1,153 @@
-﻿using System.ComponentModel;
+﻿using Acid.UI.Config;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using Acid.UI.Config;
 
 namespace Acid.UI.Controls
 {
-	public class DarkSectionPanel : Panel
-	{
-		#region Field Region
+    public class DarkSectionPanel : Panel
+    {
+        #region Field Region
 
-		private string _sectionHeader;
+        private string _sectionHeader;
 
-		#endregion
+        #endregion
 
-		#region Property Region
+        #region Property Region
 
-		[Browsable(false)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new Padding Padding
-		{
-			get { return base.Padding; }
-		}
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new Padding Padding
+        {
+            get { return base.Padding; }
+        }
 
-		[Category("Appearance")]
-		[Description("The section header text associated with this control.")]
-		public string SectionHeader
-		{
-			get { return _sectionHeader; }
-			set
-			{
-				_sectionHeader = value;
-				Invalidate();
-			}
-		}
+        [Category("Appearance")]
+        [Description("The section header text associated with this control.")]
+        public string SectionHeader
+        {
+            get { return _sectionHeader; }
+            set
+            {
+                _sectionHeader = value;
 
-		#endregion
+                if (string.IsNullOrEmpty(_sectionHeader))
+                    base.Padding = new Padding(1, 1, 1, 1);
+                else
+                    base.Padding = new Padding(1, 25, 1, 1);
 
-		#region Constructor Region
+                Invalidate();
+            }
+        }
 
-		public DarkSectionPanel()
-		{
-			SetStyle(ControlStyles.OptimizedDoubleBuffer |
-					 ControlStyles.ResizeRedraw |
-					 ControlStyles.UserPaint, true);
+        #endregion
 
-			base.Padding = new Padding(1, 25, 1, 1);
-		}
+        #region Constructor Region
 
-		#endregion
+        public DarkSectionPanel()
+        {
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                     ControlStyles.ResizeRedraw |
+                     ControlStyles.UserPaint, true);
+        }
 
-		#region Event Handler Region
+        #endregion
 
-		protected override void OnEnter(System.EventArgs e)
-		{
-			base.OnEnter(e);
+        #region Event Handler Region
 
-			Invalidate();
-		}
+        protected override void OnEnter(System.EventArgs e)
+        {
+            base.OnEnter(e);
 
-		protected override void OnLeave(System.EventArgs e)
-		{
-			base.OnLeave(e);
+            Invalidate();
+        }
 
-			Invalidate();
-		}
+        protected override void OnLeave(System.EventArgs e)
+        {
+            base.OnLeave(e);
 
-		protected override void OnMouseDown(MouseEventArgs e)
-		{
-			base.OnMouseDown(e);
+            Invalidate();
+        }
 
-			if (Controls.Count > 0)
-				Controls[0].Focus();
-		}
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
 
-		#endregion
+            if (Controls.Count > 0)
+                Controls[0].Focus();
+        }
 
-		#region Paint Region
+        #endregion
 
-		protected override void OnPaint(PaintEventArgs e)
-		{
-			var g = e.Graphics;
-			var rect = ClientRectangle;
+        #region Paint Region
 
-			// Fill body
-			using (var b = new SolidBrush(Colours.GreyBackground))
-			{
-				g.FillRectangle(b, rect);
-			}
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            var g = e.Graphics;
+            var rect = ClientRectangle;
 
-			// Draw header
-			var bgColor = ContainsFocus ? Colours.BlueBackground : Colours.HeaderBackground;
-			var darkColor = ContainsFocus ? Colours.DarkBlueBorder : Colours.DarkBorder;
-			var lightColor = ContainsFocus ? Colours.LightBlueBorder : Colours.LightBorder;
+            // Fill body
+            using (var b = new SolidBrush(Colours.GreyBackground))
+            {
+                g.FillRectangle(b, rect);
+            }
 
-			using (var b = new SolidBrush(bgColor))
-			{
-				var bgRect = new Rectangle(0, 0, rect.Width, 25);
-				g.FillRectangle(b, bgRect);
-			}
+            // Draw header
+            if(_sectionHeader != null)
+            {
+                var bgColor = ContainsFocus ? Colours.BlueBackground : Colours.HeaderBackground;
+                var darkColor = ContainsFocus ? Colours.DarkBlueBorder : Colours.DarkBorder;
+                var lightColor = ContainsFocus ? Colours.LightBlueBorder : Colours.LightBorder;
 
-			using (var p = new Pen(darkColor))
-			{
-				g.DrawLine(p, rect.Left, 0, rect.Right, 0);
-				g.DrawLine(p, rect.Left, 25 - 1, rect.Right, 25 - 1);
-			}
+                using (var b = new SolidBrush(bgColor))
+                {
+                    var bgRect = new Rectangle(0, 0, rect.Width, 25);
+                    g.FillRectangle(b, bgRect);
+                }
 
-			using (var p = new Pen(lightColor))
-			{
-				g.DrawLine(p, rect.Left, 1, rect.Right, 1);
-			}
+                using (var p = new Pen(darkColor))
+                {
+                    g.DrawLine(p, rect.Left, 0, rect.Right, 0);
+                    g.DrawLine(p, rect.Left, 25 - 1, rect.Right, 25 - 1);
+                }
 
-			var xOffset = 3;
+                using (var p = new Pen(lightColor))
+                {
+                    g.DrawLine(p, rect.Left, 1, rect.Right, 1);
+                }
 
-			using (var b = new SolidBrush(Colours.LightText))
-			{
-				var textRect = new Rectangle(xOffset, 0, rect.Width - 4 - xOffset, 25);
+                var xOffset = 3;
 
-				var format = new StringFormat
-				{
-					Alignment = StringAlignment.Near,
-					LineAlignment = StringAlignment.Center,
-					FormatFlags = StringFormatFlags.NoWrap,
-					Trimming = StringTrimming.EllipsisCharacter
-				};
+                using (var b = new SolidBrush(Colours.LightText))
+                {
+                    var textRect = new Rectangle(xOffset, 0, rect.Width - 4 - xOffset, 25);
 
-				g.DrawString(SectionHeader, Font, b, textRect, format);
-			}
+                    var format = new StringFormat
+                    {
+                        Alignment = StringAlignment.Near,
+                        LineAlignment = StringAlignment.Center,
+                        FormatFlags = StringFormatFlags.NoWrap,
+                        Trimming = StringTrimming.EllipsisCharacter
+                    };
 
-			// Draw border
-			using (var p = new Pen(Colours.DarkBorder, 1))
-			{
-				var modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                    g.DrawString(SectionHeader, Font, b, textRect, format);
+                }
+            }
+            
+            // Draw border
+            using (var p = new Pen(Colours.DarkBorder, 1))
+            {
+                var modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
 
-				g.DrawRectangle(p, modRect);
-			}
-		}
+                g.DrawRectangle(p, modRect);
+            }
+        }
 
-		protected override void OnPaintBackground(PaintEventArgs e)
-		{
-			// Absorb event
-		}
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            // Absorb event
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }

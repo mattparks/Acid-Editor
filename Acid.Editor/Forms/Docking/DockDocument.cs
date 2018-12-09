@@ -1,10 +1,12 @@
 ﻿using Acid.UI.Config;
+using Acid.UI.Controls;
 using Acid.UI.Docking;
 using Acid.UI.Forms;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 
-namespace Acid.Editor
+namespace Acid.Editor.Forms.Docking
 {
     public partial class DockDocument : DarkDocument
     {
@@ -16,7 +18,23 @@ namespace Acid.Editor
 
             // Workaround to stop the textbox from highlight all text.
             txtDocument.SelectionStart = txtDocument.Text.Length;
-        }
+
+	        // Build dummy dropdown data
+	        cmbOptions.Items.Add(new DarkDropdownItem("25%"));
+	        cmbOptions.Items.Add(new DarkDropdownItem("50%"));
+	        cmbOptions.Items.Add(new DarkDropdownItem("100%"));
+	        cmbOptions.Items.Add(new DarkDropdownItem("200%"));
+	        cmbOptions.Items.Add(new DarkDropdownItem("300%"));
+	        cmbOptions.Items.Add(new DarkDropdownItem("400%"));
+			
+			cmbOptions.SelectedItemChanged += delegate
+			{
+				var newSize = 10.0f * (float.Parse(cmbOptions.SelectedItem.Text.TrimEnd('%'),
+					              CultureInfo.InvariantCulture.NumberFormat) / 100.0f);
+				txtDocument.Font = new System.Drawing.Font("Segoe UI", newSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			};
+	        cmbOptions.SelectedItem = cmbOptions.Items[2];
+		}
 
         public DockDocument(string text, Image icon)
             : this()
@@ -31,7 +49,7 @@ namespace Acid.Editor
 
         public override void Close()
         {
-            var result = DarkMessageBox.ShowWarning(@"You will lose any unsaved changes. Continue?", @"Close document", DarkDialogButton.YesNo);
+            var result = DarkMessageBox.Show(this, @"You will lose any unsaved changes. Continue?", @"Close document", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.No)
                 return;
 

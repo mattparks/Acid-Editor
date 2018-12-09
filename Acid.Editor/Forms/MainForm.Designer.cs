@@ -1,7 +1,7 @@
 ﻿using Acid.UI.Controls;
 using Acid.UI.Docking;
 
-namespace Acid.Editor
+namespace Acid.Editor.Forms
 {
     partial class MainForm
     {
@@ -31,354 +31,325 @@ namespace Acid.Editor
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.mnuMain = new Acid.UI.Controls.DarkMenuStrip();
-            this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuNewFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuClose = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuSettings = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTools = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkableWithIconToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.checkedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkedWithIconToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuWindow = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAssets = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuScene = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHierarchy = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuInspector = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuConsole = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolMain = new Acid.UI.Controls.DarkToolStrip();
-            this.btnNewFile = new System.Windows.Forms.ToolStripButton();
-            this.stripMain = new Acid.UI.Controls.DarkStatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.DockPanel = new Acid.UI.Docking.DarkDockPanel();
-            this.darkSeparator1 = new Acid.UI.Controls.DarkSeparator();
-            this.mnuMain.SuspendLayout();
-            this.toolMain.SuspendLayout();
-            this.stripMain.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // mnuMain
-            // 
-            this.mnuMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.mnuMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+			this.mnuMain = new Acid.UI.Controls.DarkMenuStrip();
+			this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuNewFile = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.mnuClose = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuSettings = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuTools = new System.Windows.Forms.ToolStripMenuItem();
+			this.checkableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.checkableWithIconToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.checkedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.checkedWithIconToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuWindow = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuAssets = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuScene = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuHierarchy = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuInspector = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuConsole = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
+			this.stripMain = new Acid.UI.Controls.DarkStatusStrip();
+			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.DockPanel = new Acid.UI.Docking.DarkDockPanel();
+			this.darkSeparator1 = new Acid.UI.Controls.DarkSeparator();
+			this.mnuMain.SuspendLayout();
+			this.stripMain.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// mnuMain
+			// 
+			this.mnuMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.mnuMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFile,
             this.mnuView,
             this.mnuTools,
             this.mnuWindow,
             this.mnuHelp});
-            this.mnuMain.Location = new System.Drawing.Point(0, 0);
-            this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Padding = new System.Windows.Forms.Padding(3, 2, 0, 2);
-            this.mnuMain.Size = new System.Drawing.Size(944, 24);
-            this.mnuMain.TabIndex = 0;
-            this.mnuMain.Text = "darkMenuStrip1";
-            // 
-            // mnuFile
-            // 
-            this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.mnuMain.Location = new System.Drawing.Point(0, 0);
+			this.mnuMain.Name = "mnuMain";
+			this.mnuMain.Padding = new System.Windows.Forms.Padding(3, 2, 0, 2);
+			this.mnuMain.Size = new System.Drawing.Size(1404, 24);
+			this.mnuMain.TabIndex = 0;
+			this.mnuMain.Text = "darkMenuStrip1";
+			// 
+			// mnuFile
+			// 
+			this.mnuFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuNewFile,
             this.toolStripSeparator1,
             this.mnuClose});
-            this.mnuFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuFile.Name = "mnuFile";
-            this.mnuFile.Size = new System.Drawing.Size(37, 20);
-            this.mnuFile.Text = "&File";
-            // 
-            // mnuNewFile
-            // 
-            this.mnuNewFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuNewFile.Image = global::Acid.Editor.Icons.NewFile_6276;
-            this.mnuNewFile.Name = "mnuNewFile";
-            this.mnuNewFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.mnuNewFile.Size = new System.Drawing.Size(160, 22);
-            this.mnuNewFile.Text = "&New file";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
-            // 
-            // mnuClose
-            // 
-            this.mnuClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuClose.Image = global::Acid.Editor.Icons.Close_16xLG;
-            this.mnuClose.Name = "mnuClose";
-            this.mnuClose.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.mnuClose.Size = new System.Drawing.Size(160, 22);
-            this.mnuClose.Text = "&Close";
-            // 
-            // mnuView
-            // 
-            this.mnuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.mnuFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuFile.Name = "mnuFile";
+			this.mnuFile.Size = new System.Drawing.Size(37, 20);
+			this.mnuFile.Text = "&File";
+			// 
+			// mnuNewFile
+			// 
+			this.mnuNewFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuNewFile.Image = global::Acid.Editor.Icons.NewFile_6276;
+			this.mnuNewFile.Name = "mnuNewFile";
+			this.mnuNewFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+			this.mnuNewFile.Size = new System.Drawing.Size(160, 22);
+			this.mnuNewFile.Text = "&New file";
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+			// 
+			// mnuClose
+			// 
+			this.mnuClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuClose.Image = global::Acid.Editor.Icons.Close_16xLG;
+			this.mnuClose.Name = "mnuClose";
+			this.mnuClose.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+			this.mnuClose.Size = new System.Drawing.Size(160, 22);
+			this.mnuClose.Text = "&Close";
+			// 
+			// mnuView
+			// 
+			this.mnuView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.mnuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuSettings});
-            this.mnuView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuView.Name = "mnuView";
-            this.mnuView.Size = new System.Drawing.Size(44, 20);
-            this.mnuView.Text = "&View";
-            // 
-            // mnuDialog
-            // 
-            this.mnuSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuSettings.Image = global::Acid.Editor.Icons.properties_16xLG;
-            this.mnuSettings.Name = "mnuSettings";
-            this.mnuSettings.Size = new System.Drawing.Size(130, 22);
-            this.mnuSettings.Text = "&Settings";
-            // 
-            // mnuTools
-            // 
-            this.mnuTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.mnuView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuView.Name = "mnuView";
+			this.mnuView.Size = new System.Drawing.Size(44, 20);
+			this.mnuView.Text = "&View";
+			// 
+			// mnuSettings
+			// 
+			this.mnuSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuSettings.Image = global::Acid.Editor.Icons.properties_16xLG;
+			this.mnuSettings.Name = "mnuSettings";
+			this.mnuSettings.Size = new System.Drawing.Size(116, 22);
+			this.mnuSettings.Text = "&Settings";
+			// 
+			// mnuTools
+			// 
+			this.mnuTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.mnuTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.checkableToolStripMenuItem,
             this.checkableWithIconToolStripMenuItem,
             this.toolStripSeparator2,
             this.checkedToolStripMenuItem,
             this.checkedWithIconToolStripMenuItem});
-            this.mnuTools.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuTools.Name = "mnuTools";
-            this.mnuTools.Size = new System.Drawing.Size(48, 20);
-            this.mnuTools.Text = "&Tools";
-            // 
-            // checkableToolStripMenuItem
-            // 
-            this.checkableToolStripMenuItem.CheckOnClick = true;
-            this.checkableToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.checkableToolStripMenuItem.Name = "checkableToolStripMenuItem";
-            this.checkableToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.checkableToolStripMenuItem.Text = "Checkable";
-            // 
-            // checkableWithIconToolStripMenuItem
-            // 
-            this.checkableWithIconToolStripMenuItem.CheckOnClick = true;
-            this.checkableWithIconToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.checkableWithIconToolStripMenuItem.Image = global::Acid.Editor.Icons.properties_16xLG;
-            this.checkableWithIconToolStripMenuItem.Name = "checkableWithIconToolStripMenuItem";
-            this.checkableWithIconToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.checkableWithIconToolStripMenuItem.Text = "Checkable with icon";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
-            // 
-            // checkedToolStripMenuItem
-            // 
-            this.checkedToolStripMenuItem.Checked = true;
-            this.checkedToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkedToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.checkedToolStripMenuItem.Name = "checkedToolStripMenuItem";
-            this.checkedToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.checkedToolStripMenuItem.Text = "Checked";
-            // 
-            // checkedWithIconToolStripMenuItem
-            // 
-            this.checkedWithIconToolStripMenuItem.Checked = true;
-            this.checkedWithIconToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkedWithIconToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.checkedWithIconToolStripMenuItem.Image = global::Acid.Editor.Icons.properties_16xLG;
-            this.checkedWithIconToolStripMenuItem.Name = "checkedWithIconToolStripMenuItem";
-            this.checkedWithIconToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.checkedWithIconToolStripMenuItem.Text = "Checked with icon";
-            // 
-            // mnuWindow
-            // 
-            this.mnuWindow.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.mnuTools.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuTools.Name = "mnuTools";
+			this.mnuTools.Size = new System.Drawing.Size(47, 20);
+			this.mnuTools.Text = "&Tools";
+			// 
+			// checkableToolStripMenuItem
+			// 
+			this.checkableToolStripMenuItem.CheckOnClick = true;
+			this.checkableToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.checkableToolStripMenuItem.Name = "checkableToolStripMenuItem";
+			this.checkableToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+			this.checkableToolStripMenuItem.Text = "Checkable";
+			// 
+			// checkableWithIconToolStripMenuItem
+			// 
+			this.checkableWithIconToolStripMenuItem.CheckOnClick = true;
+			this.checkableWithIconToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.checkableWithIconToolStripMenuItem.Image = global::Acid.Editor.Icons.properties_16xLG;
+			this.checkableWithIconToolStripMenuItem.Name = "checkableWithIconToolStripMenuItem";
+			this.checkableWithIconToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+			this.checkableWithIconToolStripMenuItem.Text = "Checkable with icon";
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
+			// 
+			// checkedToolStripMenuItem
+			// 
+			this.checkedToolStripMenuItem.Checked = true;
+			this.checkedToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkedToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.checkedToolStripMenuItem.Name = "checkedToolStripMenuItem";
+			this.checkedToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+			this.checkedToolStripMenuItem.Text = "Checked";
+			// 
+			// checkedWithIconToolStripMenuItem
+			// 
+			this.checkedWithIconToolStripMenuItem.Checked = true;
+			this.checkedWithIconToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkedWithIconToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.checkedWithIconToolStripMenuItem.Image = global::Acid.Editor.Icons.properties_16xLG;
+			this.checkedWithIconToolStripMenuItem.Name = "checkedWithIconToolStripMenuItem";
+			this.checkedWithIconToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+			this.checkedWithIconToolStripMenuItem.Text = "Checked with icon";
+			// 
+			// mnuWindow
+			// 
+			this.mnuWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.mnuWindow.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuAssets,
             this.mnuScene,
             this.mnuHierarchy,
             this.mnuInspector,
             this.mnuConsole});
-            this.mnuWindow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuWindow.Name = "mnuWindow";
-            this.mnuWindow.Size = new System.Drawing.Size(63, 20);
-            this.mnuWindow.Text = "&Window";
-            // 
-            // mnuAssets
-            // 
-            this.mnuAssets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuAssets.Image = global::Acid.Editor.Icons.application_16x;
-            this.mnuAssets.Name = "mnuAssets";
-            this.mnuAssets.Size = new System.Drawing.Size(156, 22);
-            this.mnuAssets.Text = "&Assets Explorer";
-            // 
-            // mnuScene
-            // 
-            this.mnuScene.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuScene.Image = global::Acid.Editor.Icons.document_16xLG;
-            this.mnuScene.Name = "mnuScene";
-            this.mnuScene.Size = new System.Drawing.Size(156, 22);
-            this.mnuScene.Text = "&Scene";
-            // 
-            // mnuHierarchy
-            // 
-            this.mnuHierarchy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuHierarchy.Image = global::Acid.Editor.Icons.Collection_16xLG;
-            this.mnuHierarchy.Name = "mnuHierarchy";
-            this.mnuHierarchy.Size = new System.Drawing.Size(156, 22);
-            this.mnuHierarchy.Text = "&Hierarchy";
-            // 
-            // mnuInspector
-            // 
-            this.mnuInspector.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuInspector.Image = global::Acid.Editor.Icons.properties_16xLG;
-            this.mnuInspector.Name = "mnuInspector";
-            this.mnuInspector.Size = new System.Drawing.Size(156, 22);
-            this.mnuInspector.Text = "&Inspector";
-            // 
-            // mnuConsole
-            // 
-            this.mnuConsole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuConsole.Image = global::Acid.Editor.Icons.Console;
-            this.mnuConsole.Name = "mnuConsole";
-            this.mnuConsole.Size = new System.Drawing.Size(156, 22);
-            this.mnuConsole.Text = "&Console";
-            // 
-            // mnuHelp
-            // 
-            this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.mnuWindow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuWindow.Name = "mnuWindow";
+			this.mnuWindow.Size = new System.Drawing.Size(63, 20);
+			this.mnuWindow.Text = "&Window";
+			// 
+			// mnuAssets
+			// 
+			this.mnuAssets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuAssets.Image = global::Acid.Editor.Icons.application_16x;
+			this.mnuAssets.Name = "mnuAssets";
+			this.mnuAssets.Size = new System.Drawing.Size(152, 22);
+			this.mnuAssets.Text = "&Assets Explorer";
+			// 
+			// mnuScene
+			// 
+			this.mnuScene.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuScene.Image = global::Acid.Editor.Icons.document_16xLG;
+			this.mnuScene.Name = "mnuScene";
+			this.mnuScene.Size = new System.Drawing.Size(152, 22);
+			this.mnuScene.Text = "&Scene";
+			// 
+			// mnuHierarchy
+			// 
+			this.mnuHierarchy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuHierarchy.Image = global::Acid.Editor.Icons.Collection_16xLG;
+			this.mnuHierarchy.Name = "mnuHierarchy";
+			this.mnuHierarchy.Size = new System.Drawing.Size(152, 22);
+			this.mnuHierarchy.Text = "&Hierarchy";
+			// 
+			// mnuInspector
+			// 
+			this.mnuInspector.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuInspector.Image = global::Acid.Editor.Icons.properties_16xLG;
+			this.mnuInspector.Name = "mnuInspector";
+			this.mnuInspector.Size = new System.Drawing.Size(152, 22);
+			this.mnuInspector.Text = "&Inspector";
+			// 
+			// mnuConsole
+			// 
+			this.mnuConsole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuConsole.Image = global::Acid.Editor.Icons.Console;
+			this.mnuConsole.Name = "mnuConsole";
+			this.mnuConsole.Size = new System.Drawing.Size(152, 22);
+			this.mnuConsole.Text = "&Console";
+			// 
+			// mnuHelp
+			// 
+			this.mnuHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuAbout});
-            this.mnuHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuHelp.Name = "mnuHelp";
-            this.mnuHelp.Size = new System.Drawing.Size(44, 20);
-            this.mnuHelp.Text = "&Help";
-            // 
-            // mnuAbout
-            // 
-            this.mnuAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuAbout.Image = global::Acid.Editor.Icons.StatusAnnotations_Information_16xLG_color;
-            this.mnuAbout.Name = "mnuAbout";
-            this.mnuAbout.Size = new System.Drawing.Size(145, 22);
-            this.mnuAbout.Text = "&About";
-            // 
-            // toolMain
-            // 
-            this.toolMain.AutoSize = false;
-            this.toolMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.toolMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.toolMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNewFile});
-            this.toolMain.Location = new System.Drawing.Point(0, 26);
-            this.toolMain.Name = "toolMain";
-            this.toolMain.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
-            this.toolMain.Size = new System.Drawing.Size(944, 28);
-            this.toolMain.TabIndex = 1;
-            this.toolMain.Text = "darkToolStrip1";
-            // 
-            // btnNewFile
-            // 
-            this.btnNewFile.AutoSize = false;
-            this.btnNewFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnNewFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.btnNewFile.Image = global::Acid.Editor.Icons.NewFile_6276;
-            this.btnNewFile.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNewFile.Name = "btnNewFile";
-            this.btnNewFile.Size = new System.Drawing.Size(24, 24);
-            this.btnNewFile.Text = "New file";
-            // 
-            // stripMain
-            // 
-            this.stripMain.AutoSize = false;
-            this.stripMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.stripMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.stripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.mnuHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuHelp.Name = "mnuHelp";
+			this.mnuHelp.Size = new System.Drawing.Size(44, 20);
+			this.mnuHelp.Text = "&Help";
+			// 
+			// mnuAbout
+			// 
+			this.mnuAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuAbout.Image = global::Acid.Editor.Icons.StatusAnnotations_Information_16xLG_color;
+			this.mnuAbout.Name = "mnuAbout";
+			this.mnuAbout.Size = new System.Drawing.Size(107, 22);
+			this.mnuAbout.Text = "&About";
+			// 
+			// stripMain
+			// 
+			this.stripMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.stripMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.stripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel6,
             this.toolStripStatusLabel5});
-            this.stripMain.Location = new System.Drawing.Point(0, 618);
-            this.stripMain.Name = "stripMain";
-            this.stripMain.Padding = new System.Windows.Forms.Padding(0, 5, 0, 3);
-            this.stripMain.Size = new System.Drawing.Size(944, 24);
-            this.stripMain.SizingGrip = false;
-            this.stripMain.TabIndex = 2;
-            this.stripMain.Text = "darkStatusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.AutoSize = false;
-            this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 50, 0);
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(39, 16);
-            this.toolStripStatusLabel1.Text = "Ready";
-            this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // toolStripStatusLabel6
-            // 
-            this.toolStripStatusLabel6.Margin = new System.Windows.Forms.Padding(0, 0, 50, 2);
-            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-            this.toolStripStatusLabel6.Size = new System.Drawing.Size(757, 14);
-            this.toolStripStatusLabel6.Spring = true;
-            this.toolStripStatusLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // toolStripStatusLabel5
-            // 
-            this.toolStripStatusLabel5.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
-            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(46, 16);
-            this.toolStripStatusLabel5.Text = "512 MB"; // TODO: Live update RAM usage.
-            this.toolStripStatusLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // DockPanel
-            // 
-            this.DockPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.DockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DockPanel.Location = new System.Drawing.Point(0, 54);
-            this.DockPanel.Name = "DockPanel";
-            this.DockPanel.Size = new System.Drawing.Size(944, 564);
-            this.DockPanel.TabIndex = 3;
-            // 
-            // darkSeparator1
-            // 
-            this.darkSeparator1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.darkSeparator1.Location = new System.Drawing.Point(0, 24);
-            this.darkSeparator1.Name = "darkSeparator1";
-            this.darkSeparator1.Size = new System.Drawing.Size(944, 2);
-            this.darkSeparator1.TabIndex = 4;
-            this.darkSeparator1.Text = "darkSeparator1";
-            // 
-            // MainForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1404, 936);
-            this.Controls.Add(this.DockPanel);
-            this.Controls.Add(this.stripMain);
-            this.Controls.Add(this.toolMain);
-            this.Controls.Add(this.darkSeparator1);
-            this.Controls.Add(this.mnuMain);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.mnuMain;
-            this.MinimumSize = new System.Drawing.Size(640, 480);
-            this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Acid Editor";
-            this.mnuMain.ResumeLayout(false);
-            this.mnuMain.PerformLayout();
-            this.toolMain.ResumeLayout(false);
-            this.toolMain.PerformLayout();
-            this.stripMain.ResumeLayout(false);
-            this.stripMain.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.stripMain.Location = new System.Drawing.Point(0, 912);
+			this.stripMain.Name = "stripMain";
+			this.stripMain.Padding = new System.Windows.Forms.Padding(0, 5, 0, 3);
+			this.stripMain.Size = new System.Drawing.Size(1404, 24);
+			this.stripMain.TabIndex = 2;
+			this.stripMain.Text = "darkStatusStrip1";
+			// 
+			// toolStripStatusLabel1
+			// 
+			this.toolStripStatusLabel1.AutoSize = false;
+			this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 50, 0);
+			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+			this.toolStripStatusLabel1.Size = new System.Drawing.Size(39, 16);
+			this.toolStripStatusLabel1.Text = "Ready";
+			this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// toolStripStatusLabel6
+			// 
+			this.toolStripStatusLabel6.Margin = new System.Windows.Forms.Padding(0, 0, 50, 2);
+			this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+			this.toolStripStatusLabel6.Size = new System.Drawing.Size(1217, 14);
+			this.toolStripStatusLabel6.Spring = true;
+			this.toolStripStatusLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// toolStripStatusLabel5
+			// 
+			this.toolStripStatusLabel5.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
+			this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+			this.toolStripStatusLabel5.Size = new System.Drawing.Size(46, 16);
+			this.toolStripStatusLabel5.Text = "512 MB";
+			this.toolStripStatusLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// DockPanel
+			// 
+			this.DockPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.DockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.DockPanel.Location = new System.Drawing.Point(0, 26);
+			this.DockPanel.Name = "DockPanel";
+			this.DockPanel.Size = new System.Drawing.Size(1404, 886);
+			this.DockPanel.TabIndex = 3;
+			// 
+			// darkSeparator1
+			// 
+			this.darkSeparator1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.darkSeparator1.Location = new System.Drawing.Point(0, 24);
+			this.darkSeparator1.Name = "darkSeparator1";
+			this.darkSeparator1.Size = new System.Drawing.Size(1404, 2);
+			this.darkSeparator1.TabIndex = 4;
+			this.darkSeparator1.Text = "darkSeparator1";
+			// 
+			// MainForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(1404, 936);
+			this.Controls.Add(this.DockPanel);
+			this.Controls.Add(this.stripMain);
+			this.Controls.Add(this.darkSeparator1);
+			this.Controls.Add(this.mnuMain);
+			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MainMenuStrip = this.mnuMain;
+			this.MinimumSize = new System.Drawing.Size(640, 480);
+			this.Name = "MainForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Acid Editor";
+			this.mnuMain.ResumeLayout(false);
+			this.mnuMain.PerformLayout();
+			this.stripMain.ResumeLayout(false);
+			this.stripMain.PerformLayout();
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
         }
 
         #endregion
 
         private DarkMenuStrip mnuMain;
-        private DarkToolStrip toolMain;
         private DarkStatusStrip stripMain;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
@@ -391,7 +362,6 @@ namespace Acid.Editor
         private System.Windows.Forms.ToolStripMenuItem mnuWindow;
         private System.Windows.Forms.ToolStripMenuItem mnuHelp;
         private System.Windows.Forms.ToolStripMenuItem mnuAbout;
-        private System.Windows.Forms.ToolStripButton btnNewFile;
         private System.Windows.Forms.ToolStripMenuItem mnuNewFile;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private DarkDockPanel DockPanel;

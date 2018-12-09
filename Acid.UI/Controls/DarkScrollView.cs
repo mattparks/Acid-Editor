@@ -3,58 +3,58 @@ using System.Windows.Forms;
 
 namespace Acid.UI.Controls
 {
-	public abstract class DarkScrollView : DarkScrollBase
-	{
-		#region Constructor Region
+    public abstract class DarkScrollView : DarkScrollBase
+    {
+        #region Constructor Region
 
-		protected DarkScrollView()
-		{
-			SetStyle(ControlStyles.OptimizedDoubleBuffer |
-					 ControlStyles.ResizeRedraw |
-					 ControlStyles.UserPaint, true);
-		}
+        protected DarkScrollView()
+        {
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                     ControlStyles.ResizeRedraw |
+                     ControlStyles.UserPaint, true);
+        }
 
-		#endregion
+        #endregion
 
-		#region Paint Region
+        #region Paint Region
 
-		protected abstract void PaintContent(Graphics g);
+        protected abstract void PaintContent(Graphics g);
 
-		protected override void OnPaint(PaintEventArgs e)
-		{
-			var g = e.Graphics;
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            var g = e.Graphics;
 
-			// Draw background
-			using (var b = new SolidBrush(BackColor))
-			{
-				g.FillRectangle(b, ClientRectangle);
-			}
+            // Draw background
+            using (var b = new SolidBrush(BackColor))
+            {
+                g.FillRectangle(b, ClientRectangle);
+            }
 
-			// Offset the graphics based on the viewport, render the control contents, then reset it.
-			g.TranslateTransform(Viewport.Left * -1, Viewport.Top * -1);
+            // Offset the graphics based on the viewport, render the control contents, then reset it.
+            g.TranslateTransform(Viewport.Left * -1, Viewport.Top * -1);
 
-			PaintContent(g);
+            PaintContent(g);
 
-			g.TranslateTransform(Viewport.Left, Viewport.Top);
+            g.TranslateTransform(Viewport.Left, Viewport.Top);
 
-			// Draw the bit where the scrollbars meet
-			if (_vScrollBar.Visible && _hScrollBar.Visible)
-			{
-				using (var b = new SolidBrush(BackColor))
-				{
-					var rect = new Rectangle(_hScrollBar.Right, _vScrollBar.Bottom, _vScrollBar.Width,
-											 _hScrollBar.Height);
+            // Draw the bit where the scrollbars meet
+            if (!VScrollBar.Visible || !HScrollBar.Visible)
+                return;
+            
+            using (var b = new SolidBrush(BackColor))
+            {
+                var rect = new Rectangle(HScrollBar.Right, VScrollBar.Bottom, VScrollBar.Width,
+                    HScrollBar.Height);
 
-					g.FillRectangle(b, rect);
-				}
-			}
-		}
+                g.FillRectangle(b, rect);
+            }
+        }
 
-		protected override void OnPaintBackground(PaintEventArgs e)
-		{
-			// Absorb event
-		}
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            // Absorb event
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }

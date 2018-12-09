@@ -1,7 +1,7 @@
 ﻿using Acid.UI.Config;
 using Acid.UI.Docking;
 
-namespace Acid.Editor
+namespace Acid.Editor.Forms.Docking
 {
     partial class DockInspector
     {
@@ -59,7 +59,7 @@ namespace Acid.Editor
             this.pnlMain.Location = new System.Drawing.Point(0, 25);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Padding = new System.Windows.Forms.Padding(10);
-            this.pnlMain.Size = new System.Drawing.Size(280, 425);
+            this.pnlMain.Size = new System.Drawing.Size(200, 205);
             this.pnlMain.TabIndex = 0;
             // 
             // panel1
@@ -73,7 +73,7 @@ namespace Acid.Editor
             this.panel1.Location = new System.Drawing.Point(10, 103);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel1.Size = new System.Drawing.Size(260, 93);
+            this.panel1.Size = new System.Drawing.Size(180, 93);
             this.panel1.TabIndex = 2;
             // 
             // darkRadioButton3
@@ -83,7 +83,7 @@ namespace Acid.Editor
             this.darkRadioButton3.Enabled = false;
             this.darkRadioButton3.Location = new System.Drawing.Point(0, 64);
             this.darkRadioButton3.Name = "darkRadioButton3";
-            this.darkRadioButton3.Size = new System.Drawing.Size(260, 19);
+            this.darkRadioButton3.Size = new System.Drawing.Size(180, 19);
             this.darkRadioButton3.TabIndex = 6;
             this.darkRadioButton3.TabStop = true;
             this.darkRadioButton3.Text = "Disabled radiobutton";
@@ -94,7 +94,7 @@ namespace Acid.Editor
             this.darkRadioButton2.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkRadioButton2.Location = new System.Drawing.Point(0, 45);
             this.darkRadioButton2.Name = "darkRadioButton2";
-            this.darkRadioButton2.Size = new System.Drawing.Size(260, 19);
+            this.darkRadioButton2.Size = new System.Drawing.Size(180, 19);
             this.darkRadioButton2.TabIndex = 5;
             this.darkRadioButton2.TabStop = true;
             this.darkRadioButton2.Text = "Radiobutton";
@@ -105,7 +105,7 @@ namespace Acid.Editor
             this.darkRadioButton1.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkRadioButton1.Location = new System.Drawing.Point(0, 26);
             this.darkRadioButton1.Name = "darkRadioButton1";
-            this.darkRadioButton1.Size = new System.Drawing.Size(260, 19);
+            this.darkRadioButton1.Size = new System.Drawing.Size(180, 19);
             this.darkRadioButton1.TabIndex = 4;
             this.darkRadioButton1.TabStop = true;
             this.darkRadioButton1.Text = "Radiobutton";
@@ -115,7 +115,7 @@ namespace Acid.Editor
             this.darkTitle1.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkTitle1.Location = new System.Drawing.Point(0, 0);
             this.darkTitle1.Name = "darkTitle1";
-            this.darkTitle1.Size = new System.Drawing.Size(260, 26);
+            this.darkTitle1.Size = new System.Drawing.Size(180, 26);
             this.darkTitle1.TabIndex = 7;
             this.darkTitle1.Text = "Radio buttons";
             // 
@@ -130,7 +130,7 @@ namespace Acid.Editor
             this.panel2.Location = new System.Drawing.Point(10, 10);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel2.Size = new System.Drawing.Size(260, 93);
+            this.panel2.Size = new System.Drawing.Size(180, 93);
             this.panel2.TabIndex = 1;
             // 
             // darkCheckBox3
@@ -142,7 +142,7 @@ namespace Acid.Editor
             this.darkCheckBox3.Enabled = false;
             this.darkCheckBox3.Location = new System.Drawing.Point(0, 64);
             this.darkCheckBox3.Name = "darkCheckBox3";
-            this.darkCheckBox3.Size = new System.Drawing.Size(260, 19);
+            this.darkCheckBox3.Size = new System.Drawing.Size(180, 19);
             this.darkCheckBox3.TabIndex = 6;
             this.darkCheckBox3.Text = "Disabled checked checkbox";
             // 
@@ -153,7 +153,7 @@ namespace Acid.Editor
             this.darkCheckBox2.Enabled = false;
             this.darkCheckBox2.Location = new System.Drawing.Point(0, 45);
             this.darkCheckBox2.Name = "darkCheckBox2";
-            this.darkCheckBox2.Size = new System.Drawing.Size(260, 19);
+            this.darkCheckBox2.Size = new System.Drawing.Size(180, 19);
             this.darkCheckBox2.TabIndex = 5;
             this.darkCheckBox2.Text = "Disabled checkbox";
             // 
@@ -163,7 +163,7 @@ namespace Acid.Editor
             this.darkCheckBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkCheckBox1.Location = new System.Drawing.Point(0, 26);
             this.darkCheckBox1.Name = "darkCheckBox1";
-            this.darkCheckBox1.Size = new System.Drawing.Size(260, 19);
+            this.darkCheckBox1.Size = new System.Drawing.Size(180, 19);
             this.darkCheckBox1.TabIndex = 4;
             this.darkCheckBox1.Text = "Checkbox";
             // 
@@ -172,7 +172,7 @@ namespace Acid.Editor
             this.darkTitle2.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkTitle2.Location = new System.Drawing.Point(0, 0);
             this.darkTitle2.Name = "darkTitle2";
-            this.darkTitle2.Size = new System.Drawing.Size(260, 26);
+            this.darkTitle2.Size = new System.Drawing.Size(180, 26);
             this.darkTitle2.TabIndex = 8;
             this.darkTitle2.Text = "Check boxes";
             // 
@@ -185,7 +185,7 @@ namespace Acid.Editor
             this.panel3.Location = new System.Drawing.Point(10, 10);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel3.Size = new System.Drawing.Size(260, 93);
+            this.panel3.Size = new System.Drawing.Size(180, 93);
             this.panel3.TabIndex = 1;
             // 
             // darkCheckBox1
@@ -194,7 +194,7 @@ namespace Acid.Editor
             this.darkButton1.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkButton1.Location = new System.Drawing.Point(0, 26);
             this.darkButton1.Name = "darkButton1";
-            this.darkButton1.Size = new System.Drawing.Size(260, 19);
+            this.darkButton1.Size = new System.Drawing.Size(180, 19);
             this.darkButton1.TabIndex = 4;
             this.darkButton1.Text = "Button";
             // 
@@ -203,7 +203,7 @@ namespace Acid.Editor
             this.darkTitle3.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkTitle3.Location = new System.Drawing.Point(0, 0);
             this.darkTitle3.Name = "darkTitle3";
-            this.darkTitle3.Size = new System.Drawing.Size(260, 26);
+            this.darkTitle3.Size = new System.Drawing.Size(180, 26);
             this.darkTitle3.TabIndex = 8;
             this.darkTitle3.Text = "Buttons";
             // 
@@ -218,7 +218,7 @@ namespace Acid.Editor
             this.Icon = global::Acid.Editor.Icons.properties_16xLG;
             this.Name = "DockInspector";
             this.SerializationKey = "DockInspector";
-            this.Size = new System.Drawing.Size(280, 450);
+            this.Size = new System.Drawing.Size(200, 230);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.panel1.ResumeLayout(false);

@@ -1,30 +1,37 @@
-﻿using System.ComponentModel;
-using Acid.UI.Config;
+﻿using Acid.UI.Config;
+using System.ComponentModel;
+using System.Drawing;
 
 namespace Acid.UI.Docking
 {
-	[ToolboxItem(false)]
-	public class DarkDocument : DarkDockContent
-	{
-		#region Property Region
+    [ToolboxItem(false)]
+    public class DarkDocument : DarkDockContent
+    {
+        #region Property Region
 
-		[Browsable(false)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new DarkDockArea DefaultDockArea
-		{
-			get { return base.DefaultDockArea; }
-		}
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new DarkDockArea DefaultDockArea
+        {
+            get { return base.DefaultDockArea; }
+        }
 
-		#endregion
+        public sealed override Color BackColor
+        {
+            get { return base.BackColor; }
+            set { base.BackColor = value; }
+        }
+        
+        #endregion
 
-		#region Constructor Region
+        #region Constructor Region
 
-		public DarkDocument()
-		{
-			BackColor = Colours.GreyBackground;
-			base.DefaultDockArea = DarkDockArea.Document;
-		}
+        public DarkDocument()
+        {
+            BackColor = Colours.GreyBackground;
+            base.DefaultDockArea = DarkDockArea.Document;
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }

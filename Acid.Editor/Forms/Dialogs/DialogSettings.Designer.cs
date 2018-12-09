@@ -1,6 +1,6 @@
 ﻿using Acid.UI.Controls;
 
-namespace Acid.Editor
+namespace Acid.Editor.Forms.Dialogs
 {
     partial class DialogSettings
     {

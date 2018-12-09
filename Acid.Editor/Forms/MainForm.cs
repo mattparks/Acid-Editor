@@ -1,24 +1,27 @@
-﻿using Acid.UI.Docking;
-using Acid.UI.Forms;
-using Acid.UI.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+using Acid.UI.Docking;
+using Acid.UI.Forms;
+using Acid.UI.Win32;
+using Acid.Editor.Forms.Dialogs;
+using Acid.Editor.Forms.Docking;
 
-namespace Acid.Editor
+namespace Acid.Editor.Forms
 {
     public partial class MainForm : DarkForm
     {
         #region Field Region
 
-        private List<DarkDockContent> _toolWindows = new List<DarkDockContent>();
+        private readonly List<DarkDockContent> _toolWindows = new List<DarkDockContent>();
 
-        private DockAssets _dockAssets;
-        private DockScene _dockScene;
-        private DockHierarchy _dockHierarchy;
-        private DockInspector _dockInspector;
-        private DockConsole _dockConsole;
+        private readonly DockAssets _dockAssets;
+        private readonly DockScene _dockScene;
+        private readonly DockHierarchy _dockHierarchy;
+        private readonly DockInspector _dockInspector;
+        private readonly DockConsole _dockConsole;
 
         #endregion
 
@@ -57,9 +60,9 @@ namespace Acid.Editor
             _toolWindows.Add(_dockConsole);
 
             // Deserialize if a previous state is stored
-            if (File.Exists("dockpanel.config"))
+            if (File.Exists("dockpanel.xml"))
             {
-                DeserializeDockPanel("dockpanel.config");
+                DeserializeDockPanel("dockpanel.xml");
             }
             else
             {
@@ -85,8 +88,6 @@ namespace Acid.Editor
 
             mnuNewFile.Click += NewFile_Click;
             mnuClose.Click += Close_Click;
-
-            btnNewFile.Click += NewFile_Click;
 
             mnuSettings.Click += SettingsClick;
 
@@ -122,7 +123,7 @@ namespace Acid.Editor
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SerializeDockPanel("dockpanel.config");
+            SerializeDockPanel("dockpanel.xml");
         }
 
         private void DockPanel_ContentAdded(object sender, DockContentEventArgs e)
@@ -191,14 +192,20 @@ namespace Acid.Editor
 
         private void SerializeDockPanel(string path)
         {
-            var state = DockPanel.GetDockPanelState();
-            SerializerHelper.Serialize(state, path);
-        }
+	        DockPanelState state = DockPanel.GetDockPanelState();
+	        var serializer = new XmlSerializer(typeof(DockPanelState));
+	        using (var stream = new FileStream(path, FileMode.Create, FileAccess.Write))
+		        serializer.Serialize(stream, state);
+		}
 
         private void DeserializeDockPanel(string path)
         {
-            var state = SerializerHelper.Deserialize<DockPanelState>(path);
-            DockPanel.RestoreDockPanelState(state, GetContentBySerializationKey);
+	        DockPanelState state;
+	        var serializer = new XmlSerializer(typeof(DockPanelState));
+	        using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
+		        state = (DockPanelState)serializer.Deserialize(stream);
+
+			DockPanel.RestoreDockPanelState(state, GetContentBySerializationKey);
         }
          
         private DarkDockContent GetContentBySerializationKey(string key)

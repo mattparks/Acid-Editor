@@ -1,11 +1,11 @@
-os: Visual Studio 2015
+os: Visual Studio 2017
+clone_folder: c:\projects\acid-engine
 configuration:
   - Release
 before_build:
   - nuget restore
 install:
-- set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
+  - set PATH=C:\Program Files (x86)\MSBuild\15.0\Bin;%PATH%
 artifacts:
-  - path: obj\%CONFIGURATION%
+  - path: acid-engine\bin\%CONFIGURATION%
     name: Acid Editor (%CONFIGURATION%)
-    type: zip

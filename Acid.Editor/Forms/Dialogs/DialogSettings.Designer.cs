@@ -123,7 +123,8 @@ namespace Acid.Editor.Forms.Dialogs
             // darkRadioButton3
             // 
             this.darkRadioButton3.AutoSize = true;
-            this.darkRadioButton3.Dock = System.Windows.Forms.DockStyle.Top;
+	        this.darkRadioButton3.Enabled = false;
+			this.darkRadioButton3.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkRadioButton3.Location = new System.Drawing.Point(0, 61);
             this.darkRadioButton3.Name = "darkRadioButton3";
             this.darkRadioButton3.Size = new System.Drawing.Size(200, 19);
@@ -146,7 +147,8 @@ namespace Acid.Editor.Forms.Dialogs
             // darkRadioButton1
             // 
             this.darkRadioButton1.AutoSize = true;
-            this.darkRadioButton1.Dock = System.Windows.Forms.DockStyle.Top;
+	        this.darkRadioButton1.Enabled = false;
+			this.darkRadioButton1.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkRadioButton1.Location = new System.Drawing.Point(0, 23);
             this.darkRadioButton1.Name = "darkRadioButton1";
             this.darkRadioButton1.Size = new System.Drawing.Size(200, 19);
@@ -160,7 +162,7 @@ namespace Acid.Editor.Forms.Dialogs
             this.darkTitle3.Name = "darkTitle3";
             this.darkTitle3.Size = new System.Drawing.Size(200, 23);
             this.darkTitle3.TabIndex = 16;
-            this.darkTitle3.Text = "Thems";
+            this.darkTitle3.Text = "Themes";
             // 
             // panel4
             // 

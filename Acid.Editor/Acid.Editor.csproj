@@ -256,11 +256,11 @@
     <Compile Include="Forms\Docking\DockInspector.Designer.cs">
       <DependentUpon>DockInspector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Docking\DockAssets.cs">
+    <Compile Include="Forms\Docking\DockResources.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\Docking\DockAssets.Designer.cs">
-      <DependentUpon>DockAssets.cs</DependentUpon>
+    <Compile Include="Forms\Docking\DockResources.Designer.cs">
+      <DependentUpon>DockResources.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -297,8 +297,8 @@
     <EmbeddedResource Include="Forms\Docking\DockInspector.resx">
       <DependentUpon>DockInspector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Docking\DockAssets.resx">
-      <DependentUpon>DockAssets.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Docking\DockResources.resx">
+      <DependentUpon>DockResources.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -386,6 +386,7 @@
     <None Include="Resources\NewTest_16x.png" />
     <None Include="Resources\NewTable_16x.png" />
     <None Include="Resources\SaveAs_16x.png" />
+    <Content Include="Resources\ListViewTable_16x.png" />
     <Content Include="Resources\warning_16x.png" />
     <None Include="Resources\icon_512x.ico" />
   </ItemGroup>

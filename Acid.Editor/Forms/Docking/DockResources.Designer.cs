@@ -4,7 +4,7 @@ using Acid.UI.Docking;
 
 namespace Acid.Editor.Forms.Docking
 {
-    partial class DockAssets
+    partial class DockResources
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,34 +32,33 @@ namespace Acid.Editor.Forms.Docking
         /// </summary>
         private void InitializeComponent()
         {
-			this.treeProject = new Acid.UI.Controls.DarkTreeView();
+			this.darktreeView1 = new Acid.UI.Controls.DarkTreeView();
 			this.SuspendLayout();
 			// 
-			// treeProject
+			// darktreeView
 			// 
-			this.treeProject.AllowDrop = true;
-			this.treeProject.AllowMoveNodes = true;
-			this.treeProject.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.treeProject.Location = new System.Drawing.Point(0, 25);
-			this.treeProject.MaxDragChange = 20;
-			this.treeProject.MultiSelect = true;
-			this.treeProject.Name = "treeProject";
-			this.treeProject.ShowIcons = true;
-			this.treeProject.Size = new System.Drawing.Size(200, 175);
-			this.treeProject.TabIndex = 0;
-			this.treeProject.Text = "darkTreeView1";
+			this.darktreeView1.AllowDrop = true;
+			this.darktreeView1.AllowMoveNodes = true;
+			this.darktreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.darktreeView1.Location = new System.Drawing.Point(0, 25);
+			this.darktreeView1.MaxDragChange = 20;
+			this.darktreeView1.MultiSelect = true;
+			this.darktreeView1.Name = "darktreeView1";
+			this.darktreeView1.ShowIcons = true;
+			this.darktreeView1.Size = new System.Drawing.Size(200, 175);
+			this.darktreeView1.TabIndex = 0;
 			// 
-			// DockAssets
+			// DockResources
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.treeProject);
+			this.Controls.Add(this.darktreeView1);
 			this.DefaultDockArea = Acid.UI.Docking.DarkDockArea.Bottom;
-			this.DockText = "Assets Explorer";
+			this.DockText = "Resources";
 			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Icon = global::Acid.Editor.Icons.application_16x;
-			this.Name = "DockAssets";
-			this.SerializationKey = "DockAssets";
+			this.Icon = global::Acid.Editor.Icons.ListViewTable_16x;
+			this.Name = "DockResources";
+			this.SerializationKey = "DockResources";
 			this.Size = new System.Drawing.Size(200, 200);
 			this.ResumeLayout(false);
 
@@ -67,6 +66,6 @@ namespace Acid.Editor.Forms.Docking
 
         #endregion
 
-        private DarkTreeView treeProject;
+        private DarkTreeView darktreeView1;
     }
 }

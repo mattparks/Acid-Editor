@@ -44,7 +44,7 @@ namespace Acid.Editor.Forms
 			this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuSettings = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuWindow = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuAssets = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuResources = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuScene = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuHierarchy = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuInspector = new System.Windows.Forms.ToolStripMenuItem();
@@ -185,7 +185,7 @@ namespace Acid.Editor.Forms
 			// 
 			this.mnuWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
 			this.mnuWindow.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuAssets,
+            this.mnuResources,
             this.mnuScene,
             this.mnuHierarchy,
             this.mnuInspector,
@@ -195,13 +195,13 @@ namespace Acid.Editor.Forms
 			this.mnuWindow.Size = new System.Drawing.Size(63, 20);
 			this.mnuWindow.Text = "&Window";
 			// 
-			// mnuAssets
+			// mnuResources
 			// 
-			this.mnuAssets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.mnuAssets.Image = global::Acid.Editor.Icons.application_16x;
-			this.mnuAssets.Name = "mnuAssets";
-			this.mnuAssets.Size = new System.Drawing.Size(152, 22);
-			this.mnuAssets.Text = "&Assets Explorer";
+			this.mnuResources.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuResources.Image = global::Acid.Editor.Icons.ListViewTable_16x;
+			this.mnuResources.Name = "mnuResources";
+			this.mnuResources.Size = new System.Drawing.Size(152, 22);
+			this.mnuResources.Text = "&Resources";
 			// 
 			// mnuScene
 			// 
@@ -353,7 +353,7 @@ namespace Acid.Editor.Forms
         private System.Windows.Forms.ToolStripMenuItem mnuNewFile;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private DarkDockPanel DockPanel;
-        private System.Windows.Forms.ToolStripMenuItem mnuAssets;
+        private System.Windows.Forms.ToolStripMenuItem mnuResources;
         private System.Windows.Forms.ToolStripMenuItem mnuScene;
         private System.Windows.Forms.ToolStripMenuItem mnuHierarchy;
         private System.Windows.Forms.ToolStripMenuItem mnuInspector;

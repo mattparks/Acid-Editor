@@ -18,7 +18,7 @@ namespace Acid.Editor.Forms
 
         private readonly List<DarkDockContent> _toolWindows = new List<DarkDockContent>();
 
-        private readonly DockAssets _dockAssets;
+        private readonly DockResources _dockAssets;
         private readonly DockScene _dockScene;
         private readonly DockHierarchy _dockHierarchy;
         private readonly DockInspector _dockInspector;
@@ -47,7 +47,7 @@ namespace Acid.Editor.Forms
             HookEvents();
 
             // Build the tool windows and add them to the dock panel
-            _dockAssets = new DockAssets();
+            _dockAssets = new DockResources();
             _dockScene = new DockScene();
             _dockHierarchy = new DockHierarchy();
             _dockInspector = new DockInspector();
@@ -100,7 +100,7 @@ namespace Acid.Editor.Forms
 
             mnuSettings.Click += SettingsClick;
 
-            mnuAssets.Click += AssetsClick;
+            mnuResources.Click += ResourcesClick;
             mnuScene.Click += SceneClick;
             mnuHierarchy.Click += HierarchyClick;
             mnuInspector.Click += InspectorClick;
@@ -119,7 +119,7 @@ namespace Acid.Editor.Forms
 
         private void BuildWindowMenu()
         {
-            mnuAssets.Checked = DockPanel.ContainsContent(_dockAssets);
+            mnuResources.Checked = DockPanel.ContainsContent(_dockAssets);
             mnuScene.Checked = DockPanel.ContainsContent(_dockScene);
             mnuHierarchy.Checked = DockPanel.ContainsContent(_dockHierarchy);
             mnuInspector.Checked = DockPanel.ContainsContent(_dockInspector);
@@ -164,7 +164,7 @@ namespace Acid.Editor.Forms
             test.ShowDialog();
         }
 
-        private void AssetsClick(object sender, EventArgs e)
+        private void ResourcesClick(object sender, EventArgs e)
         {
             ToggleToolWindow(_dockAssets);
         }

@@ -5,11 +5,11 @@ using System.IO;
 
 namespace Acid.Editor.Forms.Docking
 {
-    public partial class DockAssets : DarkToolWindow
+    public partial class DockResources : DarkToolWindow
     {
         #region Constructor Region
 
-        public DockAssets()
+        public DockResources()
         {
             InitializeComponent();
 
@@ -43,7 +43,7 @@ namespace Acid.Editor.Forms.Docking
                     
                     if (parentNode == null)
                     {
-                        treeProject.Nodes.Add(node);
+	                    darktreeView1.Nodes.Add(node);
                     }
                     else
                     {
@@ -59,7 +59,7 @@ namespace Acid.Editor.Forms.Docking
                         {
                             Icon = Icons.files
                         };
-                        treeProject.Nodes.Add(childNode);
+	                    darktreeView1.Nodes.Add(childNode);
                     }
                 }
             }

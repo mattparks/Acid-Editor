@@ -1,5 +1,7 @@
+version: 0.1.1{build}
+build:
+  verbosity: minimal
 os: Visual Studio 2017
-clone_folder: c:\projects\acid-engine
 configuration:
   - Release
 before_build:
@@ -7,5 +9,16 @@ before_build:
 install:
   - set PATH=C:\Program Files (x86)\MSBuild\15.0\Bin;%PATH%
 artifacts:
-  - path: acid-engine\bin\%CONFIGURATION%
-    name: Acid Editor (%CONFIGURATION%)
+  - path: Acid.Editor\bin\$(configuration)
+    name: Acid Editor ($(configuration))
+deploy:
+  release: acid-editor-v$(appveyor_build_version)
+  description: 'release test'
+  provider: GitHub
+  auth_token:
+    secure: vIHxXgPGlmN2KWCj0DrAzPpVMTT3w2fxc1tQu5KS9OXTIzJG8LZNoXM7IenLZy/2
+  artifact: Acid.Editor\bin\$(configuration)
+  draft: true
+  prerelease: false
+  on:
+    appveyor_repo_tag: true

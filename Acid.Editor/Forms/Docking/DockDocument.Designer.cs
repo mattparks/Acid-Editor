@@ -47,10 +47,10 @@ namespace Acid.Editor.Forms.Docking
             this.txtDocument.Size = new System.Drawing.Size(175, 173);
             this.txtDocument.TabIndex = 1;
             this.txtDocument.Text = "This is some example text";
-	        // 
-	        // cmbOptions
-	        // 
-	        this.cmbOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			// 
+			// cmbOptions
+			// 
+			this.cmbOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 	        this.cmbOptions.DropdownDirection = System.Windows.Forms.ToolStripDropDownDirection.AboveRight;
 	        this.cmbOptions.Font = new System.Drawing.Font("Segoe UI", 10.0F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 	        this.cmbOptions.Location = new System.Drawing.Point(0, 158);

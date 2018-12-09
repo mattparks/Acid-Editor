@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Acid.Editor.Forms.Docking
 {
@@ -40,14 +41,14 @@ namespace Acid.Editor.Forms.Docking
             this.DefaultDockArea = Acid.UI.Docking.DarkDockArea.Document;
             this.DockText = "Scene";
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = global::Acid.Editor.Icons.RefactoringLog_12810;
+			this.Icon = global::Acid.Editor.Icons.RefactoringLog_12810;
             this.Name = "Scene";
             this.SerializationKey = "DockScene";
             this.Size = new System.Drawing.Size(720, 480);
-            this.SizeChanged += DockResize;
+			this.SizeChanged += DockResize;
             this.VisibleChanged += DockVisible;
             this.LocationChanged += DockLocation;
-            this.ResumeLayout(false);
+			this.ResumeLayout(false);
         }
 
         private void DockResize(object sender, System.EventArgs e)

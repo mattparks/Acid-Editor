@@ -157,7 +157,19 @@
   <data name="document_16xLG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\document_16xLG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="error_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\error_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warning_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\warning_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="info_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\info_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon_512x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\icon_512x.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>resources\icon_512x.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_512x1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\icon_512x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

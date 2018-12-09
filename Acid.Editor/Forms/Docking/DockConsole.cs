@@ -16,12 +16,13 @@ namespace Acid.Editor.Forms.Docking
             for (var i = 0; i < 100; i++)
             {
                 var item = new DarkListItem($"List item #{i}");
-                if (i < 2)
-                    item.TextColor = Color.Red;
-                else if (i < 6)
-                    item.TextColor = Color.Orange;
-
-                lstConsole.Items.Add(item);
+	            if (i < 2)
+		            item.Icon = Icons.error_16x;
+	            else if (i < 7)
+		            item.Icon = Icons.warning_16x;
+				else
+		            item.Icon = Icons.info_16x;
+				lstConsole.Items.Add(item);
             }
         }
 

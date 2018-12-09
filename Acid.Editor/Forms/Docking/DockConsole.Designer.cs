@@ -39,7 +39,8 @@ namespace Acid.Editor.Forms.Docking
             this.lstConsole.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstConsole.Location = new System.Drawing.Point(0, 25);
             this.lstConsole.MultiSelect = true;
-            this.lstConsole.Name = "lstConsole";
+	        this.lstConsole.ShowIcons = true;
+			this.lstConsole.Name = "lstConsole";
             this.lstConsole.Size = new System.Drawing.Size(200, 175);
             this.lstConsole.TabIndex = 0;
             this.lstConsole.Text = "darkListView1";

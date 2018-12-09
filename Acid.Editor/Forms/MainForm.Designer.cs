@@ -39,12 +39,6 @@ namespace Acid.Editor.Forms
 			this.mnuClose = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuSettings = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuTools = new System.Windows.Forms.ToolStripMenuItem();
-			this.checkableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.checkableWithIconToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.checkedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.checkedWithIconToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuWindow = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuAssets = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuScene = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +64,6 @@ namespace Acid.Editor.Forms
 			this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFile,
             this.mnuView,
-            this.mnuTools,
             this.mnuWindow,
             this.mnuHelp});
 			this.mnuMain.Location = new System.Drawing.Point(0, 0);
@@ -135,63 +128,6 @@ namespace Acid.Editor.Forms
 			this.mnuSettings.Size = new System.Drawing.Size(116, 22);
 			this.mnuSettings.Text = "&Settings";
 			// 
-			// mnuTools
-			// 
-			this.mnuTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-			this.mnuTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.checkableToolStripMenuItem,
-            this.checkableWithIconToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.checkedToolStripMenuItem,
-            this.checkedWithIconToolStripMenuItem});
-			this.mnuTools.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.mnuTools.Name = "mnuTools";
-			this.mnuTools.Size = new System.Drawing.Size(47, 20);
-			this.mnuTools.Text = "&Tools";
-			// 
-			// checkableToolStripMenuItem
-			// 
-			this.checkableToolStripMenuItem.CheckOnClick = true;
-			this.checkableToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.checkableToolStripMenuItem.Name = "checkableToolStripMenuItem";
-			this.checkableToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-			this.checkableToolStripMenuItem.Text = "Checkable";
-			// 
-			// checkableWithIconToolStripMenuItem
-			// 
-			this.checkableWithIconToolStripMenuItem.CheckOnClick = true;
-			this.checkableWithIconToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.checkableWithIconToolStripMenuItem.Image = global::Acid.Editor.Icons.properties_16xLG;
-			this.checkableWithIconToolStripMenuItem.Name = "checkableWithIconToolStripMenuItem";
-			this.checkableWithIconToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-			this.checkableWithIconToolStripMenuItem.Text = "Checkable with icon";
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
-			// 
-			// checkedToolStripMenuItem
-			// 
-			this.checkedToolStripMenuItem.Checked = true;
-			this.checkedToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkedToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.checkedToolStripMenuItem.Name = "checkedToolStripMenuItem";
-			this.checkedToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-			this.checkedToolStripMenuItem.Text = "Checked";
-			// 
-			// checkedWithIconToolStripMenuItem
-			// 
-			this.checkedWithIconToolStripMenuItem.Checked = true;
-			this.checkedWithIconToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkedWithIconToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.checkedWithIconToolStripMenuItem.Image = global::Acid.Editor.Icons.properties_16xLG;
-			this.checkedWithIconToolStripMenuItem.Name = "checkedWithIconToolStripMenuItem";
-			this.checkedWithIconToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-			this.checkedWithIconToolStripMenuItem.Text = "Checked with icon";
-			// 
 			// mnuWindow
 			// 
 			this.mnuWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
@@ -217,7 +153,7 @@ namespace Acid.Editor.Forms
 			// mnuScene
 			// 
 			this.mnuScene.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.mnuScene.Image = global::Acid.Editor.Icons.document_16xLG;
+			this.mnuScene.Image = global::Acid.Editor.Icons.RefactoringLog_12810;
 			this.mnuScene.Name = "mnuScene";
 			this.mnuScene.Size = new System.Drawing.Size(152, 22);
 			this.mnuScene.Text = "&Scene";
@@ -358,7 +294,6 @@ namespace Acid.Editor.Forms
         private System.Windows.Forms.ToolStripMenuItem mnuView;
         private System.Windows.Forms.ToolStripMenuItem mnuSettings;
         private System.Windows.Forms.ToolStripMenuItem mnuClose;
-        private System.Windows.Forms.ToolStripMenuItem mnuTools;
         private System.Windows.Forms.ToolStripMenuItem mnuWindow;
         private System.Windows.Forms.ToolStripMenuItem mnuHelp;
         private System.Windows.Forms.ToolStripMenuItem mnuAbout;
@@ -371,11 +306,5 @@ namespace Acid.Editor.Forms
         private System.Windows.Forms.ToolStripMenuItem mnuInspector;
         private System.Windows.Forms.ToolStripMenuItem mnuConsole;
         private DarkSeparator darkSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem checkableToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem checkableWithIconToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem checkedToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem checkedWithIconToolStripMenuItem;
     }
 }
-

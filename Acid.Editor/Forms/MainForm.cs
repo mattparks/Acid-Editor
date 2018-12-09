@@ -8,6 +8,7 @@ using Acid.UI.Forms;
 using Acid.UI.Win32;
 using Acid.Editor.Forms.Dialogs;
 using Acid.Editor.Forms.Docking;
+using System.Diagnostics;
 
 namespace Acid.Editor.Forms
 {
@@ -52,8 +53,16 @@ namespace Acid.Editor.Forms
             _dockInspector = new DockInspector();
             _dockConsole = new DockConsole();
 
-            // Add the tool windows to a list
-            _toolWindows.Add(_dockAssets);
+			// Timer tick every second
+			var timer = new Timer
+			{
+				Interval = 1000
+			};
+			timer.Tick += new EventHandler(Timer_Tick);
+	        timer.Start();
+
+			// Add the tool windows to a list
+			_toolWindows.Add(_dockAssets);
             _toolWindows.Add(_dockScene);
             _toolWindows.Add(_dockHierarchy);
             _toolWindows.Add(_dockInspector);
@@ -186,11 +195,16 @@ namespace Acid.Editor.Forms
             about.ShowDialog();
         }
 
-        #endregion
+	    private void Timer_Tick(object sender, EventArgs e)
+	    {
+		    toolStripStatusLabel5.Text = $"{Process.GetCurrentProcess().WorkingSet64 / 1000000} MB";
+	    }
 
-        #region Serialization Region
+		#endregion
 
-        private void SerializeDockPanel(string path)
+		#region Serialization Region
+
+		private void SerializeDockPanel(string path)
         {
 	        DockPanelState state = DockPanel.GetDockPanelState();
 	        var serializer = new XmlSerializer(typeof(DockPanelState));

@@ -381,6 +381,11 @@
     <Content Include="Resources\error_16x.png" />
     <Content Include="Resources\icon_512x.png" />
     <Content Include="Resources\info_16x.png" />
+    <None Include="Resources\Open_grey_16x.png" />
+    <None Include="Resources\Save_grey_16x.png" />
+    <None Include="Resources\NewTest_16x.png" />
+    <None Include="Resources\NewTable_16x.png" />
+    <None Include="Resources\SaveAs_16x.png" />
     <Content Include="Resources\warning_16x.png" />
     <None Include="Resources\icon_512x.ico" />
   </ItemGroup>

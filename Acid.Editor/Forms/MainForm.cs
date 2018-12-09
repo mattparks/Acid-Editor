@@ -69,9 +69,9 @@ namespace Acid.Editor.Forms
             _toolWindows.Add(_dockConsole);
 
             // Deserialize if a previous state is stored
-            if (File.Exists("dockpanel.xml"))
+            if (File.Exists("EditorPanels.xml"))
             {
-                DeserializeDockPanel("dockpanel.xml");
+                DeserializeDockPanel("EditorPanels.xml");
             }
             else
             {
@@ -132,7 +132,7 @@ namespace Acid.Editor.Forms
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SerializeDockPanel("dockpanel.xml");
+            SerializeDockPanel("EditorPanels.xml");
         }
 
         private void DockPanel_ContentAdded(object sender, DockContentEventArgs e)

@@ -58,6 +58,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkTextBox4 = new Acid.UI.Controls.DarkTextBox();
 			this.darkTitle7 = new Acid.UI.Controls.DarkTitle();
 			this.panel6 = new System.Windows.Forms.Panel();
+			this.darkDropdownList1 = new Acid.UI.Controls.DarkDropdownList();
 			this.darkTextBox10 = new Acid.UI.Controls.DarkTextBox();
 			this.darkCheckBox4 = new Acid.UI.Controls.DarkCheckBox();
 			this.darkTitle5 = new Acid.UI.Controls.DarkTitle();
@@ -93,7 +94,7 @@ namespace Acid.Editor.Forms.Docking
 			this.panel1.Controls.Add(this.darkRadioButton1);
 			this.panel1.Controls.Add(this.darkTitle1);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel1.Location = new System.Drawing.Point(10, 347);
+			this.panel1.Location = new System.Drawing.Point(10, 383);
 			this.panel1.Name = "panel1";
 			this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
 			this.panel1.Size = new System.Drawing.Size(227, 93);
@@ -150,7 +151,7 @@ namespace Acid.Editor.Forms.Docking
 			this.panel2.Controls.Add(this.darkCheckBox1);
 			this.panel2.Controls.Add(this.darkTitle2);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel2.Location = new System.Drawing.Point(10, 254);
+			this.panel2.Location = new System.Drawing.Point(10, 290);
 			this.panel2.Name = "panel2";
 			this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
 			this.panel2.Size = new System.Drawing.Size(227, 93);
@@ -207,7 +208,7 @@ namespace Acid.Editor.Forms.Docking
 			this.panel5.Controls.Add(this.darkTextBox9);
 			this.panel5.Controls.Add(this.darkTitle4);
 			this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel5.Location = new System.Drawing.Point(10, 193);
+			this.panel5.Location = new System.Drawing.Point(10, 229);
 			this.panel5.Name = "panel5";
 			this.panel5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
 			this.panel5.Size = new System.Drawing.Size(227, 61);
@@ -224,7 +225,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkTextBox7.Name = "darkTextBox7";
 			this.darkTextBox7.Size = new System.Drawing.Size(54, 23);
 			this.darkTextBox7.TabIndex = 11;
-			this.darkTextBox7.Text = "0.0";
+			this.darkTextBox7.Text = "1.0";
 			this.darkTextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.darkTextBox7.WordWrap = false;
 			// 
@@ -239,7 +240,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkTextBox8.Name = "darkTextBox8";
 			this.darkTextBox8.Size = new System.Drawing.Size(54, 23);
 			this.darkTextBox8.TabIndex = 10;
-			this.darkTextBox8.Text = "0.0";
+			this.darkTextBox8.Text = "1.0";
 			this.darkTextBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.darkTextBox8.WordWrap = false;
 			// 
@@ -253,7 +254,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkTextBox9.Name = "darkTextBox9";
 			this.darkTextBox9.Size = new System.Drawing.Size(54, 23);
 			this.darkTextBox9.TabIndex = 9;
-			this.darkTextBox9.Text = "0.0";
+			this.darkTextBox9.Text = "1.0";
 			this.darkTextBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.darkTextBox9.WordWrap = false;
 			// 
@@ -274,7 +275,7 @@ namespace Acid.Editor.Forms.Docking
 			this.panel3.Controls.Add(this.darkTextBox3);
 			this.panel3.Controls.Add(this.darkTitle3);
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel3.Location = new System.Drawing.Point(10, 132);
+			this.panel3.Location = new System.Drawing.Point(10, 168);
 			this.panel3.Name = "panel3";
 			this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
 			this.panel3.Size = new System.Drawing.Size(227, 61);
@@ -306,7 +307,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkTextBox2.Name = "darkTextBox2";
 			this.darkTextBox2.Size = new System.Drawing.Size(54, 23);
 			this.darkTextBox2.TabIndex = 10;
-			this.darkTextBox2.Text = "0.0";
+			this.darkTextBox2.Text = "360.0";
 			this.darkTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.darkTextBox2.WordWrap = false;
 			// 
@@ -341,7 +342,7 @@ namespace Acid.Editor.Forms.Docking
 			this.panel4.Controls.Add(this.darkTextBox4);
 			this.panel4.Controls.Add(this.darkTitle7);
 			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel4.Location = new System.Drawing.Point(10, 71);
+			this.panel4.Location = new System.Drawing.Point(10, 107);
 			this.panel4.Name = "panel4";
 			this.panel4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
 			this.panel4.Size = new System.Drawing.Size(227, 61);
@@ -403,6 +404,7 @@ namespace Acid.Editor.Forms.Docking
 			// panel6
 			// 
 			this.panel6.AutoSize = true;
+			this.panel6.Controls.Add(this.darkDropdownList1);
 			this.panel6.Controls.Add(this.darkTextBox10);
 			this.panel6.Controls.Add(this.darkCheckBox4);
 			this.panel6.Controls.Add(this.darkTitle5);
@@ -410,14 +412,24 @@ namespace Acid.Editor.Forms.Docking
 			this.panel6.Location = new System.Drawing.Point(10, 10);
 			this.panel6.Name = "panel6";
 			this.panel6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-			this.panel6.Size = new System.Drawing.Size(227, 61);
+			this.panel6.Size = new System.Drawing.Size(227, 97);
 			this.panel6.TabIndex = 31;
+			// 
+			// darkDropdownList1
+			// 
+			this.darkDropdownList1.Location = new System.Drawing.Point(3, 61);
+			this.darkDropdownList1.MaxHeight = 526;
+			this.darkDropdownList1.Name = "darkDropdownList1";
+			this.darkDropdownList1.Size = new System.Drawing.Size(182, 23);
+			this.darkDropdownList1.TabIndex = 10;
+			this.darkDropdownList1.Tag = "";
+			this.darkDropdownList1.Text = "darkDropdownList1";
 			// 
 			// darkTextBox10
 			// 
 			this.darkTextBox10.Location = new System.Drawing.Point(3, 25);
 			this.darkTextBox10.Name = "darkTextBox10";
-			this.darkTextBox10.Size = new System.Drawing.Size(113, 23);
+			this.darkTextBox10.Size = new System.Drawing.Size(136, 23);
 			this.darkTextBox10.TabIndex = 9;
 			this.darkTextBox10.Text = "Entity #1";
 			this.darkTextBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -503,5 +515,6 @@ namespace Acid.Editor.Forms.Docking
 		private UI.Controls.DarkTitle darkTitle5;
 		private UI.Controls.DarkTextBox darkTextBox10;
 		private UI.Controls.DarkCheckBox darkCheckBox4;
+		private UI.Controls.DarkDropdownList darkDropdownList1;
 	}
 }

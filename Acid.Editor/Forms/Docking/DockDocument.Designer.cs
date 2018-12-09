@@ -31,48 +31,51 @@ namespace Acid.Editor.Forms.Docking
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtDocument = new System.Windows.Forms.TextBox();
-	        this.cmbOptions = new Acid.UI.Controls.DarkDropdownList();
+			this.txtDocument = new System.Windows.Forms.TextBox();
+			this.cmbOptions = new Acid.UI.Controls.DarkDropdownList();
 			this.SuspendLayout();
-            // 
-            // txtDocument
-            // 
-            this.txtDocument.BackColor = Colours.DarkBackground;
-            this.txtDocument.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDocument.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDocument.ForeColor = Colours.LightText;
-            this.txtDocument.Location = new System.Drawing.Point(0, 0);
-            this.txtDocument.Multiline = true;
-            this.txtDocument.Name = "txtDocument";
-            this.txtDocument.Size = new System.Drawing.Size(175, 173);
-            this.txtDocument.TabIndex = 1;
-            this.txtDocument.Text = "This is some example text";
+			// 
+			// txtDocument
+			// 
+			this.txtDocument.AcceptsReturn = true;
+			this.txtDocument.AcceptsTab = true;
+			this.txtDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+			this.txtDocument.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtDocument.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtDocument.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.txtDocument.Location = new System.Drawing.Point(0, 0);
+			this.txtDocument.Multiline = true;
+			this.txtDocument.Name = "txtDocument";
+			this.txtDocument.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.txtDocument.Size = new System.Drawing.Size(175, 173);
+			this.txtDocument.TabIndex = 1;
+			this.txtDocument.Text = "This is some example text";
+			this.txtDocument.UseWaitCursor = true;
 			// 
 			// cmbOptions
 			// 
 			this.cmbOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-	        this.cmbOptions.DropdownDirection = System.Windows.Forms.ToolStripDropDownDirection.AboveRight;
-	        this.cmbOptions.Font = new System.Drawing.Font("Segoe UI", 10.0F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-	        this.cmbOptions.Location = new System.Drawing.Point(0, 158);
-	        this.cmbOptions.MaxHeight = 300;
-	        this.cmbOptions.Name = "cmbOptions";
-	        this.cmbOptions.ShowBorder = false;
-	        this.cmbOptions.Size = new System.Drawing.Size(65, 15);
-	        this.cmbOptions.TabIndex = 2;
-	        this.cmbOptions.Text = "darkComboBox1";
+			this.cmbOptions.DropdownDirection = System.Windows.Forms.ToolStripDropDownDirection.AboveRight;
+			this.cmbOptions.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cmbOptions.Location = new System.Drawing.Point(0, 158);
+			this.cmbOptions.MaxHeight = 300;
+			this.cmbOptions.Name = "cmbOptions";
+			this.cmbOptions.ShowBorder = false;
+			this.cmbOptions.Size = new System.Drawing.Size(65, 15);
+			this.cmbOptions.TabIndex = 2;
+			this.cmbOptions.Text = "darkComboBox1";
 			// 
 			// DockDocument
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-	        this.Controls.Add(this.cmbOptions);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.cmbOptions);
 			this.Controls.Add(this.txtDocument);
-            this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "DockDocument";
-            this.Size = new System.Drawing.Size(175, 173);
-        //    this.Padding = new Padding(Consts.Padding, Consts.Padding, Consts.Padding, Consts.Padding);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Name = "DockDocument";
+			this.Size = new System.Drawing.Size(175, 173);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 

@@ -13,8 +13,8 @@ namespace Acid.Editor.Forms.Docking
         {
             InitializeComponent();
 
-            SearchDirectory(@"C:\Users\mattp\Documents\Acid Workspace\Acid\Resources"); // Directory.GetCurrentDirectory()
-        }
+            SearchDirectory(Directory.GetCurrentDirectory()); // @"C:\Users\mattp\Documents\Acid Workspace\Acid\Resources"
+		}
 
         #endregion
 

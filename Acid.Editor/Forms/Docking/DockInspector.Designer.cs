@@ -42,25 +42,47 @@ namespace Acid.Editor.Forms.Docking
 			this.darkCheckBox2 = new Acid.UI.Controls.DarkCheckBox();
 			this.darkCheckBox1 = new Acid.UI.Controls.DarkCheckBox();
 			this.darkTitle2 = new Acid.UI.Controls.DarkTitle();
+			this.panel5 = new System.Windows.Forms.Panel();
+			this.darkTextBox7 = new Acid.UI.Controls.DarkTextBox();
+			this.darkTextBox8 = new Acid.UI.Controls.DarkTextBox();
+			this.darkTextBox9 = new Acid.UI.Controls.DarkTextBox();
+			this.darkTitle4 = new Acid.UI.Controls.DarkTitle();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.darkButton1 = new Acid.UI.Controls.DarkButton();
+			this.darkTextBox1 = new Acid.UI.Controls.DarkTextBox();
+			this.darkTextBox2 = new Acid.UI.Controls.DarkTextBox();
+			this.darkTextBox3 = new Acid.UI.Controls.DarkTextBox();
 			this.darkTitle3 = new Acid.UI.Controls.DarkTitle();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.darkTextBox6 = new Acid.UI.Controls.DarkTextBox();
+			this.darkTextBox5 = new Acid.UI.Controls.DarkTextBox();
+			this.darkTextBox4 = new Acid.UI.Controls.DarkTextBox();
+			this.darkTitle7 = new Acid.UI.Controls.DarkTitle();
+			this.panel6 = new System.Windows.Forms.Panel();
+			this.darkTextBox10 = new Acid.UI.Controls.DarkTextBox();
+			this.darkCheckBox4 = new Acid.UI.Controls.DarkCheckBox();
+			this.darkTitle5 = new Acid.UI.Controls.DarkTitle();
 			this.pnlMain.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
+			this.panel5.SuspendLayout();
 			this.panel3.SuspendLayout();
+			this.panel4.SuspendLayout();
+			this.panel6.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pnlMain
 			// 
 			this.pnlMain.Controls.Add(this.panel1);
 			this.pnlMain.Controls.Add(this.panel2);
+			this.pnlMain.Controls.Add(this.panel5);
 			this.pnlMain.Controls.Add(this.panel3);
+			this.pnlMain.Controls.Add(this.panel4);
+			this.pnlMain.Controls.Add(this.panel6);
 			this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlMain.Location = new System.Drawing.Point(0, 25);
 			this.pnlMain.Name = "pnlMain";
 			this.pnlMain.Padding = new System.Windows.Forms.Padding(10);
-			this.pnlMain.Size = new System.Drawing.Size(261, 362);
+			this.pnlMain.Size = new System.Drawing.Size(247, 549);
 			this.pnlMain.TabIndex = 0;
 			// 
 			// panel1
@@ -71,10 +93,10 @@ namespace Acid.Editor.Forms.Docking
 			this.panel1.Controls.Add(this.darkRadioButton1);
 			this.panel1.Controls.Add(this.darkTitle1);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel1.Location = new System.Drawing.Point(10, 174);
+			this.panel1.Location = new System.Drawing.Point(10, 347);
 			this.panel1.Name = "panel1";
 			this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-			this.panel1.Size = new System.Drawing.Size(241, 93);
+			this.panel1.Size = new System.Drawing.Size(227, 93);
 			this.panel1.TabIndex = 2;
 			// 
 			// darkRadioButton3
@@ -84,7 +106,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkRadioButton3.Enabled = false;
 			this.darkRadioButton3.Location = new System.Drawing.Point(0, 64);
 			this.darkRadioButton3.Name = "darkRadioButton3";
-			this.darkRadioButton3.Size = new System.Drawing.Size(241, 19);
+			this.darkRadioButton3.Size = new System.Drawing.Size(227, 19);
 			this.darkRadioButton3.TabIndex = 6;
 			this.darkRadioButton3.TabStop = true;
 			this.darkRadioButton3.Text = "Disabled radiobutton";
@@ -95,7 +117,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkRadioButton2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.darkRadioButton2.Location = new System.Drawing.Point(0, 45);
 			this.darkRadioButton2.Name = "darkRadioButton2";
-			this.darkRadioButton2.Size = new System.Drawing.Size(241, 19);
+			this.darkRadioButton2.Size = new System.Drawing.Size(227, 19);
 			this.darkRadioButton2.TabIndex = 5;
 			this.darkRadioButton2.TabStop = true;
 			this.darkRadioButton2.Text = "Radiobutton";
@@ -106,7 +128,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkRadioButton1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.darkRadioButton1.Location = new System.Drawing.Point(0, 26);
 			this.darkRadioButton1.Name = "darkRadioButton1";
-			this.darkRadioButton1.Size = new System.Drawing.Size(241, 19);
+			this.darkRadioButton1.Size = new System.Drawing.Size(227, 19);
 			this.darkRadioButton1.TabIndex = 4;
 			this.darkRadioButton1.TabStop = true;
 			this.darkRadioButton1.Text = "Radiobutton";
@@ -116,7 +138,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkTitle1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.darkTitle1.Location = new System.Drawing.Point(0, 0);
 			this.darkTitle1.Name = "darkTitle1";
-			this.darkTitle1.Size = new System.Drawing.Size(241, 26);
+			this.darkTitle1.Size = new System.Drawing.Size(227, 26);
 			this.darkTitle1.TabIndex = 7;
 			this.darkTitle1.Text = "Radio buttons";
 			// 
@@ -128,10 +150,10 @@ namespace Acid.Editor.Forms.Docking
 			this.panel2.Controls.Add(this.darkCheckBox1);
 			this.panel2.Controls.Add(this.darkTitle2);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel2.Location = new System.Drawing.Point(10, 81);
+			this.panel2.Location = new System.Drawing.Point(10, 254);
 			this.panel2.Name = "panel2";
 			this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-			this.panel2.Size = new System.Drawing.Size(241, 93);
+			this.panel2.Size = new System.Drawing.Size(227, 93);
 			this.panel2.TabIndex = 1;
 			// 
 			// darkCheckBox3
@@ -143,7 +165,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkCheckBox3.Enabled = false;
 			this.darkCheckBox3.Location = new System.Drawing.Point(0, 64);
 			this.darkCheckBox3.Name = "darkCheckBox3";
-			this.darkCheckBox3.Size = new System.Drawing.Size(241, 19);
+			this.darkCheckBox3.Size = new System.Drawing.Size(227, 19);
 			this.darkCheckBox3.TabIndex = 6;
 			this.darkCheckBox3.Text = "Disabled checked checkbox";
 			// 
@@ -154,7 +176,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkCheckBox2.Enabled = false;
 			this.darkCheckBox2.Location = new System.Drawing.Point(0, 45);
 			this.darkCheckBox2.Name = "darkCheckBox2";
-			this.darkCheckBox2.Size = new System.Drawing.Size(241, 19);
+			this.darkCheckBox2.Size = new System.Drawing.Size(227, 19);
 			this.darkCheckBox2.TabIndex = 5;
 			this.darkCheckBox2.Text = "Disabled checkbox";
 			// 
@@ -164,7 +186,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkCheckBox1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.darkCheckBox1.Location = new System.Drawing.Point(0, 26);
 			this.darkCheckBox1.Name = "darkCheckBox1";
-			this.darkCheckBox1.Size = new System.Drawing.Size(241, 19);
+			this.darkCheckBox1.Size = new System.Drawing.Size(227, 19);
 			this.darkCheckBox1.TabIndex = 4;
 			this.darkCheckBox1.Text = "Checkbox";
 			// 
@@ -173,40 +195,251 @@ namespace Acid.Editor.Forms.Docking
 			this.darkTitle2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.darkTitle2.Location = new System.Drawing.Point(0, 0);
 			this.darkTitle2.Name = "darkTitle2";
-			this.darkTitle2.Size = new System.Drawing.Size(241, 26);
+			this.darkTitle2.Size = new System.Drawing.Size(227, 26);
 			this.darkTitle2.TabIndex = 8;
 			this.darkTitle2.Text = "Check boxes";
+			// 
+			// panel5
+			// 
+			this.panel5.AutoSize = true;
+			this.panel5.Controls.Add(this.darkTextBox7);
+			this.panel5.Controls.Add(this.darkTextBox8);
+			this.panel5.Controls.Add(this.darkTextBox9);
+			this.panel5.Controls.Add(this.darkTitle4);
+			this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel5.Location = new System.Drawing.Point(10, 193);
+			this.panel5.Name = "panel5";
+			this.panel5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+			this.panel5.Size = new System.Drawing.Size(227, 61);
+			this.panel5.TabIndex = 30;
+			// 
+			// darkTextBox7
+			// 
+			this.darkTextBox7.AccessibleName = "Z";
+			this.darkTextBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.darkTextBox7.Location = new System.Drawing.Point(167, 25);
+			this.darkTextBox7.MaximumSize = new System.Drawing.Size(70, 23);
+			this.darkTextBox7.MaxLength = 25;
+			this.darkTextBox7.MinimumSize = new System.Drawing.Size(42, 23);
+			this.darkTextBox7.Name = "darkTextBox7";
+			this.darkTextBox7.Size = new System.Drawing.Size(54, 23);
+			this.darkTextBox7.TabIndex = 11;
+			this.darkTextBox7.Text = "0.0";
+			this.darkTextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.darkTextBox7.WordWrap = false;
+			// 
+			// darkTextBox8
+			// 
+			this.darkTextBox8.AccessibleName = "Y";
+			this.darkTextBox8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.darkTextBox8.Location = new System.Drawing.Point(85, 25);
+			this.darkTextBox8.MaximumSize = new System.Drawing.Size(70, 23);
+			this.darkTextBox8.MaxLength = 25;
+			this.darkTextBox8.MinimumSize = new System.Drawing.Size(42, 23);
+			this.darkTextBox8.Name = "darkTextBox8";
+			this.darkTextBox8.Size = new System.Drawing.Size(54, 23);
+			this.darkTextBox8.TabIndex = 10;
+			this.darkTextBox8.Text = "0.0";
+			this.darkTextBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.darkTextBox8.WordWrap = false;
+			// 
+			// darkTextBox9
+			// 
+			this.darkTextBox9.AccessibleName = "X";
+			this.darkTextBox9.Location = new System.Drawing.Point(3, 25);
+			this.darkTextBox9.MaximumSize = new System.Drawing.Size(70, 23);
+			this.darkTextBox9.MaxLength = 25;
+			this.darkTextBox9.MinimumSize = new System.Drawing.Size(42, 23);
+			this.darkTextBox9.Name = "darkTextBox9";
+			this.darkTextBox9.Size = new System.Drawing.Size(54, 23);
+			this.darkTextBox9.TabIndex = 9;
+			this.darkTextBox9.Text = "0.0";
+			this.darkTextBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.darkTextBox9.WordWrap = false;
+			// 
+			// darkTitle4
+			// 
+			this.darkTitle4.Dock = System.Windows.Forms.DockStyle.Top;
+			this.darkTitle4.Location = new System.Drawing.Point(0, 0);
+			this.darkTitle4.Name = "darkTitle4";
+			this.darkTitle4.Size = new System.Drawing.Size(227, 23);
+			this.darkTitle4.TabIndex = 8;
+			this.darkTitle4.Text = "Transform (Scale)";
 			// 
 			// panel3
 			// 
 			this.panel3.AutoSize = true;
-			this.panel3.Controls.Add(this.darkButton1);
+			this.panel3.Controls.Add(this.darkTextBox1);
+			this.panel3.Controls.Add(this.darkTextBox2);
+			this.panel3.Controls.Add(this.darkTextBox3);
 			this.panel3.Controls.Add(this.darkTitle3);
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel3.Location = new System.Drawing.Point(10, 10);
+			this.panel3.Location = new System.Drawing.Point(10, 132);
 			this.panel3.Name = "panel3";
 			this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-			this.panel3.Size = new System.Drawing.Size(241, 71);
-			this.panel3.TabIndex = 1;
+			this.panel3.Size = new System.Drawing.Size(227, 61);
+			this.panel3.TabIndex = 29;
 			// 
-			// darkButton1
+			// darkTextBox1
 			// 
-			this.darkButton1.AutoSize = true;
-			this.darkButton1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.darkButton1.Location = new System.Drawing.Point(0, 26);
-			this.darkButton1.Name = "darkButton1";
-			this.darkButton1.Size = new System.Drawing.Size(241, 35);
-			this.darkButton1.TabIndex = 4;
-			this.darkButton1.Text = "Button";
+			this.darkTextBox1.AccessibleName = "Roll";
+			this.darkTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.darkTextBox1.Location = new System.Drawing.Point(167, 25);
+			this.darkTextBox1.MaximumSize = new System.Drawing.Size(70, 23);
+			this.darkTextBox1.MaxLength = 25;
+			this.darkTextBox1.MinimumSize = new System.Drawing.Size(42, 23);
+			this.darkTextBox1.Name = "darkTextBox1";
+			this.darkTextBox1.Size = new System.Drawing.Size(54, 23);
+			this.darkTextBox1.TabIndex = 11;
+			this.darkTextBox1.Text = "0.0";
+			this.darkTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.darkTextBox1.WordWrap = false;
+			// 
+			// darkTextBox2
+			// 
+			this.darkTextBox2.AccessibleName = "Yaw";
+			this.darkTextBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.darkTextBox2.Location = new System.Drawing.Point(85, 25);
+			this.darkTextBox2.MaximumSize = new System.Drawing.Size(70, 23);
+			this.darkTextBox2.MaxLength = 25;
+			this.darkTextBox2.MinimumSize = new System.Drawing.Size(42, 23);
+			this.darkTextBox2.Name = "darkTextBox2";
+			this.darkTextBox2.Size = new System.Drawing.Size(54, 23);
+			this.darkTextBox2.TabIndex = 10;
+			this.darkTextBox2.Text = "0.0";
+			this.darkTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.darkTextBox2.WordWrap = false;
+			// 
+			// darkTextBox3
+			// 
+			this.darkTextBox3.AccessibleName = "Pitch";
+			this.darkTextBox3.Location = new System.Drawing.Point(3, 25);
+			this.darkTextBox3.MaximumSize = new System.Drawing.Size(70, 23);
+			this.darkTextBox3.MaxLength = 25;
+			this.darkTextBox3.MinimumSize = new System.Drawing.Size(42, 23);
+			this.darkTextBox3.Name = "darkTextBox3";
+			this.darkTextBox3.Size = new System.Drawing.Size(54, 23);
+			this.darkTextBox3.TabIndex = 9;
+			this.darkTextBox3.Text = "0.0";
+			this.darkTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.darkTextBox3.WordWrap = false;
 			// 
 			// darkTitle3
 			// 
 			this.darkTitle3.Dock = System.Windows.Forms.DockStyle.Top;
 			this.darkTitle3.Location = new System.Drawing.Point(0, 0);
 			this.darkTitle3.Name = "darkTitle3";
-			this.darkTitle3.Size = new System.Drawing.Size(241, 26);
+			this.darkTitle3.Size = new System.Drawing.Size(227, 23);
 			this.darkTitle3.TabIndex = 8;
-			this.darkTitle3.Text = "Buttons";
+			this.darkTitle3.Text = "Transform (Rotation)";
+			// 
+			// panel4
+			// 
+			this.panel4.AutoSize = true;
+			this.panel4.Controls.Add(this.darkTextBox6);
+			this.panel4.Controls.Add(this.darkTextBox5);
+			this.panel4.Controls.Add(this.darkTextBox4);
+			this.panel4.Controls.Add(this.darkTitle7);
+			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel4.Location = new System.Drawing.Point(10, 71);
+			this.panel4.Name = "panel4";
+			this.panel4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+			this.panel4.Size = new System.Drawing.Size(227, 61);
+			this.panel4.TabIndex = 28;
+			// 
+			// darkTextBox6
+			// 
+			this.darkTextBox6.AccessibleName = "Z";
+			this.darkTextBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.darkTextBox6.Location = new System.Drawing.Point(167, 25);
+			this.darkTextBox6.MaximumSize = new System.Drawing.Size(70, 23);
+			this.darkTextBox6.MaxLength = 25;
+			this.darkTextBox6.MinimumSize = new System.Drawing.Size(42, 23);
+			this.darkTextBox6.Name = "darkTextBox6";
+			this.darkTextBox6.Size = new System.Drawing.Size(54, 23);
+			this.darkTextBox6.TabIndex = 11;
+			this.darkTextBox6.Text = "0.0";
+			this.darkTextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.darkTextBox6.WordWrap = false;
+			// 
+			// darkTextBox5
+			// 
+			this.darkTextBox5.AccessibleName = "Y";
+			this.darkTextBox5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.darkTextBox5.Location = new System.Drawing.Point(85, 25);
+			this.darkTextBox5.MaximumSize = new System.Drawing.Size(70, 23);
+			this.darkTextBox5.MaxLength = 25;
+			this.darkTextBox5.MinimumSize = new System.Drawing.Size(42, 23);
+			this.darkTextBox5.Name = "darkTextBox5";
+			this.darkTextBox5.Size = new System.Drawing.Size(54, 23);
+			this.darkTextBox5.TabIndex = 10;
+			this.darkTextBox5.Text = "0.0";
+			this.darkTextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.darkTextBox5.WordWrap = false;
+			// 
+			// darkTextBox4
+			// 
+			this.darkTextBox4.AccessibleName = "X";
+			this.darkTextBox4.Location = new System.Drawing.Point(3, 25);
+			this.darkTextBox4.MaximumSize = new System.Drawing.Size(70, 23);
+			this.darkTextBox4.MaxLength = 25;
+			this.darkTextBox4.MinimumSize = new System.Drawing.Size(42, 23);
+			this.darkTextBox4.Name = "darkTextBox4";
+			this.darkTextBox4.Size = new System.Drawing.Size(54, 23);
+			this.darkTextBox4.TabIndex = 9;
+			this.darkTextBox4.Text = "0.0";
+			this.darkTextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.darkTextBox4.WordWrap = false;
+			// 
+			// darkTitle7
+			// 
+			this.darkTitle7.Dock = System.Windows.Forms.DockStyle.Top;
+			this.darkTitle7.Location = new System.Drawing.Point(0, 0);
+			this.darkTitle7.Name = "darkTitle7";
+			this.darkTitle7.Size = new System.Drawing.Size(227, 23);
+			this.darkTitle7.TabIndex = 8;
+			this.darkTitle7.Text = "Transform (Position)";
+			// 
+			// panel6
+			// 
+			this.panel6.AutoSize = true;
+			this.panel6.Controls.Add(this.darkTextBox10);
+			this.panel6.Controls.Add(this.darkCheckBox4);
+			this.panel6.Controls.Add(this.darkTitle5);
+			this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel6.Location = new System.Drawing.Point(10, 10);
+			this.panel6.Name = "panel6";
+			this.panel6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+			this.panel6.Size = new System.Drawing.Size(227, 61);
+			this.panel6.TabIndex = 31;
+			// 
+			// darkTextBox10
+			// 
+			this.darkTextBox10.Location = new System.Drawing.Point(3, 25);
+			this.darkTextBox10.Name = "darkTextBox10";
+			this.darkTextBox10.Size = new System.Drawing.Size(113, 23);
+			this.darkTextBox10.TabIndex = 9;
+			this.darkTextBox10.Text = "Entity #1";
+			this.darkTextBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			// 
+			// darkCheckBox4
+			// 
+			this.darkCheckBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.darkCheckBox4.AutoSize = true;
+			this.darkCheckBox4.Location = new System.Drawing.Point(167, 27);
+			this.darkCheckBox4.Name = "darkCheckBox4";
+			this.darkCheckBox4.Size = new System.Drawing.Size(55, 19);
+			this.darkCheckBox4.TabIndex = 8;
+			this.darkCheckBox4.Text = "Static";
+			// 
+			// darkTitle5
+			// 
+			this.darkTitle5.Dock = System.Windows.Forms.DockStyle.Top;
+			this.darkTitle5.Location = new System.Drawing.Point(0, 0);
+			this.darkTitle5.Name = "darkTitle5";
+			this.darkTitle5.Size = new System.Drawing.Size(227, 26);
+			this.darkTitle5.TabIndex = 7;
+			this.darkTitle5.Text = "Options";
 			// 
 			// DockInspector
 			// 
@@ -219,15 +452,21 @@ namespace Acid.Editor.Forms.Docking
 			this.Icon = global::Acid.Editor.Icons.properties_16xLG;
 			this.Name = "DockInspector";
 			this.SerializationKey = "DockInspector";
-			this.Size = new System.Drawing.Size(261, 387);
+			this.Size = new System.Drawing.Size(247, 574);
 			this.pnlMain.ResumeLayout(false);
 			this.pnlMain.PerformLayout();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
+			this.panel5.ResumeLayout(false);
+			this.panel5.PerformLayout();
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
+			this.panel4.ResumeLayout(false);
+			this.panel4.PerformLayout();
+			this.panel6.ResumeLayout(false);
+			this.panel6.PerformLayout();
 			this.ResumeLayout(false);
 
         }
@@ -235,18 +474,34 @@ namespace Acid.Editor.Forms.Docking
         #endregion
 
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Panel panel1;
-        private Acid.UI.Controls.DarkRadioButton darkRadioButton3;
-        private Acid.UI.Controls.DarkRadioButton darkRadioButton2;
-        private Acid.UI.Controls.DarkRadioButton darkRadioButton1;
-        private Acid.UI.Controls.DarkTitle darkTitle1;
         private System.Windows.Forms.Panel panel2;
         private Acid.UI.Controls.DarkCheckBox darkCheckBox3;
         private Acid.UI.Controls.DarkCheckBox darkCheckBox2;
         private Acid.UI.Controls.DarkCheckBox darkCheckBox1;
-        private Acid.UI.Controls.DarkTitle darkTitle2;
-        private System.Windows.Forms.Panel panel3;
-        private Acid.UI.Controls.DarkButton darkButton1;
-        private Acid.UI.Controls.DarkTitle darkTitle3;
-    }
+		private UI.Controls.DarkTitle darkTitle2;
+		private System.Windows.Forms.Panel panel4;
+		private UI.Controls.DarkTextBox darkTextBox6;
+		private UI.Controls.DarkTextBox darkTextBox5;
+		private UI.Controls.DarkTextBox darkTextBox4;
+		private UI.Controls.DarkTitle darkTitle7;
+		private System.Windows.Forms.Panel panel1;
+		private UI.Controls.DarkRadioButton darkRadioButton3;
+		private UI.Controls.DarkRadioButton darkRadioButton2;
+		private UI.Controls.DarkRadioButton darkRadioButton1;
+		private UI.Controls.DarkTitle darkTitle1;
+		private System.Windows.Forms.Panel panel5;
+		private UI.Controls.DarkTextBox darkTextBox7;
+		private UI.Controls.DarkTextBox darkTextBox8;
+		private UI.Controls.DarkTextBox darkTextBox9;
+		private UI.Controls.DarkTitle darkTitle4;
+		private System.Windows.Forms.Panel panel3;
+		private UI.Controls.DarkTextBox darkTextBox1;
+		private UI.Controls.DarkTextBox darkTextBox2;
+		private UI.Controls.DarkTextBox darkTextBox3;
+		private UI.Controls.DarkTitle darkTitle3;
+		private System.Windows.Forms.Panel panel6;
+		private UI.Controls.DarkTitle darkTitle5;
+		private UI.Controls.DarkTextBox darkTextBox10;
+		private UI.Controls.DarkCheckBox darkCheckBox4;
+	}
 }

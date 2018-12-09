@@ -22,8 +22,12 @@ namespace Acid.Editor.Forms.Docking
 	        // Build dummy dropdown data
 	        cmbOptions.Items.Add(new DarkDropdownItem("25%"));
 	        cmbOptions.Items.Add(new DarkDropdownItem("50%"));
-	        cmbOptions.Items.Add(new DarkDropdownItem("100%"));
-	        cmbOptions.Items.Add(new DarkDropdownItem("200%"));
+			cmbOptions.Items.Add(new DarkDropdownItem("80%"));
+			cmbOptions.Items.Add(new DarkDropdownItem("90%"));
+			cmbOptions.Items.Add(new DarkDropdownItem("100%"));
+	        cmbOptions.Items.Add(new DarkDropdownItem("110%"));
+	        cmbOptions.Items.Add(new DarkDropdownItem("120%"));
+			cmbOptions.Items.Add(new DarkDropdownItem("200%"));
 	        cmbOptions.Items.Add(new DarkDropdownItem("300%"));
 	        cmbOptions.Items.Add(new DarkDropdownItem("400%"));
 			
@@ -33,7 +37,7 @@ namespace Acid.Editor.Forms.Docking
 					              CultureInfo.InvariantCulture.NumberFormat) / 100.0f);
 				txtDocument.Font = new System.Drawing.Font("Segoe UI", newSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			};
-	        cmbOptions.SelectedItem = cmbOptions.Items[2];
+	        cmbOptions.SelectedItem = cmbOptions.Items[4];
 		}
 
         public DockDocument(string text, Image icon)

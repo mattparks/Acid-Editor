@@ -11,6 +11,6 @@ namespace Acid.Editor.Forms.Docking
             InitializeComponent();
         }
 
-        #endregion
-    }
+		#endregion
+	}
 }

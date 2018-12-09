@@ -32,23 +32,21 @@ namespace Acid.Editor.Forms.Docking
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // DockScene
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.DefaultDockArea = Acid.UI.Docking.DarkDockArea.Document;
-            this.DockText = "Scene";
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SuspendLayout();
+			// 
+			// DockScene
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.DefaultDockArea = Acid.UI.Docking.DarkDockArea.Document;
+			this.DockText = "Scene";
+			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = global::Acid.Editor.Icons.RefactoringLog_12810;
-            this.Name = "Scene";
-            this.SerializationKey = "DockScene";
-            this.Size = new System.Drawing.Size(720, 480);
-			this.SizeChanged += DockResize;
-            this.VisibleChanged += DockVisible;
-            this.LocationChanged += DockLocation;
+			this.Name = "DockScene";
+			this.SerializationKey = "DockScene";
+			this.Size = new System.Drawing.Size(720, 480);
 			this.ResumeLayout(false);
+
         }
 
         private void DockResize(object sender, System.EventArgs e)

@@ -1,5 +1,5 @@
-﻿using Acid.UI.Controls;
-using Acid.UI.Docking;
+﻿using Acid.Forms.Controls;
+using Acid.Forms.Docking;
 
 namespace Acid.Editor.Forms
 {
@@ -32,7 +32,7 @@ namespace Acid.Editor.Forms
         private void InitializeComponent()
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			this.mnuMain = new Acid.UI.Controls.DarkMenuStrip();
+			this.mnuMain = new Acid.Forms.Controls.DarkMenuStrip();
 			this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,12 +51,12 @@ namespace Acid.Editor.Forms
 			this.mnuConsole = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
-			this.stripMain = new Acid.UI.Controls.DarkStatusStrip();
+			this.stripMain = new Acid.Forms.Controls.DarkStatusStrip();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.DockPanel = new Acid.UI.Docking.DarkDockPanel();
-			this.darkSeparator1 = new Acid.UI.Controls.DarkSeparator();
+			this.DockPanel = new Acid.Forms.Docking.DarkDockPanel();
+			this.darkSeparator1 = new Acid.Forms.Controls.DarkSeparator();
 			this.mnuMain.SuspendLayout();
 			this.stripMain.SuspendLayout();
 			this.SuspendLayout();
@@ -333,7 +333,6 @@ namespace Acid.Editor.Forms
 			this.stripMain.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
-
         }
 
         #endregion

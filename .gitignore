@@ -2,8 +2,8 @@
 .idea/*
 Acid.Editor/bin/*
 Acid.Editor/obj/*
-Acid.UI/bin/*
-Acid.UI/obj/*
+Acid.Forms/bin/*
+Acid.Forms/obj/*
 packages/*
 
 .DS_Store

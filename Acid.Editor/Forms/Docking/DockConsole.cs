@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
-using Acid.UI.Controls;
-using Acid.UI.Docking;
+using Acid.Forms.Controls;
+using Acid.Forms.Docking;
 
 namespace Acid.Editor.Forms.Docking
 {

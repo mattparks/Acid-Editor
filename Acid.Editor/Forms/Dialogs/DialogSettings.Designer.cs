@@ -1,4 +1,4 @@
-﻿using Acid.UI.Controls;
+﻿using Acid.Forms.Controls;
 
 namespace Acid.Editor.Forms.Dialogs
 {
@@ -33,13 +33,13 @@ namespace Acid.Editor.Forms.Dialogs
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DialogSettings));
 			this.pnlMain = new System.Windows.Forms.Panel();
 			this.tblMain = new System.Windows.Forms.TableLayoutPanel();
-			this.pnlMessageBox = new Acid.UI.Controls.DarkSectionPanel();
+			this.pnlMessageBox = new Acid.Forms.Controls.DarkSectionPanel();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.panel5 = new System.Windows.Forms.Panel();
-			this.darkRadioButton3 = new Acid.UI.Controls.DarkRadioButton();
-			this.darkRadioButton2 = new Acid.UI.Controls.DarkRadioButton();
-			this.darkRadioButton1 = new Acid.UI.Controls.DarkRadioButton();
-			this.darkTitle3 = new Acid.UI.Controls.DarkTitle();
+			this.darkRadioButton3 = new Acid.Forms.Controls.DarkRadioButton();
+			this.darkRadioButton2 = new Acid.Forms.Controls.DarkRadioButton();
+			this.darkRadioButton1 = new Acid.Forms.Controls.DarkRadioButton();
+			this.darkTitle3 = new Acid.Forms.Controls.DarkTitle();
 			this.pnlMain.SuspendLayout();
 			this.tblMain.SuspendLayout();
 			this.pnlMessageBox.SuspendLayout();

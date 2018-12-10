@@ -1,7 +1,7 @@
-﻿using Acid.UI.Controls;
-using Acid.UI.Forms;
+﻿using Acid.Forms.Controls;
+using Acid.Forms.Forms;
 using System;
-using Acid.UI.Config;
+using Acid.Forms.Config;
 using System.Windows.Forms;
 
 namespace Acid.Editor.Forms.Dialogs

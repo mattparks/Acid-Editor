@@ -1,4 +1,4 @@
-﻿using Acid.UI.Controls;
+﻿using Acid.Forms.Controls;
 
 namespace Acid.Editor.Forms.Dialogs
 {
@@ -32,11 +32,11 @@ namespace Acid.Editor.Forms.Dialogs
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DialogAbout));
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.lblVersion = new Acid.UI.Controls.DarkLabel();
-            this.darkLabel3 = new Acid.UI.Controls.DarkLabel();
-            this.darkLabel2 = new Acid.UI.Controls.DarkLabel();
-            this.darkLabel1 = new Acid.UI.Controls.DarkLabel();
-            this.lblHeader = new Acid.UI.Controls.DarkLabel();
+            this.lblVersion = new Acid.Forms.Controls.DarkLabel();
+            this.darkLabel3 = new Acid.Forms.Controls.DarkLabel();
+            this.darkLabel2 = new Acid.Forms.Controls.DarkLabel();
+            this.darkLabel1 = new Acid.Forms.Controls.DarkLabel();
+            this.lblHeader = new Acid.Forms.Controls.DarkLabel();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 

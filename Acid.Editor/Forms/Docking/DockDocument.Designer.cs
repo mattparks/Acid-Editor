@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using Acid.UI.Config;
+using Acid.Forms.Config;
 
 namespace Acid.Editor.Forms.Docking
 {
@@ -32,7 +32,7 @@ namespace Acid.Editor.Forms.Docking
         private void InitializeComponent()
         {
 			this.txtDocument = new System.Windows.Forms.TextBox();
-			this.cmbOptions = new Acid.UI.Controls.DarkDropdownList();
+			this.cmbOptions = new Acid.Forms.Controls.DarkDropdownList();
 			this.SuspendLayout();
 			// 
 			// txtDocument
@@ -82,6 +82,6 @@ namespace Acid.Editor.Forms.Docking
         #endregion
 
         private System.Windows.Forms.TextBox txtDocument;
-	    private Acid.UI.Controls.DarkDropdownList cmbOptions;
+	    private Acid.Forms.Controls.DarkDropdownList cmbOptions;
 	}
 }

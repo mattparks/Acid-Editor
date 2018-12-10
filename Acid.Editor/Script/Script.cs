@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+﻿/*using System.Reflection;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
 
@@ -19,4 +19,4 @@ namespace AcidEditor.Script
 			// TODO: Allow a component manager to get IComponent type of class and use it.
 		}
 	}
-}
+}*/

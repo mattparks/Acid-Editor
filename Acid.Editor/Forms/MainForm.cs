@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using Acid.UI.Docking;
-using Acid.UI.Forms;
-using Acid.UI.Win32;
+using Acid.Forms.Docking;
+using Acid.Forms.Forms;
+using Acid.Forms.Win32;
 using Acid.Editor.Forms.Dialogs;
 using Acid.Editor.Forms.Docking;
 using System.Diagnostics;
+using Acid.Sharp;
 
 namespace Acid.Editor.Forms
 {
@@ -54,7 +55,7 @@ namespace Acid.Editor.Forms
             _dockConsole = new DockConsole();
 
 			// Timer tick every second
-			var timer = new Timer
+			var timer = new System.Windows.Forms.Timer
 			{
 				Interval = 1000
 			};
@@ -82,7 +83,50 @@ namespace Acid.Editor.Forms
 
             // Check window menu items which are contained in the dock panel
             BuildWindowMenu();
-        }
+
+	        Closed += delegate
+	        {
+		        Engine.Get().RequestClose(false);
+	        };
+			Activated += delegate
+			{
+				if (_dockScene.DisplayOpen)
+				{
+					Display.Get().Floating = true;
+				}
+			};
+	        Deactivate += delegate
+			{
+				if (_dockScene.DisplayOpen)
+				{
+					Display.Get().Floating = false;
+				}
+			};
+			LocationChanged += delegate
+			{
+				if (_dockScene.DisplayOpen)
+				{
+					_dockScene.RefreshDisplay();
+				}
+			};
+	        DockPanel.ContentAdded += delegate (object o, DockContentEventArgs args)
+	        {
+		        if (args.Content == _dockScene)
+		        {
+			        Display.Get().Iconified = false;
+					_dockScene.DisplayOpen = true;
+			        _dockScene.RefreshDisplay();
+				}
+	        };
+			DockPanel.ContentRemoved += delegate(object o, DockContentEventArgs args)
+			{
+				if (args.Content == _dockScene)
+				{
+					Display.Get().Iconified = true;
+					_dockScene.DisplayOpen = false;
+				}
+			};
+		}
 
         #endregion
 

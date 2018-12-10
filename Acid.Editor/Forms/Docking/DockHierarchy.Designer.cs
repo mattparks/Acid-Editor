@@ -1,6 +1,6 @@
-﻿using Acid.UI.Config;
-using Acid.UI.Controls;
-using Acid.UI.Docking;
+﻿using Acid.Forms.Config;
+using Acid.Forms.Controls;
+using Acid.Forms.Docking;
 
 namespace Acid.Editor.Forms.Docking
 {
@@ -32,7 +32,7 @@ namespace Acid.Editor.Forms.Docking
         /// </summary>
         private void InitializeComponent()
         {
-            this.treeHierarchy = new Acid.UI.Controls.DarkTreeView();
+            this.treeHierarchy = new Acid.Forms.Controls.DarkTreeView();
             this.SuspendLayout();
 			// 
 			// treeHierarchy
@@ -53,7 +53,7 @@ namespace Acid.Editor.Forms.Docking
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.treeHierarchy);
-            this.DefaultDockArea = Acid.UI.Docking.DarkDockArea.Left;
+            this.DefaultDockArea = Acid.Forms.Docking.DarkDockArea.Left;
             this.DockText = "Hierarchy";
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = global::Acid.Editor.Icons.Collection_16xLG;

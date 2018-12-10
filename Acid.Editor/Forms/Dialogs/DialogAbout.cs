@@ -1,4 +1,4 @@
-﻿using Acid.UI.Forms;
+﻿using Acid.Forms.Forms;
 using System.Windows.Forms;
 
 namespace Acid.Editor.Forms.Dialogs

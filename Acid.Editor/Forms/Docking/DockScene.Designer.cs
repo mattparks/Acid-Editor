@@ -32,42 +32,44 @@ namespace Acid.Editor.Forms.Docking
         /// </summary>
         private void InitializeComponent()
         {
+			this.txtDocument = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
+			// 
+			// txtDocument
+			// 
+			this.txtDocument.AcceptsReturn = true;
+			this.txtDocument.AcceptsTab = true;
+			this.txtDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+			this.txtDocument.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtDocument.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtDocument.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.txtDocument.Location = new System.Drawing.Point(0, 25);
+			this.txtDocument.Multiline = true;
+			this.txtDocument.Name = "txtDocument";
+			this.txtDocument.ReadOnly = true;
+			this.txtDocument.Size = new System.Drawing.Size(720, 455);
+			this.txtDocument.TabIndex = 2;
 			// 
 			// DockScene
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.DefaultDockArea = Acid.UI.Docking.DarkDockArea.Document;
+			this.Controls.Add(this.txtDocument);
+			this.DefaultDockArea = Acid.Forms.Docking.DarkDockArea.Document;
 			this.DockText = "Scene";
 			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = global::Acid.Editor.Icons.RefactoringLog_12810;
 			this.Name = "DockScene";
 			this.SerializationKey = "DockScene";
 			this.Size = new System.Drawing.Size(720, 480);
+			this.Load += new System.EventHandler(this.DockScene_Load);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
-        private void DockResize(object sender, System.EventArgs e)
-        {
-            // Display.Get().Dimensions = new Vector2(this.Size.Width, this.Size.Height);
-            Console.WriteLine($"Scene resized: {this.Size}");
-        }
+		#endregion
 
-        private void DockVisible(object sender, System.EventArgs e)
-        {
-            // Display.Get().Iconified = !this.Visible;
-            Console.WriteLine($"Scene visiblity: {this.Visible}");
-        }
-
-        private void DockLocation(object sender, System.EventArgs e)
-        {
-            var screenLocation = this.Parent.PointToScreen(this.Location);
-            // Display.Get().Position = new Vector2(screenLocation.X, screenLocation.Y);
-            Console.WriteLine($"Scene position: {screenLocation}");
-        }
-
-        #endregion
-    }
+		private TextBox txtDocument;
+	}
 }

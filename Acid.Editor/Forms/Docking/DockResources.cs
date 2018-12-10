@@ -1,5 +1,5 @@
-﻿using Acid.UI.Controls;
-using Acid.UI.Docking;
+﻿using Acid.Forms.Controls;
+using Acid.Forms.Docking;
 using System;
 using System.IO;
 

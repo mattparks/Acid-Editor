@@ -1,4 +1,5 @@
-﻿using Acid.Forms.Controls;
+﻿using Acid.Forms.Config;
+using Acid.Forms.Controls;
 
 namespace Acid.Editor.Forms.Dialogs
 {
@@ -58,7 +59,7 @@ namespace Acid.Editor.Forms.Dialogs
             // 
             this.lblVersion.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblVersion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.lblVersion.ForeColor = Colours.LightText;
             this.lblVersion.Location = new System.Drawing.Point(15, 192);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(313, 22);
@@ -70,7 +71,7 @@ namespace Acid.Editor.Forms.Dialogs
             // 
             this.darkLabel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkLabel3.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.darkLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel3.ForeColor = Colours.LightText;
             this.darkLabel3.Location = new System.Drawing.Point(15, 152);
             this.darkLabel3.Name = "darkLabel3";
             this.darkLabel3.Size = new System.Drawing.Size(313, 40);
@@ -82,7 +83,7 @@ namespace Acid.Editor.Forms.Dialogs
             // 
             this.darkLabel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkLabel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel2.ForeColor = Colours.LightText;
             this.darkLabel2.Location = new System.Drawing.Point(15, 101);
             this.darkLabel2.Name = "darkLabel2";
             this.darkLabel2.Size = new System.Drawing.Size(313, 51);
@@ -94,7 +95,7 @@ namespace Acid.Editor.Forms.Dialogs
             // 
             this.darkLabel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.darkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel1.ForeColor = Colours.LightText;
             this.darkLabel1.Location = new System.Drawing.Point(15, 47);
             this.darkLabel1.Name = "darkLabel1";
             this.darkLabel1.Size = new System.Drawing.Size(313, 54);
@@ -106,7 +107,7 @@ namespace Acid.Editor.Forms.Dialogs
             // 
             this.lblHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblHeader.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.lblHeader.ForeColor = Colours.LightText;
             this.lblHeader.Location = new System.Drawing.Point(15, 15);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(313, 32);

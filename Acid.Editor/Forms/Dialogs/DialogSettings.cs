@@ -11,13 +11,22 @@ namespace Acid.Editor.Forms.Dialogs
         public DialogSettings()
         {
             InitializeComponent();
-            
-            darkRadioButton1.CheckedChanged += delegate
+
+	        if (Colours.ColourConfig is ColoursLight)
+	        {
+		        darkRadioButton1.Checked = true;
+
+	        }
+			else if (Colours.ColourConfig is ColoursDark)
+	        {
+		        darkRadioButton2.Checked = true;
+	        }
+
+			darkRadioButton1.CheckedChanged += delegate
             {
                 if (darkRadioButton1.Checked)
                 {
-                //    Colours.ColourConfig = new ColoursLight();
-                    Console.WriteLine("Theme changed to Light");
+                    Colours.ColourConfig = new ColoursLight();
                 }
             };
 
@@ -26,16 +35,6 @@ namespace Acid.Editor.Forms.Dialogs
                 if (darkRadioButton2.Checked)
                 {
                     Colours.ColourConfig = new ColoursDark();
-                    Console.WriteLine("Theme changed to Dark");
-                }
-            };
-
-            darkRadioButton3.CheckedChanged += delegate
-            {
-                if (darkRadioButton2.Checked)
-                {
-                //    Colours.ColourConfig = new ColoursBlue();
-                    Console.WriteLine("Theme changed to Blue");
                 }
             };
         }

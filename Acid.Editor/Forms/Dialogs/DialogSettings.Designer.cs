@@ -36,7 +36,6 @@ namespace Acid.Editor.Forms.Dialogs
 			this.pnlMessageBox = new Acid.Forms.Controls.DarkSectionPanel();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.panel5 = new System.Windows.Forms.Panel();
-			this.darkRadioButton3 = new Acid.Forms.Controls.DarkRadioButton();
 			this.darkRadioButton2 = new Acid.Forms.Controls.DarkRadioButton();
 			this.darkRadioButton1 = new Acid.Forms.Controls.DarkRadioButton();
 			this.darkTitle3 = new Acid.Forms.Controls.DarkTitle();
@@ -95,7 +94,6 @@ namespace Acid.Editor.Forms.Dialogs
 			// 
 			// panel5
 			// 
-			this.panel5.Controls.Add(this.darkRadioButton3);
 			this.panel5.Controls.Add(this.darkRadioButton2);
 			this.panel5.Controls.Add(this.darkRadioButton1);
 			this.panel5.Controls.Add(this.darkTitle3);
@@ -104,18 +102,6 @@ namespace Acid.Editor.Forms.Dialogs
 			this.panel5.Name = "panel5";
 			this.panel5.Size = new System.Drawing.Size(200, 100);
 			this.panel5.TabIndex = 12;
-			// 
-			// darkRadioButton3
-			// 
-			this.darkRadioButton3.AutoSize = true;
-			this.darkRadioButton3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.darkRadioButton3.Enabled = false;
-			this.darkRadioButton3.Location = new System.Drawing.Point(0, 61);
-			this.darkRadioButton3.Name = "darkRadioButton3";
-			this.darkRadioButton3.Size = new System.Drawing.Size(200, 19);
-			this.darkRadioButton3.TabIndex = 4;
-			this.darkRadioButton3.TabStop = true;
-			this.darkRadioButton3.Text = "Blue";
 			// 
 			// darkRadioButton2
 			// 
@@ -133,7 +119,6 @@ namespace Acid.Editor.Forms.Dialogs
 			// 
 			this.darkRadioButton1.AutoSize = true;
 			this.darkRadioButton1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.darkRadioButton1.Enabled = false;
 			this.darkRadioButton1.Location = new System.Drawing.Point(0, 23);
 			this.darkRadioButton1.Name = "darkRadioButton1";
 			this.darkRadioButton1.Size = new System.Drawing.Size(200, 19);
@@ -180,7 +165,6 @@ namespace Acid.Editor.Forms.Dialogs
         private System.Windows.Forms.Panel panel5;
         private DarkRadioButton darkRadioButton2;
         private DarkRadioButton darkRadioButton1;
-        private DarkRadioButton darkRadioButton3;
         private DarkTitle darkTitle3;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace Acid.Forms.Config
 {
@@ -55,15 +56,47 @@ namespace Acid.Forms.Config
 		public Color GetMenuItemToggledOnFill() => Color.FromArgb(105, 84, 69);
 		public Color GetMenuItemToggledOnBorder() => Color.FromArgb(225, 128, 68);
 	}
-	
-	// TODO: Create ColoursLight, ColoursBlue
+
+	public class ColoursLight : IColours
+	{
+		public Color GetGreyBackground() => Color.FromArgb(255, 255, 255);
+		public Color GetHeaderBackground() => Color.FromArgb(230, 229, 231);
+		public Color GetBlueBackground() => Color.FromArgb(51, 119, 185); 
+		public Color GetDarkBlueBackground() => Color.FromArgb(51, 119, 185);
+		public Color GetDarkBackground() => Color.FromArgb(212, 212, 212);
+		public Color GetMediumBackground() => Color.FromArgb(236, 232, 233);
+		public Color GetLightBackground() => Color.FromArgb(236, 232, 233);
+		public Color GetLighterBackground() => Color.FromArgb(160, 154, 152);
+		public Color GetLightestBackground() => Color.FromArgb(77, 77, 77);
+		public Color GetLightBorder() => Color.FromArgb(174, 174, 174);
+		public Color GetDarkBorder() => Color.FromArgb(204, 204, 204);
+		public Color GetLightText() => Color.FromArgb(35, 35, 35);
+		public Color GetDisabledText() => Color.FromArgb(102, 102, 102);
+		public Color GetBlueHighlight() => Color.FromArgb(104, 151, 187);
+		public Color GetBlueSelection() => Color.FromArgb(51, 119, 185);
+		public Color GetGreyHighlight() => Color.FromArgb(203, 203, 203);//
+		public Color GetGreySelection() => Color.FromArgb(223, 223, 223);
+		public Color GetDarkGreySelection() => Color.FromArgb(173, 173, 173);
+		public Color GetDarkBlueBorder() => Color.FromArgb(204, 194, 177);
+		public Color GetLightBlueBorder() => Color.FromArgb(169, 158, 141);
+		public Color GetActiveControl() => Color.FromArgb(96, 77, 59);
+		public Color GetMenuItemToggledOnFill() => Color.FromArgb(150, 171, 186);
+		public Color GetMenuItemToggledOnBorder() => Color.FromArgb(0, 127, 187);
+	}
 
 	public static class Colours
 	{
+		public static event EventHandler ColourChanged = delegate { };
+		private static IColours _colourConfig = new ColoursDark();
 		public static IColours ColourConfig
 		{
-			get; set; // TODO: Refresh window
-		} = new ColoursDark();
+			get { return _colourConfig; }
+			set
+			{
+				_colourConfig = value;
+				ColourChanged(_colourConfig, EventArgs.Empty);
+			}
+		}
 
 		public static Color GreyBackground
 		{

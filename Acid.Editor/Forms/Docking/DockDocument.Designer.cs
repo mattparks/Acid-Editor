@@ -39,10 +39,10 @@ namespace Acid.Editor.Forms.Docking
 			// 
 			this.txtDocument.AcceptsReturn = true;
 			this.txtDocument.AcceptsTab = true;
-			this.txtDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+			this.txtDocument.BackColor = Colours.DarkBackground;
 			this.txtDocument.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.txtDocument.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.txtDocument.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.txtDocument.ForeColor = Colours.LightText;
 			this.txtDocument.Location = new System.Drawing.Point(0, 0);
 			this.txtDocument.Multiline = true;
 			this.txtDocument.Name = "txtDocument";

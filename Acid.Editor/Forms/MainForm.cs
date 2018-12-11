@@ -9,6 +9,7 @@ using Acid.Forms.Win32;
 using Acid.Editor.Forms.Dialogs;
 using Acid.Editor.Forms.Docking;
 using System.Diagnostics;
+using Acid.Forms.Config;
 using Acid.Sharp;
 
 namespace Acid.Editor.Forms
@@ -84,10 +85,13 @@ namespace Acid.Editor.Forms
             // Check window menu items which are contained in the dock panel
             BuildWindowMenu();
 
-	        Closed += delegate
-	        {
-		        Engine.Get().RequestClose(false);
-	        };
+			Colours.ColourChanged += delegate
+			{
+				Refresh();
+				foreach (var toolWindow in _toolWindows)
+					toolWindow.Refresh();
+			};
+			
 			Activated += delegate
 			{
 				if (_dockScene.DisplayOpen)
@@ -139,7 +143,7 @@ namespace Acid.Editor.Forms
             DockPanel.ContentAdded += DockPanel_ContentAdded;
             DockPanel.ContentRemoved += DockPanel_ContentRemoved;
 
-            mnuNewFile.Click += NewFile_Click;
+            mnuNewEntity.Click += NewFile_Click;
             mnuClose.Click += Close_Click;
 
             mnuSettings.Click += SettingsClick;
@@ -177,7 +181,8 @@ namespace Acid.Editor.Forms
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SerializeDockPanel("EditorPanels.xml");
-        }
+	        Engine.Get().RequestClose(false);
+		}
 
         private void DockPanel_ContentAdded(object sender, DockContentEventArgs e)
         {

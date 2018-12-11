@@ -1,4 +1,5 @@
-﻿using Acid.Forms.Controls;
+﻿using Acid.Forms.Config;
+using Acid.Forms.Controls;
 
 namespace Acid.Forms.Forms
 {
@@ -45,7 +46,7 @@ namespace Acid.Forms.Forms
             // 
             // lblText
             // 
-            this.lblText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.lblText.ForeColor = Colours.LightText;
             this.lblText.Location = new System.Drawing.Point(50, 9);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(185, 15);

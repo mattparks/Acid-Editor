@@ -249,7 +249,7 @@ namespace Acid.Forms.Docking
         {
             var state = new DockPanelState();
 
-            state.Regions.Add(new DockRegionState(DarkDockArea.Document));
+			state.Regions.Add(new DockRegionState(DarkDockArea.Document));
             state.Regions.Add(new DockRegionState(DarkDockArea.Left, _regions[DarkDockArea.Left].Size));
             state.Regions.Add(new DockRegionState(DarkDockArea.Right, _regions[DarkDockArea.Right].Size));
             state.Regions.Add(new DockRegionState(DarkDockArea.Bottom, _regions[DarkDockArea.Bottom].Size));
@@ -292,7 +292,7 @@ namespace Acid.Forms.Docking
         {
             SuspendLayout();
 
-            foreach (var region in state.Regions.OrderByDescending(r => r.Area))
+			foreach (var region in state.Regions.OrderByDescending(r => r.Area))
             {
                 switch (region.Area)
                 {

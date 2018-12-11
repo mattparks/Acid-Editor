@@ -1,4 +1,5 @@
-﻿using Acid.Forms.Controls;
+﻿using Acid.Forms.Config;
+using Acid.Forms.Controls;
 using Acid.Forms.Docking;
 
 namespace Acid.Editor.Forms
@@ -34,11 +35,11 @@ namespace Acid.Editor.Forms
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.mnuMain = new Acid.Forms.Controls.DarkMenuStrip();
 			this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuNewFile = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuNewScene = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuOpenScene = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuSaveScene = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuSaveSceneAs = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuNewEntity = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.mnuClose = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,8 +64,8 @@ namespace Acid.Editor.Forms
 			// 
 			// mnuMain
 			// 
-			this.mnuMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-			this.mnuMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuMain.BackColor = Colours.GreyBackground;
+			this.mnuMain.ForeColor = Colours.LightText;
 			this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFile,
             this.mnuView,
@@ -79,84 +80,84 @@ namespace Acid.Editor.Forms
 			// 
 			// mnuFile
 			// 
-			this.mnuFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.mnuFile.BackColor = Colours.GreyBackground;
 			this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem4,
-            this.mnuNewFile,
-            this.toolStripMenuItem5,
+            this.mnuNewScene,
+            this.mnuOpenScene,
+            this.mnuSaveScene,
+            this.mnuSaveSceneAs,
+            this.mnuNewEntity,
             this.toolStripSeparator1,
             this.mnuClose});
-			this.mnuFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuFile.ForeColor = Colours.LightText;
 			this.mnuFile.Name = "mnuFile";
 			this.mnuFile.Size = new System.Drawing.Size(37, 20);
 			this.mnuFile.Text = "&File";
 			// 
-			// toolStripMenuItem1
+			// mnuNewScene
 			// 
-			this.toolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-			this.toolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.toolStripMenuItem1.Image = global::Acid.Editor.Icons.NewTable_16x;
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
-			this.toolStripMenuItem1.Text = "&New Scene";
+			this.mnuNewScene.BackColor = Colours.GreyBackground;
+			this.mnuNewScene.ForeColor = Colours.LightText;
+			this.mnuNewScene.Image = global::Acid.Editor.Icons.NewTable_16x;
+			this.mnuNewScene.Name = "mnuNewScene";
+			this.mnuNewScene.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+			this.mnuNewScene.Size = new System.Drawing.Size(218, 22);
+			this.mnuNewScene.Text = "&New Scene";
 			// 
-			// toolStripMenuItem2
+			// mnuOpenScene
 			// 
-			this.toolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-			this.toolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.toolStripMenuItem2.Image = global::Acid.Editor.Icons.Open_grey_16x;
-			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(218, 22);
-			this.toolStripMenuItem2.Text = "&Open Scene";
+			this.mnuOpenScene.BackColor = Colours.GreyBackground;
+			this.mnuOpenScene.ForeColor = Colours.LightText;
+			this.mnuOpenScene.Image = global::Acid.Editor.Icons.Open_grey_16x;
+			this.mnuOpenScene.Name = "mnuOpenScene";
+			this.mnuOpenScene.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+			this.mnuOpenScene.Size = new System.Drawing.Size(218, 22);
+			this.mnuOpenScene.Text = "&Open Scene";
 			// 
-			// toolStripMenuItem4
+			// mnuSaveScene
 			// 
-			this.toolStripMenuItem4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-			this.toolStripMenuItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.toolStripMenuItem4.Image = global::Acid.Editor.Icons.Save_grey_16x;
-			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(218, 22);
-			this.toolStripMenuItem4.Text = "&Save Scene";
+			this.mnuSaveScene.BackColor = Colours.GreyBackground;
+			this.mnuSaveScene.ForeColor = Colours.LightText;
+			this.mnuSaveScene.Image = global::Acid.Editor.Icons.Save_grey_16x;
+			this.mnuSaveScene.Name = "mnuSaveScene";
+			this.mnuSaveScene.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+			this.mnuSaveScene.Size = new System.Drawing.Size(218, 22);
+			this.mnuSaveScene.Text = "&Save Scene";
 			// 
-			// mnuNewFile
+			// mnuSaveSceneAs
 			// 
-			this.mnuNewFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-			this.mnuNewFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.mnuNewFile.Image = global::Acid.Editor.Icons.SaveAs_16x;
-			this.mnuNewFile.Name = "mnuNewFile";
-			this.mnuNewFile.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+			this.mnuSaveSceneAs.BackColor = Colours.GreyBackground;
+			this.mnuSaveSceneAs.ForeColor = Colours.LightText;
+			this.mnuSaveSceneAs.Image = global::Acid.Editor.Icons.SaveAs_16x;
+			this.mnuSaveSceneAs.Name = "mnuSaveSceneAs";
+			this.mnuSaveSceneAs.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.S)));
-			this.mnuNewFile.Size = new System.Drawing.Size(218, 22);
-			this.mnuNewFile.Text = "&Save Scene as";
+			this.mnuSaveSceneAs.Size = new System.Drawing.Size(218, 22);
+			this.mnuSaveSceneAs.Text = "&Save Scene as";
 			// 
-			// toolStripMenuItem5
+			// mnuNewEntity
 			// 
-			this.toolStripMenuItem5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-			this.toolStripMenuItem5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.toolStripMenuItem5.Image = global::Acid.Editor.Icons.NewTest_16x;
-			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-			this.toolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+			this.mnuNewEntity.BackColor = Colours.GreyBackground;
+			this.mnuNewEntity.ForeColor = Colours.LightText;
+			this.mnuNewEntity.Image = global::Acid.Editor.Icons.NewTest_16x;
+			this.mnuNewEntity.Name = "mnuNewEntity";
+			this.mnuNewEntity.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.N)));
-			this.toolStripMenuItem5.Size = new System.Drawing.Size(218, 22);
-			this.toolStripMenuItem5.Text = "&New Entity";
+			this.mnuNewEntity.Size = new System.Drawing.Size(218, 22);
+			this.mnuNewEntity.Text = "&New Entity";
 			// 
 			// toolStripSeparator1
 			// 
-			this.toolStripSeparator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-			this.toolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.toolStripSeparator1.BackColor = Colours.GreyBackground;
+			this.toolStripSeparator1.ForeColor = Colours.LightText;
 			this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(215, 6);
 			// 
 			// mnuClose
 			// 
-			this.mnuClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-			this.mnuClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuClose.BackColor = Colours.GreyBackground;
+			this.mnuClose.ForeColor = Colours.LightText;
 			this.mnuClose.Image = global::Acid.Editor.Icons.Close_16xLG;
 			this.mnuClose.Name = "mnuClose";
 			this.mnuClose.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
@@ -165,17 +166,17 @@ namespace Acid.Editor.Forms
 			// 
 			// mnuView
 			// 
-			this.mnuView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.mnuView.BackColor = Colours.GreyBackground;
 			this.mnuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuSettings});
-			this.mnuView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuView.ForeColor = Colours.LightText;
 			this.mnuView.Name = "mnuView";
 			this.mnuView.Size = new System.Drawing.Size(44, 20);
 			this.mnuView.Text = "&View";
 			// 
 			// mnuSettings
 			// 
-			this.mnuSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuSettings.ForeColor = Colours.LightText;
 			this.mnuSettings.Image = global::Acid.Editor.Icons.properties_16xLG;
 			this.mnuSettings.Name = "mnuSettings";
 			this.mnuSettings.Size = new System.Drawing.Size(116, 22);
@@ -183,71 +184,71 @@ namespace Acid.Editor.Forms
 			// 
 			// mnuWindow
 			// 
-			this.mnuWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.mnuWindow.BackColor = Colours.GreyBackground;
 			this.mnuWindow.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuResources,
             this.mnuScene,
             this.mnuHierarchy,
             this.mnuInspector,
             this.mnuConsole});
-			this.mnuWindow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuWindow.ForeColor = Colours.LightText;
 			this.mnuWindow.Name = "mnuWindow";
 			this.mnuWindow.Size = new System.Drawing.Size(63, 20);
 			this.mnuWindow.Text = "&Window";
 			// 
 			// mnuResources
 			// 
-			this.mnuResources.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuResources.ForeColor = Colours.LightText;
 			this.mnuResources.Image = global::Acid.Editor.Icons.ListViewTable_16x;
 			this.mnuResources.Name = "mnuResources";
-			this.mnuResources.Size = new System.Drawing.Size(152, 22);
+			this.mnuResources.Size = new System.Drawing.Size(127, 22);
 			this.mnuResources.Text = "&Resources";
 			// 
 			// mnuScene
 			// 
-			this.mnuScene.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuScene.ForeColor = Colours.LightText;
 			this.mnuScene.Image = global::Acid.Editor.Icons.RefactoringLog_12810;
 			this.mnuScene.Name = "mnuScene";
-			this.mnuScene.Size = new System.Drawing.Size(152, 22);
+			this.mnuScene.Size = new System.Drawing.Size(127, 22);
 			this.mnuScene.Text = "&Scene";
 			// 
 			// mnuHierarchy
 			// 
-			this.mnuHierarchy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuHierarchy.ForeColor = Colours.LightText;
 			this.mnuHierarchy.Image = global::Acid.Editor.Icons.Collection_16xLG;
 			this.mnuHierarchy.Name = "mnuHierarchy";
-			this.mnuHierarchy.Size = new System.Drawing.Size(152, 22);
+			this.mnuHierarchy.Size = new System.Drawing.Size(127, 22);
 			this.mnuHierarchy.Text = "&Hierarchy";
 			// 
 			// mnuInspector
 			// 
-			this.mnuInspector.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuInspector.ForeColor = Colours.LightText;
 			this.mnuInspector.Image = global::Acid.Editor.Icons.properties_16xLG;
 			this.mnuInspector.Name = "mnuInspector";
-			this.mnuInspector.Size = new System.Drawing.Size(152, 22);
+			this.mnuInspector.Size = new System.Drawing.Size(127, 22);
 			this.mnuInspector.Text = "&Inspector";
 			// 
 			// mnuConsole
 			// 
-			this.mnuConsole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuConsole.ForeColor = Colours.LightText;
 			this.mnuConsole.Image = global::Acid.Editor.Icons.Console;
 			this.mnuConsole.Name = "mnuConsole";
-			this.mnuConsole.Size = new System.Drawing.Size(152, 22);
+			this.mnuConsole.Size = new System.Drawing.Size(127, 22);
 			this.mnuConsole.Text = "&Console";
 			// 
 			// mnuHelp
 			// 
-			this.mnuHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.mnuHelp.BackColor = Colours.GreyBackground;
 			this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuAbout});
-			this.mnuHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuHelp.ForeColor = Colours.LightText;
 			this.mnuHelp.Name = "mnuHelp";
 			this.mnuHelp.Size = new System.Drawing.Size(44, 20);
 			this.mnuHelp.Text = "&Help";
 			// 
 			// mnuAbout
 			// 
-			this.mnuAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.mnuAbout.ForeColor = Colours.LightText;
 			this.mnuAbout.Image = global::Acid.Editor.Icons.StatusAnnotations_Information_16xLG_color;
 			this.mnuAbout.Name = "mnuAbout";
 			this.mnuAbout.Size = new System.Drawing.Size(107, 22);
@@ -255,8 +256,8 @@ namespace Acid.Editor.Forms
 			// 
 			// stripMain
 			// 
-			this.stripMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-			this.stripMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+			this.stripMain.BackColor = Colours.GreyBackground;
+			this.stripMain.ForeColor = Colours.LightText;
 			this.stripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel6,
@@ -295,7 +296,7 @@ namespace Acid.Editor.Forms
 			// 
 			// DockPanel
 			// 
-			this.DockPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+			this.DockPanel.BackColor = Colours.GreyBackground;
 			this.DockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.DockPanel.Location = new System.Drawing.Point(0, 26);
 			this.DockPanel.Name = "DockPanel";
@@ -333,6 +334,7 @@ namespace Acid.Editor.Forms
 			this.stripMain.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
+
         }
 
         #endregion
@@ -349,7 +351,7 @@ namespace Acid.Editor.Forms
         private System.Windows.Forms.ToolStripMenuItem mnuWindow;
         private System.Windows.Forms.ToolStripMenuItem mnuHelp;
         private System.Windows.Forms.ToolStripMenuItem mnuAbout;
-        private System.Windows.Forms.ToolStripMenuItem mnuNewFile;
+        private System.Windows.Forms.ToolStripMenuItem mnuSaveSceneAs;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private DarkDockPanel DockPanel;
         private System.Windows.Forms.ToolStripMenuItem mnuResources;
@@ -358,9 +360,9 @@ namespace Acid.Editor.Forms
         private System.Windows.Forms.ToolStripMenuItem mnuInspector;
         private System.Windows.Forms.ToolStripMenuItem mnuConsole;
         private DarkSeparator darkSeparator1;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+		private System.Windows.Forms.ToolStripMenuItem mnuNewScene;
+		private System.Windows.Forms.ToolStripMenuItem mnuOpenScene;
+		private System.Windows.Forms.ToolStripMenuItem mnuSaveScene;
+		private System.Windows.Forms.ToolStripMenuItem mnuNewEntity;
 	}
 }

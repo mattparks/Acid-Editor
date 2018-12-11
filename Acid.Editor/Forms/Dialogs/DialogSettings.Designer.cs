@@ -33,15 +33,7 @@ namespace Acid.Editor.Forms.Dialogs
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DialogSettings));
 			this.pnlMain = new System.Windows.Forms.Panel();
 			this.tblMain = new System.Windows.Forms.TableLayoutPanel();
-			this.pnlMessageBox = new Acid.Forms.Controls.DarkSectionPanel();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel5 = new System.Windows.Forms.Panel();
-			this.darkTitle3 = new Acid.Forms.Controls.DarkTitle();
 			this.pnlMain.SuspendLayout();
-			this.tblMain.SuspendLayout();
-			this.pnlMessageBox.SuspendLayout();
-			this.panel1.SuspendLayout();
-			this.panel5.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pnlMain
@@ -60,7 +52,6 @@ namespace Acid.Editor.Forms.Dialogs
 			this.tblMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.tblMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.tblMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tblMain.Controls.Add(this.pnlMessageBox, 0, 0);
 			this.tblMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tblMain.Location = new System.Drawing.Point(5, 10);
 			this.tblMain.Name = "tblMain";
@@ -68,45 +59,6 @@ namespace Acid.Editor.Forms.Dialogs
 			this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tblMain.Size = new System.Drawing.Size(698, 400);
 			this.tblMain.TabIndex = 0;
-			// 
-			// pnlMessageBox
-			// 
-			this.pnlMessageBox.Controls.Add(this.panel1);
-			this.pnlMessageBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlMessageBox.Location = new System.Drawing.Point(5, 0);
-			this.pnlMessageBox.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-			this.pnlMessageBox.Name = "pnlMessageBox";
-			this.pnlMessageBox.SectionHeader = "Appearance";
-			this.pnlMessageBox.Size = new System.Drawing.Size(222, 400);
-			this.pnlMessageBox.TabIndex = 12;
-			// 
-			// panel1
-			// 
-			this.panel1.Controls.Add(this.panel5);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel1.Location = new System.Drawing.Point(1, 25);
-			this.panel1.Name = "panel1";
-			this.panel1.Padding = new System.Windows.Forms.Padding(10);
-			this.panel1.Size = new System.Drawing.Size(220, 374);
-			this.panel1.TabIndex = 0;
-			// 
-			// panel5
-			// 
-			this.panel5.Controls.Add(this.darkTitle3);
-			this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel5.Location = new System.Drawing.Point(10, 10);
-			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(200, 100);
-			this.panel5.TabIndex = 12;
-			// 
-			// darkTitle3
-			// 
-			this.darkTitle3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.darkTitle3.Location = new System.Drawing.Point(0, 0);
-			this.darkTitle3.Name = "darkTitle3";
-			this.darkTitle3.Size = new System.Drawing.Size(200, 23);
-			this.darkTitle3.TabIndex = 16;
-			this.darkTitle3.Text = "Themes";
 			// 
 			// DialogSettings
 			// 
@@ -121,11 +73,6 @@ namespace Acid.Editor.Forms.Dialogs
 			this.Text = "Settings";
 			this.Controls.SetChildIndex(this.pnlMain, 0);
 			this.pnlMain.ResumeLayout(false);
-			this.tblMain.ResumeLayout(false);
-			this.pnlMessageBox.ResumeLayout(false);
-			this.panel1.ResumeLayout(false);
-			this.panel5.ResumeLayout(false);
-			this.panel5.PerformLayout();
 			this.ResumeLayout(false);
 
         }
@@ -134,9 +81,5 @@ namespace Acid.Editor.Forms.Dialogs
 
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.TableLayoutPanel tblMain;
-        private DarkSectionPanel pnlMessageBox;
-        private System.Windows.Forms.Panel panel1;
-	    private System.Windows.Forms.Panel panel5;
-        private DarkTitle darkTitle3;
     }
 }

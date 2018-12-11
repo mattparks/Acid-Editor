@@ -37,5 +37,10 @@ namespace Acid.Editor.Forms.Docking
 		}
 
 		#endregion
+
+		private void tblMain_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+		{
+
+		}
 	}
 }

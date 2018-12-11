@@ -84,13 +84,6 @@ namespace Acid.Editor.Forms
 
             // Check window menu items which are contained in the dock panel
             BuildWindowMenu();
-
-			Colours.ColourChanged += delegate
-			{
-				Refresh();
-				foreach (var toolWindow in _toolWindows)
-					toolWindow.Refresh();
-			};
 			
 			Activated += delegate
 			{

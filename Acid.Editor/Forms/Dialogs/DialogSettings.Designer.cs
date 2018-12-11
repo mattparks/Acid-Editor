@@ -36,8 +36,6 @@ namespace Acid.Editor.Forms.Dialogs
 			this.pnlMessageBox = new Acid.Forms.Controls.DarkSectionPanel();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.panel5 = new System.Windows.Forms.Panel();
-			this.darkRadioButton2 = new Acid.Forms.Controls.DarkRadioButton();
-			this.darkRadioButton1 = new Acid.Forms.Controls.DarkRadioButton();
 			this.darkTitle3 = new Acid.Forms.Controls.DarkTitle();
 			this.pnlMain.SuspendLayout();
 			this.tblMain.SuspendLayout();
@@ -94,36 +92,12 @@ namespace Acid.Editor.Forms.Dialogs
 			// 
 			// panel5
 			// 
-			this.panel5.Controls.Add(this.darkRadioButton2);
-			this.panel5.Controls.Add(this.darkRadioButton1);
 			this.panel5.Controls.Add(this.darkTitle3);
 			this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel5.Location = new System.Drawing.Point(10, 10);
 			this.panel5.Name = "panel5";
 			this.panel5.Size = new System.Drawing.Size(200, 100);
 			this.panel5.TabIndex = 12;
-			// 
-			// darkRadioButton2
-			// 
-			this.darkRadioButton2.AutoSize = true;
-			this.darkRadioButton2.Checked = true;
-			this.darkRadioButton2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.darkRadioButton2.Location = new System.Drawing.Point(0, 42);
-			this.darkRadioButton2.Name = "darkRadioButton2";
-			this.darkRadioButton2.Size = new System.Drawing.Size(200, 19);
-			this.darkRadioButton2.TabIndex = 3;
-			this.darkRadioButton2.TabStop = true;
-			this.darkRadioButton2.Text = "Dark";
-			// 
-			// darkRadioButton1
-			// 
-			this.darkRadioButton1.AutoSize = true;
-			this.darkRadioButton1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.darkRadioButton1.Location = new System.Drawing.Point(0, 23);
-			this.darkRadioButton1.Name = "darkRadioButton1";
-			this.darkRadioButton1.Size = new System.Drawing.Size(200, 19);
-			this.darkRadioButton1.TabIndex = 2;
-			this.darkRadioButton1.Text = "Light";
 			// 
 			// darkTitle3
 			// 
@@ -162,9 +136,7 @@ namespace Acid.Editor.Forms.Dialogs
         private System.Windows.Forms.TableLayoutPanel tblMain;
         private DarkSectionPanel pnlMessageBox;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel5;
-        private DarkRadioButton darkRadioButton2;
-        private DarkRadioButton darkRadioButton1;
+	    private System.Windows.Forms.Panel panel5;
         private DarkTitle darkTitle3;
     }
 }

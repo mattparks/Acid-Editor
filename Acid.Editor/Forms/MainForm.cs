@@ -139,9 +139,10 @@ namespace Acid.Editor.Forms
             mnuNewEntity.Click += NewFile_Click;
             mnuClose.Click += Close_Click;
 
-            mnuSettings.Click += SettingsClick;
+	        mnuSettings.Click += SettingsClick;
+	        mnuFont.Click += FontClick;
 
-            mnuResources.Click += ResourcesClick;
+			mnuResources.Click += ResourcesClick;
             mnuScene.Click += SceneClick;
             mnuHierarchy.Click += HierarchyClick;
             mnuInspector.Click += InspectorClick;
@@ -200,13 +201,19 @@ namespace Acid.Editor.Forms
             Close();
         }
 
-        private void SettingsClick(object sender, EventArgs e)
-        {
-            var test = new DialogSettings();
-            test.ShowDialog();
-        }
+	    private void SettingsClick(object sender, EventArgs e)
+	    {
+		    var test = new DialogSettings();
+		    test.ShowDialog();
+	    }
 
-        private void ResourcesClick(object sender, EventArgs e)
+	    private void FontClick(object sender, EventArgs e)
+	    {
+		    var test = new DialogFont();
+		    test.ShowDialog();
+	    }
+
+		private void ResourcesClick(object sender, EventArgs e)
         {
             ToggleToolWindow(_dockAssets);
         }

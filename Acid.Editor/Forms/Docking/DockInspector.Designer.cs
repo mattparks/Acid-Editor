@@ -93,6 +93,7 @@ namespace Acid.Editor.Forms.Docking
 			this.darkTextBox10 = new Acid.Forms.Controls.DarkTextBox();
 			this.darkCheckBox4 = new Acid.Forms.Controls.DarkCheckBox();
 			this.darkTitle5 = new Acid.Forms.Controls.DarkTitle();
+			this.darkCheckBox17 = new Acid.Forms.Controls.DarkCheckBox();
 			this.panel1.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.panel5.SuspendLayout();
@@ -616,7 +617,7 @@ namespace Acid.Editor.Forms.Docking
 			// darkTitle4
 			// 
 			this.darkTitle4.AutoSize = true;
-			this.darkTitle4.Location = new System.Drawing.Point(3, 84);
+			this.darkTitle4.Location = new System.Drawing.Point(3, 85);
 			this.darkTitle4.Name = "darkTitle4";
 			this.darkTitle4.Size = new System.Drawing.Size(34, 15);
 			this.darkTitle4.TabIndex = 14;
@@ -625,7 +626,7 @@ namespace Acid.Editor.Forms.Docking
 			// darkTitle3
 			// 
 			this.darkTitle3.AutoSize = true;
-			this.darkTitle3.Location = new System.Drawing.Point(3, 54);
+			this.darkTitle3.Location = new System.Drawing.Point(3, 55);
 			this.darkTitle3.Name = "darkTitle3";
 			this.darkTitle3.Size = new System.Drawing.Size(52, 15);
 			this.darkTitle3.TabIndex = 13;
@@ -634,7 +635,7 @@ namespace Acid.Editor.Forms.Docking
 			// darkTitle1
 			// 
 			this.darkTitle1.AutoSize = true;
-			this.darkTitle1.Location = new System.Drawing.Point(3, 25);
+			this.darkTitle1.Location = new System.Drawing.Point(3, 26);
 			this.darkTitle1.Name = "darkTitle1";
 			this.darkTitle1.Size = new System.Drawing.Size(50, 15);
 			this.darkTitle1.TabIndex = 12;
@@ -644,12 +645,12 @@ namespace Acid.Editor.Forms.Docking
 			// 
 			this.darkTextBox7.AccessibleName = "Z";
 			this.darkTextBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.darkTextBox7.Location = new System.Drawing.Point(221, 84);
+			this.darkTextBox7.Location = new System.Drawing.Point(218, 84);
 			this.darkTextBox7.MaximumSize = new System.Drawing.Size(70, 23);
 			this.darkTextBox7.MaxLength = 25;
 			this.darkTextBox7.MinimumSize = new System.Drawing.Size(42, 23);
 			this.darkTextBox7.Name = "darkTextBox7";
-			this.darkTextBox7.Size = new System.Drawing.Size(56, 23);
+			this.darkTextBox7.Size = new System.Drawing.Size(60, 23);
 			this.darkTextBox7.TabIndex = 11;
 			this.darkTextBox7.Text = "1.0";
 			this.darkTextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -659,12 +660,12 @@ namespace Acid.Editor.Forms.Docking
 			// 
 			this.darkTextBox1.AccessibleName = "Roll";
 			this.darkTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.darkTextBox1.Location = new System.Drawing.Point(221, 54);
+			this.darkTextBox1.Location = new System.Drawing.Point(218, 54);
 			this.darkTextBox1.MaximumSize = new System.Drawing.Size(70, 23);
 			this.darkTextBox1.MaxLength = 25;
 			this.darkTextBox1.MinimumSize = new System.Drawing.Size(42, 23);
 			this.darkTextBox1.Name = "darkTextBox1";
-			this.darkTextBox1.Size = new System.Drawing.Size(56, 23);
+			this.darkTextBox1.Size = new System.Drawing.Size(60, 23);
 			this.darkTextBox1.TabIndex = 11;
 			this.darkTextBox1.Text = "0.0";
 			this.darkTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -673,13 +674,13 @@ namespace Acid.Editor.Forms.Docking
 			// darkTextBox8
 			// 
 			this.darkTextBox8.AccessibleName = "Y";
-			this.darkTextBox8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.darkTextBox8.Location = new System.Drawing.Point(140, 84);
+			this.darkTextBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.darkTextBox8.Location = new System.Drawing.Point(152, 84);
 			this.darkTextBox8.MaximumSize = new System.Drawing.Size(70, 23);
 			this.darkTextBox8.MaxLength = 25;
 			this.darkTextBox8.MinimumSize = new System.Drawing.Size(42, 23);
 			this.darkTextBox8.Name = "darkTextBox8";
-			this.darkTextBox8.Size = new System.Drawing.Size(56, 23);
+			this.darkTextBox8.Size = new System.Drawing.Size(60, 23);
 			this.darkTextBox8.TabIndex = 10;
 			this.darkTextBox8.Text = "1.0";
 			this.darkTextBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -689,12 +690,12 @@ namespace Acid.Editor.Forms.Docking
 			// 
 			this.darkTextBox6.AccessibleName = "Z";
 			this.darkTextBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.darkTextBox6.Location = new System.Drawing.Point(221, 25);
+			this.darkTextBox6.Location = new System.Drawing.Point(218, 26);
 			this.darkTextBox6.MaximumSize = new System.Drawing.Size(70, 23);
 			this.darkTextBox6.MaxLength = 25;
 			this.darkTextBox6.MinimumSize = new System.Drawing.Size(42, 23);
 			this.darkTextBox6.Name = "darkTextBox6";
-			this.darkTextBox6.Size = new System.Drawing.Size(56, 23);
+			this.darkTextBox6.Size = new System.Drawing.Size(60, 23);
 			this.darkTextBox6.TabIndex = 11;
 			this.darkTextBox6.Text = "0.0";
 			this.darkTextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -703,12 +704,13 @@ namespace Acid.Editor.Forms.Docking
 			// darkTextBox9
 			// 
 			this.darkTextBox9.AccessibleName = "X";
-			this.darkTextBox9.Location = new System.Drawing.Point(59, 84);
+			this.darkTextBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.darkTextBox9.Location = new System.Drawing.Point(86, 84);
 			this.darkTextBox9.MaximumSize = new System.Drawing.Size(70, 23);
 			this.darkTextBox9.MaxLength = 25;
 			this.darkTextBox9.MinimumSize = new System.Drawing.Size(42, 23);
 			this.darkTextBox9.Name = "darkTextBox9";
-			this.darkTextBox9.Size = new System.Drawing.Size(56, 23);
+			this.darkTextBox9.Size = new System.Drawing.Size(60, 23);
 			this.darkTextBox9.TabIndex = 9;
 			this.darkTextBox9.Text = "1.0";
 			this.darkTextBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -717,13 +719,13 @@ namespace Acid.Editor.Forms.Docking
 			// darkTextBox2
 			// 
 			this.darkTextBox2.AccessibleName = "Yaw";
-			this.darkTextBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.darkTextBox2.Location = new System.Drawing.Point(140, 54);
+			this.darkTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.darkTextBox2.Location = new System.Drawing.Point(152, 54);
 			this.darkTextBox2.MaximumSize = new System.Drawing.Size(70, 23);
 			this.darkTextBox2.MaxLength = 25;
 			this.darkTextBox2.MinimumSize = new System.Drawing.Size(42, 23);
 			this.darkTextBox2.Name = "darkTextBox2";
-			this.darkTextBox2.Size = new System.Drawing.Size(56, 23);
+			this.darkTextBox2.Size = new System.Drawing.Size(60, 23);
 			this.darkTextBox2.TabIndex = 10;
 			this.darkTextBox2.Text = "360.0";
 			this.darkTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -732,13 +734,13 @@ namespace Acid.Editor.Forms.Docking
 			// darkTextBox5
 			// 
 			this.darkTextBox5.AccessibleName = "Y";
-			this.darkTextBox5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.darkTextBox5.Location = new System.Drawing.Point(140, 25);
+			this.darkTextBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.darkTextBox5.Location = new System.Drawing.Point(152, 26);
 			this.darkTextBox5.MaximumSize = new System.Drawing.Size(70, 23);
 			this.darkTextBox5.MaxLength = 25;
 			this.darkTextBox5.MinimumSize = new System.Drawing.Size(42, 23);
 			this.darkTextBox5.Name = "darkTextBox5";
-			this.darkTextBox5.Size = new System.Drawing.Size(56, 23);
+			this.darkTextBox5.Size = new System.Drawing.Size(60, 23);
 			this.darkTextBox5.TabIndex = 10;
 			this.darkTextBox5.Text = "0.0";
 			this.darkTextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -747,12 +749,13 @@ namespace Acid.Editor.Forms.Docking
 			// darkTextBox3
 			// 
 			this.darkTextBox3.AccessibleName = "Pitch";
-			this.darkTextBox3.Location = new System.Drawing.Point(59, 54);
+			this.darkTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.darkTextBox3.Location = new System.Drawing.Point(86, 54);
 			this.darkTextBox3.MaximumSize = new System.Drawing.Size(70, 23);
 			this.darkTextBox3.MaxLength = 25;
 			this.darkTextBox3.MinimumSize = new System.Drawing.Size(42, 23);
 			this.darkTextBox3.Name = "darkTextBox3";
-			this.darkTextBox3.Size = new System.Drawing.Size(56, 23);
+			this.darkTextBox3.Size = new System.Drawing.Size(60, 23);
 			this.darkTextBox3.TabIndex = 9;
 			this.darkTextBox3.Text = "0.0";
 			this.darkTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -761,12 +764,13 @@ namespace Acid.Editor.Forms.Docking
 			// darkTextBox4
 			// 
 			this.darkTextBox4.AccessibleName = "X";
-			this.darkTextBox4.Location = new System.Drawing.Point(59, 25);
+			this.darkTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.darkTextBox4.Location = new System.Drawing.Point(86, 26);
 			this.darkTextBox4.MaximumSize = new System.Drawing.Size(70, 23);
 			this.darkTextBox4.MaxLength = 25;
 			this.darkTextBox4.MinimumSize = new System.Drawing.Size(42, 23);
 			this.darkTextBox4.Name = "darkTextBox4";
-			this.darkTextBox4.Size = new System.Drawing.Size(56, 23);
+			this.darkTextBox4.Size = new System.Drawing.Size(60, 23);
 			this.darkTextBox4.TabIndex = 9;
 			this.darkTextBox4.Text = "0.0";
 			this.darkTextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -784,6 +788,7 @@ namespace Acid.Editor.Forms.Docking
 			// panel6
 			// 
 			this.panel6.AutoSize = true;
+			this.panel6.Controls.Add(this.darkCheckBox17);
 			this.panel6.Controls.Add(this.darkButton1);
 			this.panel6.Controls.Add(this.darkDropdownList1);
 			this.panel6.Controls.Add(this.darkTextBox10);
@@ -806,17 +811,17 @@ namespace Acid.Editor.Forms.Docking
 			// 
 			// darkDropdownList1
 			// 
-			this.darkDropdownList1.Location = new System.Drawing.Point(3, 61);
+			this.darkDropdownList1.Location = new System.Drawing.Point(6, 61);
 			this.darkDropdownList1.MaxHeight = 526;
 			this.darkDropdownList1.Name = "darkDropdownList1";
-			this.darkDropdownList1.Size = new System.Drawing.Size(161, 23);
+			this.darkDropdownList1.Size = new System.Drawing.Size(157, 23);
 			this.darkDropdownList1.TabIndex = 10;
 			this.darkDropdownList1.Tag = "";
 			this.darkDropdownList1.Text = "darkDropdownList1";
 			// 
 			// darkTextBox10
 			// 
-			this.darkTextBox10.Location = new System.Drawing.Point(3, 25);
+			this.darkTextBox10.Location = new System.Drawing.Point(27, 29);
 			this.darkTextBox10.Name = "darkTextBox10";
 			this.darkTextBox10.Size = new System.Drawing.Size(136, 23);
 			this.darkTextBox10.TabIndex = 9;
@@ -826,7 +831,7 @@ namespace Acid.Editor.Forms.Docking
 			// darkCheckBox4
 			// 
 			this.darkCheckBox4.AutoSize = true;
-			this.darkCheckBox4.Location = new System.Drawing.Point(145, 26);
+			this.darkCheckBox4.Location = new System.Drawing.Point(174, 31);
 			this.darkCheckBox4.Name = "darkCheckBox4";
 			this.darkCheckBox4.Size = new System.Drawing.Size(55, 19);
 			this.darkCheckBox4.TabIndex = 8;
@@ -840,6 +845,16 @@ namespace Acid.Editor.Forms.Docking
 			this.darkTitle5.Size = new System.Drawing.Size(278, 26);
 			this.darkTitle5.TabIndex = 7;
 			this.darkTitle5.Text = "Options";
+			// 
+			// darkCheckBox17
+			// 
+			this.darkCheckBox17.AutoSize = true;
+			this.darkCheckBox17.Checked = true;
+			this.darkCheckBox17.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.darkCheckBox17.Location = new System.Drawing.Point(6, 33);
+			this.darkCheckBox17.Name = "darkCheckBox17";
+			this.darkCheckBox17.Size = new System.Drawing.Size(15, 14);
+			this.darkCheckBox17.TabIndex = 12;
 			// 
 			// DockInspector
 			// 
@@ -936,5 +951,6 @@ namespace Acid.Editor.Forms.Docking
 		private Acid.Forms.Controls.DarkTextBox darkTextBox10;
 		private Acid.Forms.Controls.DarkCheckBox darkCheckBox4;
 		private Acid.Forms.Controls.DarkTitle darkTitle5;
+		private Acid.Forms.Controls.DarkCheckBox darkCheckBox17;
 	}
 }

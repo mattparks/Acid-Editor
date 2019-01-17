@@ -44,8 +44,6 @@ namespace Acid.Editor.Forms
 			this.mnuClose = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuSettings = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuFont = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuWindow = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuResources = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuScene = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +69,6 @@ namespace Acid.Editor.Forms
 			this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFile,
             this.mnuView,
-            this.toolsToolStripMenuItem,
             this.mnuWindow,
             this.mnuHelp});
 			this.mnuMain.Location = new System.Drawing.Point(0, 0);
@@ -184,25 +181,6 @@ namespace Acid.Editor.Forms
 			this.mnuSettings.Name = "mnuSettings";
 			this.mnuSettings.Size = new System.Drawing.Size(180, 22);
 			this.mnuSettings.Text = "&Settings";
-			// 
-			// toolsToolStripMenuItem
-			// 
-			this.toolsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-			this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuFont});
-			this.toolsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-			this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-			this.toolsToolStripMenuItem.Text = "Tools";
-			// 
-			// mnuFont
-			// 
-			this.mnuFont.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-			this.mnuFont.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-			this.mnuFont.Image = global::Acid.Editor.Properties.Resources.Font_16x;
-			this.mnuFont.Name = "mnuFont";
-			this.mnuFont.Size = new System.Drawing.Size(180, 22);
-			this.mnuFont.Text = "Fonts";
 			// 
 			// mnuWindow
 			// 
@@ -386,7 +364,5 @@ namespace Acid.Editor.Forms
 		private System.Windows.Forms.ToolStripMenuItem mnuOpenScene;
 		private System.Windows.Forms.ToolStripMenuItem mnuSaveScene;
 		private System.Windows.Forms.ToolStripMenuItem mnuNewEntity;
-		private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem mnuFont;
 	}
 }

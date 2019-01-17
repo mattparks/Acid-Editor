@@ -140,7 +140,6 @@ namespace Acid.Editor.Forms
             mnuClose.Click += Close_Click;
 
 	        mnuSettings.Click += SettingsClick;
-	        mnuFont.Click += FontClick;
 
 			mnuResources.Click += ResourcesClick;
             mnuScene.Click += SceneClick;
@@ -204,12 +203,6 @@ namespace Acid.Editor.Forms
 	    private void SettingsClick(object sender, EventArgs e)
 	    {
 		    var test = new DialogSettings();
-		    test.ShowDialog();
-	    }
-
-	    private void FontClick(object sender, EventArgs e)
-	    {
-		    var test = new DialogFont();
 		    test.ShowDialog();
 	    }
 
